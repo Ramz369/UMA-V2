@@ -42,3 +42,43 @@ jobs:
           
       - name: Success
         run: echo "✅ All boundary checks passed!"
+  
+  sandbox-test:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'new-tool') || contains(github.head_ref, 'tool')
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          sudo systemctl start docker
+          sudo chmod 666 /var/run/docker.sock
+      
+      - name: Pull Python Docker image
+        run: docker pull python:3.12-slim
+      
+      - name: Detect new tools
+        id: detect
+        run: |
+          # Find Python files in tools/ that were added/modified
+          NEW_TOOLS=$(git diff --name-only origin/main...HEAD | grep '^tools/.*\.py$' | grep -v __pycache__ | grep -v tool_builder | xargs -I {} basename {} .py || echo "")
+          echo "new_tools=$NEW_TOOLS" >> $GITHUB_OUTPUT
+          echo "Found tools: $NEW_TOOLS"
+      
+      - name: Test new tools in sandbox
+        if: steps.detect.outputs.new_tools != ''
+        run: |
+          for tool in ${{ steps.detect.outputs.new_tools }}; do
+            echo "Testing tool: $tool"
+            python tools/tool_builder/sandbox.py "$tool" || exit 1
+          done
+      
+      - name: Success
+        run: echo "✅ All sandbox tests passed!"
