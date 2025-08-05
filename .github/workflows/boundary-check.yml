@@ -126,3 +126,53 @@ jobs:
       
       - name: Success
         run: echo "✅ All sentinel tests passed!"
+  
+  integration-test:
+    runs-on: ubuntu-latest
+    if: contains(github.head_ref, 'integration-agent')
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install dependencies
+        run: |
+          pip install pytest
+      
+      - name: Run GitHub client tests
+        run: |
+          python -m pytest tests/test_github_client.py -v
+      
+      - name: Check integration-agent manifest
+        run: |
+          # Verify manifest structure
+          if ! grep -q "name: integration-agent" agents/integration-agent.md; then
+            echo "ERROR: Integration-agent manifest missing or malformed!"
+            exit 1
+          fi
+          
+          # Check tools list
+          if ! grep -q "tools: Writer, Think, GitHubClient" agents/integration-agent.md; then
+            echo "ERROR: Integration-agent missing required tools!"
+            exit 1
+          fi
+          
+          # Verify soft cap
+          if ! grep -q "soft_cap: 120" agents/integration-agent.md; then
+            echo "ERROR: Integration-agent soft cap not set correctly!"
+            exit 1
+          fi
+      
+      - name: Verify no container access
+        run: |
+          # Integration-agent should not have Container Runner
+          if grep -A10 'name: integration-agent' agents/*.md | grep -E 'Container Runner|Docker|Sandbox'; then
+            echo "ERROR: Integration-agent has container execution tools!"
+            exit 1
+          fi
+      
+      - name: Success
+        run: echo "✅ All integration tests passed!"
