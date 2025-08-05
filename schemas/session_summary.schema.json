@@ -1,0 +1,224 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Session Summary Schema",
+  "description": "Canonical session state for UMA-V2 agent coordination",
+  "type": "object",
+  "required": [
+    "version",
+    "timestamp",
+    "session_id",
+    "build_id",
+    "tooling_version",
+    "repo",
+    "credits",
+    "agents",
+    "locks",
+    "next_tasks",
+    "warnings",
+    "context_hash"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "Schema version"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp"
+    },
+    "session_id": {
+      "type": "string",
+      "pattern": "^uma-v2-\\d{4}-\\d{2}-\\d{2}-\\d{1,4}$",
+      "description": "Unique session identifier (supports 1-9999 sessions/day)"
+    },
+    "build_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{7}-\\d{10,11}$",
+      "description": "Short git SHA + Unix timestamp"
+    },
+    "tooling_version": {
+      "type": "string",
+      "pattern": "^uma-tooling-v\\d+\\.\\d+\\.\\d+$",
+      "description": "Toolchain version"
+    },
+    "repo": {
+      "type": "object",
+      "required": ["main_sha", "branch", "dirty", "open_prs"],
+      "properties": {
+        "main_sha": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$",
+          "description": "Full git HEAD SHA"
+        },
+        "branch": {
+          "type": "string",
+          "description": "Current git branch"
+        },
+        "dirty": {
+          "type": "boolean",
+          "description": "True if uncommitted changes exist"
+        },
+        "open_prs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["number", "title", "head", "url"],
+            "properties": {
+              "number": {"type": "integer"},
+              "title": {"type": "string"},
+              "head": {"type": "string"},
+              "url": {"type": "string", "format": "uri"}
+            }
+          }
+        }
+      }
+    },
+    "credits": {
+      "type": "object",
+      "required": ["used", "remaining", "checkpoint_saved", "max_per_agent"],
+      "properties": {
+        "used": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total credits consumed"
+        },
+        "remaining": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Credits remaining (should equal 1000 - used)"
+        },
+        "checkpoint_saved": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Last checkpoint timestamp"
+        },
+        "max_per_agent": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "description": "Per-agent high-water marks"
+        }
+      }
+    },
+    "agents": {
+      "type": "object",
+      "required": ["active", "idle", "aborted"],
+      "properties": {
+        "active": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["credits", "wall_time_ms", "last_action"],
+            "properties": {
+              "credits": {"type": "integer", "minimum": 0},
+              "wall_time_ms": {"type": "integer", "minimum": 0},
+              "last_action": {
+                "type": "string",
+                "enum": [
+                  "pr_created",
+                  "pr_merged",
+                  "checkpoint",
+                  "tool_call",
+                  "file_write",
+                  "file_read",
+                  "test_run",
+                  "ci_check",
+                  "other"
+                ]
+              }
+            }
+          }
+        },
+        "idle": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["credits", "last_active"],
+            "properties": {
+              "credits": {"type": "integer", "minimum": 0},
+              "last_active": {"type": "string", "format": "date-time"}
+            }
+          }
+        },
+        "aborted": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "locks": {
+      "type": "object",
+      "required": ["held", "waiting"],
+      "properties": {
+        "held": {
+          "type": "object",
+          "additionalProperties": {"type": "string"},
+          "description": "file -> agent mapping"
+        },
+        "waiting": {
+          "type": "object",
+          "additionalProperties": {"type": "string"},
+          "description": "file -> agent mapping"
+        }
+      }
+    },
+    "next_tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "task", "status"],
+        "properties": {
+          "id": {"type": ["string", "integer"]},
+          "task": {"type": "string"},
+          "status": {
+            "type": "string",
+            "enum": ["pending", "in_progress", "blocked", "completed"]
+          }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["level", "msg"],
+        "properties": {
+          "level": {
+            "type": "string",
+            "enum": ["info", "warn", "error"]
+          },
+          "msg": {"type": "string"},
+          "code": {
+            "type": "string",
+            "description": "Optional error code for log parsers",
+            "enum": [
+              "credit_high",
+              "credit_limit",
+              "wall_time_exceeded",
+              "agent_aborted",
+              "lock_deadlock",
+              "ci_failure",
+              "pr_conflict",
+              "git_dirty",
+              "other"
+            ]
+          }
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Reserved for future plugins",
+      "additionalProperties": true
+    },
+    "context_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "description": "SHA256 hash of canonical fields"
+    }
+  }
+}
