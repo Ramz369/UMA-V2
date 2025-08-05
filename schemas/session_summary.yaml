@@ -1,0 +1,38 @@
+version: '1.0'
+timestamp: '2025-08-05T23:45:40.141674+00:00'
+session_id: uma-v2-2025-08-05-001
+build_id: 3e7ac1a-1754437540
+tooling_version: uma-tooling-v0.7.0
+repo:
+  main_sha: 3e7ac1a84c7f35052f98ed743455eb015fde93a2
+  branch: feature/session-summarizer
+  dirty: true
+  open_prs: []
+credits:
+  used: 0
+  remaining: 1000
+  checkpoint_saved: null
+  max_per_agent: {}
+agents:
+  active: {}
+  idle: {}
+  aborted: []
+locks:
+  held: {}
+  waiting: {}
+next_tasks:
+- id: '4'
+  task: Set up nightly meta-analyst GitHub Action
+  status: pending
+- id: '5'
+  task: Run PILOT-001 end-to-end test
+  status: pending
+- id: '6'
+  task: Create README with architecture diagram
+  status: pending
+warnings:
+- level: warn
+  msg: Working tree has uncommitted changes
+  code: git_dirty
+extensions: {}
+context_hash: sha256:410dd72ec2f18f8c91e93bd43fcc0125df84555e24d2149a3914fd1e02ea526f

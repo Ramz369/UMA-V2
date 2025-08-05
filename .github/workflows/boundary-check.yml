@@ -176,3 +176,57 @@ jobs:
       
       - name: Success
         run: echo "✅ All integration tests passed!"
+  
+  session-summary-test:
+    runs-on: ubuntu-latest
+    if: contains(github.head_ref, 'session-summarizer')
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install dependencies
+        run: |
+          pip install pytest pyyaml
+      
+      - name: Run session summarizer tests
+        run: |
+          python -m pytest tests/test_session_summarizer.py -v
+      
+      - name: Test summarizer CLI
+        run: |
+          # Generate a test summary
+          python tools/session_summarizer.py
+          
+          # Validate it
+          python tools/session_summarizer.py validate
+      
+      - name: Test context validator CLI
+        run: |
+          # Check context status
+          python tools/context_validator.py check || true
+          
+          # Get safe context
+          python tools/context_validator.py safe
+      
+      - name: Validate schema compliance
+        run: |
+          # Check that schema file is valid JSON
+          python -c "
+          import json
+          with open('schemas/session_summary.schema.json', 'r') as f:
+              schema = json.load(f)
+          print('✅ Schema is valid JSON')
+          
+          # Check required fields
+          assert 'properties' in schema
+          assert 'version' in schema['properties']
+          assert 'context_hash' in schema['properties']
+          print('✅ Schema has required fields')
+          "
+      
+      - name: Success
+        run: echo "✅ All session summary tests passed!"
