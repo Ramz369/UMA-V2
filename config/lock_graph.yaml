@@ -1,0 +1,3 @@
+# Dead-lock detection config - edit thresholds as needed
+max_lock_age_seconds: 120
+abort_strategy: youngest_holder

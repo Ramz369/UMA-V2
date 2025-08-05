@@ -1,0 +1,19 @@
+# Extension of tasks.yaml - new optional keys
+$id: "https://example.com/schemas/tasks_v2.yaml"
+type: object
+required: [id, status, branch]
+properties:
+  id: {type: string}
+  status: {enum: [planned, in_progress, blocked, done]}
+  branch: {type: string}
+  assignee: {type: string}
+  credits_used: {type: integer}
+  sla_checks:
+    type: array
+    items:
+      type: object
+      required: [prometheus_query, threshold]
+  risk_score: {enum: [low, medium, high]}
+  checkpoints:
+    type: array
+    items: {type: string}
