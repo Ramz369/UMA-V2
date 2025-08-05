@@ -1,0 +1,44 @@
+name: Boundary Enforcement Check
+
+on:
+  pull_request:
+    paths:
+      - 'agents/**'
+  push:
+    branches:
+      - main
+    paths:
+      - 'agents/**'
+
+jobs:
+  boundary-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Check planner has no write tools
+        run: |
+          # Ensure planner never gets write tools
+          if grep -A5 'name: planner' agents/*.md | grep -E 'Writer|Editor|Container'; then
+            echo "ERROR: Planner has write-level tools!"
+            exit 1
+          fi
+          
+      - name: Check integration-agent boundaries
+        run: |
+          # Ensure integration-agent stays in coordinator role
+          if grep -A5 'name: integration-agent' agents/*.md | grep -E 'Bulk File|Container Runner'; then
+            echo "ERROR: Integration-agent has execution tools!"
+            exit 1
+          fi
+          
+      - name: Verify credit caps
+        run: |
+          # Planner should have minimal credits
+          if grep -A3 'name: planner' agents/*.md | grep 'soft_cap' | grep -v -E 'soft_cap: [1-5][0-9]$'; then
+            echo "ERROR: Planner credit cap exceeds 59!"
+            exit 1
+          fi
+          
+      - name: Success
+        run: echo "✅ All boundary checks passed!"

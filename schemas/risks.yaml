@@ -1,0 +1,6 @@
+# Auto-maintained by risk-ledger-agent
+- id: AUTH-23
+  title: JWT token replay
+  likelihood: medium
+  impact: high
+  mitigation: "Rotate signing key daily; add nonce"  # example

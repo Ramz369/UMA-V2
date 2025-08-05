@@ -1,0 +1,5 @@
+id: PILOT-001
+feature: Real-time pricing API with SLA
+agents: [planner, codegen, stress-tester, sla-verifier]
+expected_credits: 450
+validation: Full pipeline with risk assessment
