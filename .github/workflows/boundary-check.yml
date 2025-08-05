@@ -82,3 +82,47 @@ jobs:
       
       - name: Success
         run: echo "✅ All sandbox tests passed!"
+  
+  sentinel-test:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'sentinel') || contains(github.head_ref, 'sentinel')
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install dependencies
+        run: |
+          pip install pytest pyyaml
+      
+      - name: Run sentinel tests
+        run: |
+          python -m pytest tests/test_credit_sentinel.py -v
+      
+      - name: Test sentinel CLI
+        run: |
+          # Test CLI commands
+          python tools/credit_sentinel_v2.py start test-agent
+          python tools/credit_sentinel_v2.py track test-agent test-tool 10 1000
+          python tools/credit_sentinel_v2.py metrics
+      
+      - name: Verify metrics export
+        run: |
+          python -c "
+          from tools.credit_sentinel_v2 import get_sentinel, get_metrics_json
+          import json
+          
+          sentinel = get_sentinel()
+          sentinel.track_tool_call('ci-test', 'test-tool', 5, 500)
+          
+          metrics = json.loads(get_metrics_json())
+          assert 'global' in metrics
+          assert metrics['global']['total_credits'] >= 5
+          print('✅ Metrics export verified')
+          "
+      
+      - name: Success
+        run: echo "✅ All sentinel tests passed!"
