@@ -1,0 +1,191 @@
+# Evolution Protocol - Core governance rules for the evolution engine
+version: 1.0
+schema_version: 0.1
+
+# The three immutable laws that govern all evolution
+sacred_laws:
+  upgrade_only:
+    description: "No regression in any metric - evolution only moves forward"
+    enforcement: quantitative
+    metrics:
+      - tests_pass: true
+      - coverage_delta: ">= 0"
+      - performance_delta: ">= 0"
+      - credit_efficiency_delta: ">= 0"
+    validation: automated
+    override: impossible
+  
+  production_sanctity:
+    description: "UMA-V2 production remains untouchable and operational"
+    enforcement: architectural
+    isolation:
+      - main_branch: never_modified
+      - docker_network: evo_net
+      - branch_prefix: "evo/*"
+      - topic_prefix: "evo.*"
+      - database: evolution_only
+    validation: ci_pipeline
+    override: impossible
+  
+  human_override:
+    description: "Architect retains ultimate authority and veto power"
+    enforcement: protocol
+    triggers:
+      - severity: CRITICAL
+      - cost: "> 100"
+      - architecture: FUNDAMENTAL_CHANGE
+      - lineage: NEW_SPECIES_CREATION
+    powers:
+      - veto: absolute
+      - pause: immediate
+      - rollback: any_point
+      - summon_response: required_within_24h
+
+# Evolution cycle configuration
+cycle:
+  frequency: daily  # Can be: hourly, daily, weekly, adaptive
+  start_time: "02:00 UTC"
+  phases:
+    - name: audit
+      agent: external_auditor
+      timeout: 30m
+      output: analysis_report
+    
+    - name: review
+      agent: discussion_agent
+      timeout: 20m
+      input: analysis_report
+      output: scored_proposals
+    
+    - name: decide
+      agent: architect_agent
+      timeout: 15m
+      input: scored_proposals
+      output: approved_changes
+    
+    - name: implement
+      agent: implementor_agent
+      timeout: 60m
+      input: approved_changes
+      output: sandbox_result
+    
+    - name: validate
+      agent: evo_orchestrator
+      timeout: 30m
+      input: sandbox_result
+      output: fitness_report
+    
+    - name: propose
+      agent: integration_agent
+      timeout: 10m
+      input: fitness_report
+      output: pull_request
+
+# Fitness requirements for any evolution
+fitness_manifest:
+  hard_requirements:
+    - all_tests_pass: true
+    - no_security_vulnerabilities: true
+    - no_breaking_changes: true
+    - docker_builds_successfully: true
+  
+  soft_requirements:
+    - coverage: ">= previous"
+    - performance: ">= previous"
+    - memory_usage: "<= previous * 1.1"
+    - credit_usage: "<= previous"
+  
+  bonus_points:
+    - new_revenue_stream: "+100"
+    - significant_performance_gain: "+50"
+    - novel_architecture_pattern: "+75"
+    - reduced_complexity: "+25"
+
+# Sandbox configuration
+sandbox:
+  isolation_level: complete
+  resource_limits:
+    cpu: "4 cores"
+    memory: "8GB"
+    disk: "20GB"
+    network: "evo_net only"
+  
+  timeout: "2 hours"
+  cleanup: automatic
+  
+  prohibited_actions:
+    - modify_production_branch: true
+    - access_production_database: true
+    - external_network_calls: "whitelist_only"
+    - system_commands: "containerized_only"
+
+# Communication protocols
+communication:
+  event_topics:
+    proposals: "evo.proposals"
+    reviews: "evo.reviews"
+    decisions: "evo.decisions"
+    results: "evo.results"
+    alerts: "evo.alerts"
+  
+  human_summon:
+    channels:
+      primary: "[PENDING_INPUT: slack/discord/email]"
+      fallback: "email"
+    urgency_levels:
+      - CRITICAL: "immediate notification"
+      - HIGH: "within 1 hour"
+      - MEDIUM: "within 6 hours"
+      - LOW: "daily digest"
+
+# Evolution lineage management
+lineages:
+  max_parallel: 5
+  naming_convention: "uma-{version}-{focus}"
+  merge_strategy: "human_approved_only"
+  
+  success_criteria:
+    survive_30_days: true
+    positive_fitness: true
+    revenue_positive: "preferred"
+  
+  termination_criteria:
+    negative_fitness_7_days: true
+    critical_failure: true
+    human_decision: true
+
+# Reporting and observability
+reporting:
+  daily_summary:
+    enabled: true
+    time: "23:00 UTC"
+    recipients: ["architect", "stakeholders"]
+  
+  weekly_digest:
+    enabled: true
+    day: "Sunday"
+    include:
+      - evolution_attempts
+      - success_rate
+      - treasury_status
+      - lineage_health
+      - notable_mutations
+  
+  alerts:
+    runway_low: "< 30 days"
+    evolution_blocked: "> 3 failures"
+    human_intervention_needed: "immediate"
+
+# Bootstrap configuration
+bootstrap:
+  initial_audit_focus:
+    - code_quality
+    - performance_bottlenecks
+    - architectural_debt
+    - revenue_opportunities
+  
+  seed_improvements:
+    - garbage_collection_optimization
+    - api_endpoint_creation
+    - documentation_generation
+    - tool_packaging

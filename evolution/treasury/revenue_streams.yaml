@@ -1,0 +1,204 @@
+# Revenue Streams Configuration
+# Potential and active revenue generation strategies
+
+potential_streams:
+  api_services:
+    semantic_diff_api:
+      name: "Semantic Diff as a Service"
+      description: "AST-aware code diff API for developers"
+      pricing:
+        tier_1:
+          name: "Basic"
+          price: "$0.001 per diff"
+          limit: "10,000 diffs/month"
+        tier_2:
+          name: "Pro"
+          price: "$49/month"
+          limit: "Unlimited diffs"
+        tier_3:
+          name: "Enterprise"
+          price: "Custom"
+          features: "SLA, dedicated support"
+      
+      estimated_revenue:
+        conservative: "$50/day"
+        moderate: "$150/day"
+        optimistic: "$500/day"
+      
+      implementation:
+        cost: "$100"
+        time: "3 days"
+        complexity: "LOW"
+        dependencies:
+          - "FastAPI framework"
+          - "Authentication system"
+          - "Rate limiting"
+    
+    har_analyzer_api:
+      name: "HAR Performance Analysis API"
+      description: "HTTP Archive analysis with P50/P95/P99 metrics"
+      pricing:
+        pay_per_use: "$0.01 per analysis"
+        subscription: "$99/month unlimited"
+      
+      estimated_revenue:
+        conservative: "$30/day"
+        moderate: "$100/day"
+        optimistic: "$300/day"
+      
+      implementation:
+        cost: "$150"
+        time: "5 days"
+        complexity: "MEDIUM"
+    
+    architecture_consultant:
+      name: "AI Architecture Review Service"
+      description: "Automated architecture analysis and recommendations"
+      pricing:
+        per_project: "$50-500 based on size"
+        subscription: "$299/month for 10 projects"
+      
+      estimated_revenue:
+        conservative: "$100/day"
+        moderate: "$300/day"
+        optimistic: "$1000/day"
+      
+      implementation:
+        cost: "$500"
+        time: "10 days"
+        complexity: "HIGH"
+
+  tool_marketplace:
+    packaged_tools:
+      - name: "Evolution Inspector"
+        description: "Visual dashboard for evolution metrics"
+        price: "$19/month"
+        
+      - name: "Credit Sentinel Pro"
+        description: "Advanced resource monitoring"
+        price: "$29/month"
+        
+      - name: "Sandbox Manager"
+        description: "Docker sandbox orchestration"
+        price: "$49/month"
+    
+    estimated_revenue:
+      conservative: "$50/day"
+      moderate: "$200/day"
+      optimistic: "$500/day"
+    
+    implementation:
+      cost: "$300"
+      time: "7 days"
+      complexity: "MEDIUM"
+
+  compute_marketplace:
+    unused_sandbox_capacity:
+      name: "Sandbox Compute Sharing"
+      description: "Sell unused Docker sandbox time"
+      pricing:
+        spot: "Market rate - 20%"
+        reserved: "$0.05/hour"
+      
+      estimated_revenue:
+        conservative: "$10/day"
+        moderate: "$30/day"
+        optimistic: "$100/day"
+      
+      implementation:
+        cost: "$200"
+        time: "5 days"
+        complexity: "MEDIUM"
+
+  knowledge_products:
+    automated_documentation:
+      name: "DocGen Pro"
+      description: "AI-powered documentation generation"
+      pricing:
+        per_project: "$50"
+        subscription: "$199/month"
+      
+      estimated_revenue:
+        conservative: "$50/day"
+        moderate: "$150/day"
+        optimistic: "$400/day"
+    
+    evolution_reports:
+      name: "Evolution Analytics Reports"
+      description: "Weekly AI system performance reports"
+      pricing:
+        subscription: "$99/month"
+      
+      estimated_revenue:
+        conservative: "$30/day"
+        moderate: "$100/day"
+        optimistic: "$300/day"
+
+  consulting_services:
+    architecture_reviews:
+      name: "Human-in-the-loop Architecture Review"
+      description: "Hybrid AI-human architecture consultation"
+      pricing:
+        hourly: "$200/hour"
+        project: "$2000-10000"
+      
+      estimated_revenue:
+        conservative: "$200/day"
+        moderate: "$500/day"
+        optimistic: "$2000/day"
+      
+      implementation:
+        cost: "$1000"
+        time: "14 days"
+        complexity: "HIGH"
+        requires_human: true
+
+active_streams:
+  # Empty initially - populated as streams are launched
+  # Format:
+  # stream_name:
+  #   status: active|paused|terminated
+  #   launch_date: ISO date
+  #   current_revenue: $/day
+  #   total_collected: $
+  #   customer_count: N
+
+revenue_goals:
+  week_1:
+    target: "$0"  # Focus on setup
+    strategy: "Identify opportunities"
+  
+  week_2:
+    target: "> $0"  # First revenue
+    strategy: "Launch simplest API"
+  
+  month_1:
+    target: "$50/day"
+    strategy: "2-3 active streams"
+  
+  month_3:
+    target: "$200/day"
+    strategy: "5+ streams, optimize pricing"
+  
+  month_6:
+    target: "> burn_rate"
+    strategy: "Achieve sustainability"
+
+reinvestment_strategy:
+  priority_1: "Extend runway"
+  priority_2: "Launch new revenue streams"
+  priority_3: "Improve existing streams"
+  priority_4: "Capability enhancement"
+  
+  allocation:
+    runway_critical:
+      revenue_generation: "100%"
+      capability: "0%"
+    
+    runway_low:
+      revenue_generation: "80%"
+      capability: "20%"
+    
+    runway_comfortable:
+      revenue_generation: "40%"
+      capability: "60%"

@@ -1,0 +1,42 @@
+# Evolution Treasury Ledger
+# Transaction history and financial records
+
+metadata:
+  created: "2024-01-01T00:00:00Z"
+  currency: "USD"
+  format_version: "1.0"
+
+transactions:
+  # Initial seed funding - to be added when wallet initialized
+  # Format:
+  # - id: transaction_uuid
+  #   date: ISO datetime
+  #   type: CREDIT|DEBIT|REVENUE|INVESTMENT
+  #   amount: numeric (positive for credits, negative for debits)
+  #   balance_after: numeric
+  #   category: FUNDING|COMPUTE|DEVELOPMENT|REVENUE|etc
+  #   description: text
+  #   metadata:
+  #     related_experiment: optional
+  #     revenue_stream: optional
+  #     approval: optional
+
+# Example transaction (will be populated by system):
+# - id: "550e8400-e29b-41d4-a716-446655440000"
+#   date: "2024-01-01T00:00:00Z"
+#   type: "CREDIT"
+#   amount: 1000.00
+#   balance_after: 1000.00
+#   category: "FUNDING"
+#   description: "Initial seed budget from architect"
+#   metadata:
+#     source: "architect"
+#     approved_by: "human"
+
+summary:
+  total_credits: 0
+  total_debits: 0
+  total_revenue: 0
+  total_investments: 0
+  net_position: 0
+  last_updated: null

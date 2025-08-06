@@ -1,0 +1,250 @@
+# Safety Constraints - Security and isolation boundaries for evolution
+version: 1.0
+
+# Isolation boundaries
+isolation:
+  network:
+    docker_network: "evo_net"
+    external_access: "whitelist_only"
+    production_network: "forbidden"
+    
+    whitelist:
+      - "github.com"  # For PR creation
+      - "pypi.org"    # For package installation
+      - "npmjs.com"   # For node packages
+      # Revenue endpoints added dynamically
+  
+  filesystem:
+    allowed_paths:
+      - "/evolution/*"
+      - "/tmp/evo-*"
+    
+    forbidden_paths:
+      - "/src/*"
+      - "/agents/*"
+      - "/tools/*"
+      - "/.git/*"
+      - "/etc/*"
+      - "/usr/*"
+      - "/home/*"
+    
+    read_only_paths:
+      - "/docs/*"  # Can read but not modify
+  
+  processes:
+    max_concurrent: 10
+    max_cpu_per_process: "2 cores"
+    max_memory_per_process: "2GB"
+    max_runtime_per_process: "2 hours"
+    
+    forbidden_commands:
+      - "rm -rf"
+      - "sudo"
+      - "chmod"
+      - "chown"
+      - "kill"
+      - "reboot"
+      - "shutdown"
+
+# Container security
+containers:
+  base_image: "python:3.11-slim"
+  
+  security_options:
+    - "no-new-privileges"
+    - "read-only-root-fs"
+    - "drop-all-capabilities"
+  
+  resource_limits:
+    cpu: "4"
+    memory: "8g"
+    pids: "100"
+    storage: "20g"
+  
+  forbidden_mounts:
+    - "/var/run/docker.sock"
+    - "/.ssh"
+    - "/.aws"
+    - "/.config"
+
+# Code execution constraints
+code_execution:
+  sandboxed_only: true
+  timeout_default: "300 seconds"
+  
+  forbidden_operations:
+    - eval()
+    - exec()
+    - __import__()
+    - compile()
+    - open("/etc/*")
+    - subprocess.call("rm")
+  
+  ast_validation:
+    enabled: true
+    max_complexity: 100
+    max_depth: 10
+    forbidden_nodes:
+      - "Import('os')"
+      - "Import('subprocess')"
+      - "Import('socket')"
+
+# Git operations
+git:
+  allowed_operations:
+    - "checkout -b evo/*"
+    - "add evolution/*"
+    - "commit"
+    - "push origin evo/*"
+    - "pull origin main"  # Read-only sync
+  
+  forbidden_operations:
+    - "push origin main"
+    - "merge main"
+    - "rebase main"
+    - "force push"
+    - "reset --hard"
+    - "clean -fdx"
+  
+  branch_protection:
+    main:
+      - no_direct_commits
+      - no_force_push
+      - required_reviews: 1
+      - dismiss_stale_reviews: true
+      - required_status_checks:
+        - "ci/build"
+        - "ci/test"
+        - "evolution/fitness"
+
+# Database access
+database:
+  production:
+    access: "forbidden"
+    connection_blocked: true
+  
+  evolution:
+    access: "full"
+    database_name: "evolution"
+    isolation: "complete"
+    backup_frequency: "daily"
+
+# API access controls
+api_access:
+  rate_limits:
+    github: "100/hour"
+    openai: "1000/hour"
+    external: "10/minute"
+  
+  cost_limits:
+    daily_max: "$10"
+    per_request_max: "$1"
+    alert_threshold: "$5"
+  
+  forbidden_endpoints:
+    - "*/admin/*"
+    - "*/delete/*"
+    - "*/production/*"
+
+# Monitoring and alerts
+monitoring:
+  security_events:
+    log_all: true
+    alert_on:
+      - forbidden_path_access
+      - excessive_resource_use
+      - repeated_failures
+      - suspicious_patterns
+  
+  resource_monitoring:
+    check_interval: "60 seconds"
+    alert_thresholds:
+      cpu: "> 80%"
+      memory: "> 80%"
+      disk: "> 80%"
+      network: "> 100MB/min"
+  
+  audit_trail:
+    retain_days: 90
+    immutable: true
+    includes:
+      - all_commands
+      - all_file_operations
+      - all_network_requests
+      - all_evolution_decisions
+
+# Emergency procedures
+emergency:
+  auto_shutdown_triggers:
+    - "malicious_code_detected"
+    - "production_branch_modified"
+    - "excessive_cost_spike"
+    - "security_breach_suspected"
+  
+  quarantine_procedure:
+    1: "isolate_affected_container"
+    2: "snapshot_for_analysis"
+    3: "terminate_container"
+    4: "alert_human_immediately"
+    5: "prevent_similar_evolution"
+  
+  recovery:
+    rollback_to: "last_known_good"
+    cleanup: "automatic"
+    report_generation: "mandatory"
+
+# Human intervention
+human_override:
+  always_allowed:
+    - emergency_stop
+    - rollback_any_change
+    - access_all_logs
+    - modify_constraints
+    - terminate_experiment
+  
+  notification_required:
+    - critical_decision
+    - budget_exceeded
+    - security_event
+    - new_lineage_creation
+    - production_pr_ready
+
+# Evolution-specific constraints
+evolution_constraints:
+  max_mutations_per_cycle: 5
+  max_lineages: 10
+  max_experiments: 3
+  
+  forbidden_mutations:
+    - remove_safety_checks
+    - disable_monitoring
+    - modify_sacred_laws
+    - bypass_human_override
+    - increase_own_budget
+  
+  required_validations:
+    - unit_tests_pass
+    - integration_tests_pass
+    - security_scan_clean
+    - fitness_improved
+    - no_production_impact
+
+# Compliance and governance
+compliance:
+  data_privacy:
+    - no_pii_storage
+    - no_credential_logging
+    - encryption_at_rest
+    - encryption_in_transit
+  
+  code_standards:
+    - linting_required
+    - type_checking_required
+    - documentation_required
+    - test_coverage_minimum: "80%"
+  
+  legal:
+    - license_compliance
+    - no_proprietary_code
+    - attribution_required
+    - export_control_compliance
