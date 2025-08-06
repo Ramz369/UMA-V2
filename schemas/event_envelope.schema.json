@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SemLoop Event Envelope",
+  "description": "Standard event envelope for UMA-V2 agent events",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "timestamp",
+    "agent",
+    "payload",
+    "meta"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique event identifier (UUID v4)"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "tool_call",
+        "state_change",
+        "completion",
+        "error",
+        "checkpoint",
+        "credit_update",
+        "pr_created",
+        "pr_merged",
+        "test_result",
+        "metrics_snapshot"
+      ],
+      "description": "Event type category"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp when event occurred"
+    },
+    "agent": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Name of agent that generated the event"
+    },
+    "payload": {
+      "type": "object",
+      "description": "Event-specific data",
+      "additionalProperties": true
+    },
+    "meta": {
+      "type": "object",
+      "required": ["session_id"],
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "pattern": "^uma-v2-\\d{4}-\\d{2}-\\d{2}-\\d{1,4}$",
+          "description": "Session identifier from session summary"
+        },
+        "credits_used": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Credits consumed by this event"
+        },
+        "context_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "Context hash at time of event"
+        },
+        "parent_event_id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "ID of parent event if this is a child"
+        },
+        "correlation_id": {
+          "type": "string",
+          "description": "ID for correlating related events"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Optional tags for filtering/grouping"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "examples": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "type": "tool_call",
+      "timestamp": "2024-01-01T12:00:00Z",
+      "agent": "tool-builder",
+      "payload": {
+        "tool": "sandbox",
+        "action": "test",
+        "result": "success",
+        "duration_ms": 1234
+      },
+      "meta": {
+        "session_id": "uma-v2-2024-01-01-001",
+        "credits_used": 5,
+        "context_hash": "sha256:abc123def456..."
+      }
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440001",
+      "type": "state_change",
+      "timestamp": "2024-01-01T12:01:00Z",
+      "agent": "integration-agent",
+      "payload": {
+        "from_state": "idle",
+        "to_state": "active",
+        "trigger": "pr_opened"
+      },
+      "meta": {
+        "session_id": "uma-v2-2024-01-01-001",
+        "credits_used": 1
+      }
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440002",
+      "type": "error",
+      "timestamp": "2024-01-01T12:02:00Z",
+      "agent": "credit-sentinel",
+      "payload": {
+        "error_code": "credit_limit_exceeded",
+        "message": "Agent 'stress-tester' exceeded 150 credit cap",
+        "severity": "error"
+      },
+      "meta": {
+        "session_id": "uma-v2-2024-01-01-001",
+        "credits_used": 0
+      }
+    }
+  ]
+}
