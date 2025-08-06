@@ -1,0 +1,12 @@
+# Optional dependencies for real embeddings
+# Install with: pip install -r requirements-embeddings.txt
+
+# For local sentence transformers (recommended)
+sentence-transformers>=2.2.0
+
+# For OpenAI embeddings (requires API key)
+openai>=0.27.0
+
+# Core dependencies
+numpy>=1.21.0
+torch>=1.9.0  # Required by sentence-transformers
