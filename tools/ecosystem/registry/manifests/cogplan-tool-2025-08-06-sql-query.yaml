@@ -1,0 +1,54 @@
+capability:
+  description: Execute SQL queries safely
+  domains:
+  - databases
+  - code
+  features:
+  - sql_query
+classification:
+  security_audit: '2025-08-06T23:04:49.778258'
+  trust_level: community
+economics:
+  credit_cost:
+    base: 2
+    per_call: 0.1
+    per_second: 0.05
+  value_score: 0.5
+evolution:
+  improvement_suggestions: []
+  last_improved: null
+  parent_version: null
+  performance_score: 0.0
+  usage_count: 0
+execution:
+  container: cogplan/tool-runtime:2.0
+  isolation: required
+  resources:
+    cpu: 0.5
+    memory: 512MB
+    network: restricted
+    timeout: 30
+identity:
+  family: evolution/uncategorized
+  name: sql_query
+  uuid: cogplan-tool-2025-08-06-sql-query
+  version: 1.0.0
+interface:
+  inputs:
+  - constraints:
+      read_only: true
+    id: query
+    required: true
+    type: sql
+  outputs:
+    type: any
+origin:
+  adaptation_date: '2025-08-06T23:04:49.767755'
+  discovered_by: tool_hunter_agent
+  discovered_from: pattern://chain-patterns/sql_query
+  original_protocol: native
+protocol:
+  native_config:
+    class: Sql_QueryTool
+    module: tools.library.sql_query
+  type: native

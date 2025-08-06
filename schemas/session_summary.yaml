@@ -1,11 +1,11 @@
 version: '1.0'
-timestamp: '2025-08-05T23:45:40.141674+00:00'
-session_id: uma-v2-2025-08-05-001
-build_id: 3e7ac1a-1754437540
+timestamp: '2025-08-06T21:39:07.349098+00:00'
+session_id: uma-v2-2025-08-06-001
+build_id: ca7e95b-1754516347
 tooling_version: uma-tooling-v0.7.0
 repo:
-  main_sha: 3e7ac1a84c7f35052f98ed743455eb015fde93a2
-  branch: feature/session-summarizer
+  main_sha: ca7e95b5df04d2895fb0cdee367437f1d7261f30
+  branch: main
   dirty: true
   open_prs: []
 credits:
@@ -35,4 +35,4 @@ warnings:
   msg: Working tree has uncommitted changes
   code: git_dirty
 extensions: {}
-context_hash: sha256:410dd72ec2f18f8c91e93bd43fcc0125df84555e24d2149a3914fd1e02ea526f
+context_hash: sha256:ef10febc8b37b46b1f97bb78f06c6f0266748ca3cce71537364b579cf3f0d5ab

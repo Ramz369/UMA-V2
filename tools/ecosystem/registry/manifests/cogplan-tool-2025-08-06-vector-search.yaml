@@ -1,0 +1,54 @@
+capability:
+  description: Semantic search in vector databases
+  domains:
+  - web
+  features:
+  - vector_search
+classification:
+  security_audit: '2025-08-06T23:04:49.779843'
+  trust_level: community
+economics:
+  credit_cost:
+    base: 2
+    per_call: 0.1
+    per_second: 0.05
+  value_score: 0.5
+evolution:
+  improvement_suggestions: []
+  last_improved: null
+  parent_version: null
+  performance_score: 0.0
+  usage_count: 0
+execution:
+  container: cogplan/tool-runtime:2.0
+  isolation: required
+  resources:
+    cpu: 0.5
+    memory: 512MB
+    network: restricted
+    timeout: 30
+identity:
+  family: intelligence/search
+  name: vector_search
+  uuid: cogplan-tool-2025-08-06-vector-search
+  version: 1.0.0
+interface:
+  inputs:
+  - constraints:
+      max_length: 1000
+    id: query
+    required: true
+    type: text
+  outputs:
+    items: SearchResult
+    type: array
+origin:
+  adaptation_date: '2025-08-06T23:04:49.767818'
+  discovered_by: tool_hunter_agent
+  discovered_from: pattern://index-patterns/vector_search
+  original_protocol: native
+protocol:
+  native_config:
+    class: Vector_SearchTool
+    module: tools.library.vector_search
+  type: native
