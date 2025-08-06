@@ -22,7 +22,7 @@ class WebSearchTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "pattern://chain-patterns/web_search",
-    "adaptation_date": "2025-08-06T23:04:49.767622",
+    "adaptation_date": "2025-08-06T23:15:43.465937",
     "original_protocol": "native"
   },
   "capability": {

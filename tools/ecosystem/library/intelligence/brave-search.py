@@ -22,7 +22,7 @@ class Brave-SearchTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "https://github.com/modelcontextprotocol/servers/brave-search",
-    "adaptation_date": "2025-08-06T23:04:49.767405",
+    "adaptation_date": "2025-08-06T23:15:43.465708",
     "original_protocol": "mcp"
   },
   "capability": {

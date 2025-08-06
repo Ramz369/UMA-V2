@@ -22,7 +22,7 @@ class SqlQueryTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "pattern://chain-patterns/sql_query",
-    "adaptation_date": "2025-08-06T23:04:49.767755",
+    "adaptation_date": "2025-08-06T23:15:43.466085",
     "original_protocol": "native"
   },
   "capability": {

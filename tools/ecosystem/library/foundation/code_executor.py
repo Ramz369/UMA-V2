@@ -22,7 +22,7 @@ class CodeExecutorTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "pattern://gen-patterns/code_executor",
-    "adaptation_date": "2025-08-06T23:04:49.768066",
+    "adaptation_date": "2025-08-06T23:15:43.466387",
     "original_protocol": "native"
   },
   "capability": {

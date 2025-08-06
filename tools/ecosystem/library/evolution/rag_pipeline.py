@@ -22,7 +22,7 @@ class RagPipelineTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "pattern://index-patterns/rag_pipeline",
-    "adaptation_date": "2025-08-06T23:04:49.767940",
+    "adaptation_date": "2025-08-06T23:15:43.466266",
     "original_protocol": "native"
   },
   "capability": {

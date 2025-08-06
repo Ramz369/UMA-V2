@@ -22,7 +22,7 @@ class SlackTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "https://github.com/modelcontextprotocol/servers/slack",
-    "adaptation_date": "2025-08-06T23:04:49.767555",
+    "adaptation_date": "2025-08-06T23:15:43.465870",
     "original_protocol": "mcp"
   },
   "capability": {

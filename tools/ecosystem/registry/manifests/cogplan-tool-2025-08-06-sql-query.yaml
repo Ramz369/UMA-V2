@@ -6,7 +6,7 @@ capability:
   features:
   - sql_query
 classification:
-  security_audit: '2025-08-06T23:04:49.778258'
+  security_audit: '2025-08-06T23:15:43.502677'
   trust_level: community
 economics:
   credit_cost:
@@ -43,7 +43,7 @@ interface:
   outputs:
     type: any
 origin:
-  adaptation_date: '2025-08-06T23:04:49.767755'
+  adaptation_date: '2025-08-06T23:15:43.466085'
   discovered_by: tool_hunter_agent
   discovered_from: pattern://chain-patterns/sql_query
   original_protocol: native

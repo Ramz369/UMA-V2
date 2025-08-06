@@ -142,7 +142,14 @@
 - **Connectivity**: 4 tools (web search, APIs, etc.)
 - **Intelligence**: 3 tools (vector search, RAG, etc.)
 - **Data Ops**: 2 tools (SQL, connectors)
-- **Total**: 14 tools and growing daily
+- **Composite Tools**: 1 tool (Topic Research Orchestrator)
+- **Total**: 15 tools and growing daily
+
+### New Tool Taxonomy System:
+- **Atomic Tools**: Simple, single-purpose functions
+- **Composite Tools**: Multi-step workflows with orchestration
+- **Pipeline Tools**: Sequential tool chains
+- **Orchestrated Tools**: Agent-managed complex workflows
 
 ### Key Innovation:
 Unlike traditional approaches, COGPLAN doesn't just use tools - it hunts them, 
