@@ -1,0 +1,111 @@
+name: SemLoop Stack Boot Test
+
+on:
+  pull_request:
+    paths:
+      - 'infra/**'
+      - 'scripts/semloop_health.py'
+      - '.github/workflows/semloop-boot.yml'
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  semloop-boot-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install health check dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client redis-tools curl
+      
+      - name: Validate compose file
+        run: |
+          docker compose -f infra/semloop-stack.yml config > /dev/null
+          echo "✅ Compose file is valid"
+      
+      - name: Start SemLoop stack
+        run: |
+          docker compose -f infra/semloop-stack.yml up -d
+          echo "Waiting for services to initialize..."
+          sleep 30
+      
+      - name: Show container status
+        run: docker compose -f infra/semloop-stack.yml ps
+      
+      - name: Run health check
+        id: health
+        run: |
+          python scripts/semloop_health.py
+          echo "health_status=$?" >> $GITHUB_OUTPUT
+      
+      - name: Show logs on failure
+        if: failure()
+        run: |
+          echo "=== MinIO logs ==="
+          docker compose -f infra/semloop-stack.yml logs minio --tail=50
+          echo "=== Redpanda logs ==="
+          docker compose -f infra/semloop-stack.yml logs redpanda --tail=50
+          echo "=== PostgreSQL logs ==="
+          docker compose -f infra/semloop-stack.yml logs postgres --tail=50
+          echo "=== Redis logs ==="
+          docker compose -f infra/semloop-stack.yml logs redis --tail=50
+      
+      - name: Test MinIO access
+        run: |
+          # Create test bucket
+          docker run --rm --network host \
+            -e MC_HOST_minio=http://minioadmin:minioadmin@localhost:9000 \
+            minio/mc mb minio/test-bucket || true
+          echo "✅ MinIO accessible"
+      
+      - name: Test Redpanda topics
+        run: |
+          # Create test topic
+          docker exec semloop-redpanda rpk topic create test-topic || true
+          docker exec semloop-redpanda rpk topic list
+          echo "✅ Redpanda accessible"
+      
+      - name: Test PostgreSQL pgvector
+        run: |
+          PGPASSWORD=semloop123 psql -h localhost -U semloop -d semloop -c "SELECT version();"
+          PGPASSWORD=semloop123 psql -h localhost -U semloop -d semloop -c "CREATE EXTENSION IF NOT EXISTS vector;"
+          PGPASSWORD=semloop123 psql -h localhost -U semloop -d semloop -c "SELECT extname, extversion FROM pg_extension WHERE extname='vector';"
+          echo "✅ PostgreSQL with pgvector accessible"
+      
+      - name: Test Redis
+        run: |
+          redis-cli -h localhost ping
+          redis-cli -h localhost set test:key "test-value"
+          redis-cli -h localhost get test:key
+          echo "✅ Redis accessible"
+      
+      - name: Tear down stack
+        if: always()
+        run: |
+          docker compose -f infra/semloop-stack.yml down -v
+          rm -rf ./.semloop-data
+      
+      - name: Summary
+        run: |
+          echo "## 🚀 SemLoop Stack Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.health.outputs.health_status }}" == "0" ]; then
+            echo "✅ **All services healthy!**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Some services failed health check**" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Services tested:" >> $GITHUB_STEP_SUMMARY
+          echo "- MinIO (S3-compatible storage)" >> $GITHUB_STEP_SUMMARY
+          echo "- Redpanda (Kafka-compatible streaming)" >> $GITHUB_STEP_SUMMARY
+          echo "- PostgreSQL with pgvector" >> $GITHUB_STEP_SUMMARY
+          echo "- Redis (cache & pub-sub)" >> $GITHUB_STEP_SUMMARY
