@@ -1,0 +1,146 @@
+{
+  "topic": "artificial intelligence safety and alignment",
+  "research_date": "2025-08-06T23:27:52.597303",
+  "summary": "Research on 'artificial intelligence safety and alignment' identified 4 key concepts organized into 6 thematic clusters. Analysis covered multiple sources including academic, web, and documentation. ",
+  "key_concepts": [
+    "artificial intelligence",
+    "safety",
+    "artificial",
+    "intelligence safety",
+    "alignment",
+    "intelligence"
+  ],
+  "categories": {
+    "paper": [
+      {
+        "title": "what is artificial intelligence safety and alignment - academic result",
+        "url": "https://academic.example.com/what-is-artificial-intelligence-safety-and-alignment",
+        "relevance": 1.0,
+        "authority": 0.9
+      },
+      {
+        "title": "how to artificial intelligence safety and alignment - academic result",
+        "url": "https://academic.example.com/how-to-artificial-intelligence-safety-and-alignment",
+        "relevance": 1.0,
+        "authority": 0.9
+      },
+      {
+        "title": "why use artificial intelligence safety and alignment - academic result",
+        "url": "https://academic.example.com/why-use-artificial-intelligence-safety-and-alignment",
+        "relevance": 1.0,
+        "authority": 0.9
+      },
+      {
+        "title": "when to use artificial intelligence safety and alignment - academic result",
+        "url": "https://academic.example.com/when-to-use-artificial-intelligence-safety-and-alignment",
+        "relevance": 1.0,
+        "authority": 0.9
+      },
+      {
+        "title": "best way to artificial intelligence safety and alignment - academic result",
+        "url": "https://academic.example.com/best-way-to-artificial-intelligence-safety-and-alignment",
+        "relevance": 1.0,
+        "authority": 0.9
+      }
+    ],
+    "docs": [
+      {
+        "title": "what is artificial intelligence safety and alignment - documentation result",
+        "url": "https://documentation.example.com/what-is-artificial-intelligence-safety-and-alignment",
+        "relevance": 1.0,
+        "authority": 0.85
+      },
+      {
+        "title": "how to artificial intelligence safety and alignment - documentation result",
+        "url": "https://documentation.example.com/how-to-artificial-intelligence-safety-and-alignment",
+        "relevance": 1.0,
+        "authority": 0.85
+      },
+      {
+        "title": "why use artificial intelligence safety and alignment - documentation result",
+        "url": "https://documentation.example.com/why-use-artificial-intelligence-safety-and-alignment",
+        "relevance": 1.0,
+        "authority": 0.85
+      },
+      {
+        "title": "when to use artificial intelligence safety and alignment - documentation result",
+        "url": "https://documentation.example.com/when-to-use-artificial-intelligence-safety-and-alignment",
+        "relevance": 1.0,
+        "authority": 0.85
+      },
+      {
+        "title": "best way to artificial intelligence safety and alignment - documentation result",
+        "url": "https://documentation.example.com/best-way-to-artificial-intelligence-safety-and-alignment",
+        "relevance": 1.0,
+        "authority": 0.85
+      }
+    ]
+  },
+  "sources": {
+    "academic": [
+      {
+        "title": "what is artificial intelligence safety and alignment - academic result",
+        "url": "https://academic.example.com/what-is-artificial-intelligence-safety-and-alignment",
+        "score": 0.96
+      },
+      {
+        "title": "how to artificial intelligence safety and alignment - academic result",
+        "url": "https://academic.example.com/how-to-artificial-intelligence-safety-and-alignment",
+        "score": 0.96
+      },
+      {
+        "title": "why use artificial intelligence safety and alignment - academic result",
+        "url": "https://academic.example.com/why-use-artificial-intelligence-safety-and-alignment",
+        "score": 0.96
+      },
+      {
+        "title": "when to use artificial intelligence safety and alignment - academic result",
+        "url": "https://academic.example.com/when-to-use-artificial-intelligence-safety-and-alignment",
+        "score": 0.96
+      },
+      {
+        "title": "best way to artificial intelligence safety and alignment - academic result",
+        "url": "https://academic.example.com/best-way-to-artificial-intelligence-safety-and-alignment",
+        "score": 0.96
+      }
+    ],
+    "documentation": [
+      {
+        "title": "what is artificial intelligence safety and alignment - documentation result",
+        "url": "https://documentation.example.com/what-is-artificial-intelligence-safety-and-alignment",
+        "score": 0.94
+      },
+      {
+        "title": "how to artificial intelligence safety and alignment - documentation result",
+        "url": "https://documentation.example.com/how-to-artificial-intelligence-safety-and-alignment",
+        "score": 0.94
+      },
+      {
+        "title": "why use artificial intelligence safety and alignment - documentation result",
+        "url": "https://documentation.example.com/why-use-artificial-intelligence-safety-and-alignment",
+        "score": 0.94
+      },
+      {
+        "title": "when to use artificial intelligence safety and alignment - documentation result",
+        "url": "https://documentation.example.com/when-to-use-artificial-intelligence-safety-and-alignment",
+        "score": 0.94
+      },
+      {
+        "title": "best way to artificial intelligence safety and alignment - documentation result",
+        "url": "https://documentation.example.com/best-way-to-artificial-intelligence-safety-and-alignment",
+        "score": 0.94
+      }
+    ]
+  },
+  "recommendations": [
+    "Consider reviewing academic literature for theoretical foundation",
+    "Review official documentation for technical accuracy",
+    "Expand research to more diverse source types"
+  ],
+  "metadata": {
+    "total_sources": 50,
+    "high_quality_sources": 30,
+    "average_relevance": 0.71,
+    "average_authority": 0.7
+  }
+}

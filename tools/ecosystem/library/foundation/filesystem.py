@@ -22,7 +22,7 @@ class FilesystemTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "https://github.com/modelcontextprotocol/servers/filesystem",
-    "adaptation_date": "2025-08-06T23:04:49.767186",
+    "adaptation_date": "2025-08-06T23:15:43.465489",
     "original_protocol": "mcp"
   },
   "capability": {

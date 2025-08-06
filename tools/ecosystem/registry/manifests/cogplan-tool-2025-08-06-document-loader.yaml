@@ -5,7 +5,7 @@ capability:
   features:
   - document_loader
 classification:
-  security_audit: '2025-08-06T23:04:49.776851'
+  security_audit: '2025-08-06T23:15:43.501081'
   trust_level: community
 economics:
   credit_cost:
@@ -40,7 +40,7 @@ interface:
   outputs:
     type: any
 origin:
-  adaptation_date: '2025-08-06T23:04:49.767692'
+  adaptation_date: '2025-08-06T23:15:43.466006'
   discovered_by: tool_hunter_agent
   discovered_from: pattern://chain-patterns/document_loader
   original_protocol: native

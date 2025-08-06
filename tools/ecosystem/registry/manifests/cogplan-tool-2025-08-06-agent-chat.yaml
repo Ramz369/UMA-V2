@@ -5,7 +5,7 @@ capability:
   features:
   - agent_chat
 classification:
-  security_audit: '2025-08-06T23:04:49.785216'
+  security_audit: '2025-08-06T23:15:43.509756'
   trust_level: community
 economics:
   credit_cost:
@@ -40,7 +40,7 @@ interface:
   outputs:
     type: any
 origin:
-  adaptation_date: '2025-08-06T23:04:49.768129'
+  adaptation_date: '2025-08-06T23:15:43.466450'
   discovered_by: tool_hunter_agent
   discovered_from: pattern://gen-patterns/agent_chat
   original_protocol: native

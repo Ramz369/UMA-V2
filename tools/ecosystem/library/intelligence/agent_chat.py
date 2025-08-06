@@ -22,7 +22,7 @@ class AgentChatTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "pattern://gen-patterns/agent_chat",
-    "adaptation_date": "2025-08-06T23:04:49.768129",
+    "adaptation_date": "2025-08-06T23:15:43.466450",
     "original_protocol": "native"
   },
   "capability": {

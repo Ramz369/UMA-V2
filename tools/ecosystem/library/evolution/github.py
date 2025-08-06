@@ -22,7 +22,7 @@ class GithubTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "https://github.com/modelcontextprotocol/servers/github",
-    "adaptation_date": "2025-08-06T23:04:49.767486",
+    "adaptation_date": "2025-08-06T23:15:43.465800",
     "original_protocol": "mcp"
   },
   "capability": {

@@ -22,7 +22,7 @@ class VectorSearchTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "pattern://index-patterns/vector_search",
-    "adaptation_date": "2025-08-06T23:04:49.767818",
+    "adaptation_date": "2025-08-06T23:15:43.466145",
     "original_protocol": "native"
   },
   "capability": {

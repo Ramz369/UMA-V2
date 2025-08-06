@@ -6,7 +6,7 @@ capability:
   features:
   - code_executor
 classification:
-  security_audit: '2025-08-06T23:04:49.783895'
+  security_audit: '2025-08-06T23:15:43.508419'
   trust_level: community
 economics:
   credit_cost:
@@ -41,7 +41,7 @@ interface:
   outputs:
     type: any
 origin:
-  adaptation_date: '2025-08-06T23:04:49.768066'
+  adaptation_date: '2025-08-06T23:15:43.466387'
   discovered_by: tool_hunter_agent
   discovered_from: pattern://gen-patterns/code_executor
   original_protocol: native

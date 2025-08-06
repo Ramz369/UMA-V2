@@ -5,7 +5,7 @@ capability:
   features: &id001
   - brave_search
 classification:
-  security_audit: '2025-08-06T23:04:49.771398'
+  security_audit: '2025-08-06T23:15:43.469618'
   trust_level: community
 economics:
   credit_cost:
@@ -43,7 +43,7 @@ interface:
     items: SearchResult
     type: array
 origin:
-  adaptation_date: '2025-08-06T23:04:49.767405'
+  adaptation_date: '2025-08-06T23:15:43.465708'
   discovered_by: tool_hunter_agent
   discovered_from: https://github.com/modelcontextprotocol/servers/brave-search
   original_protocol: mcp

@@ -22,7 +22,7 @@ class DocumentLoaderTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "pattern://chain-patterns/document_loader",
-    "adaptation_date": "2025-08-06T23:04:49.767692",
+    "adaptation_date": "2025-08-06T23:15:43.466006",
     "original_protocol": "native"
   },
   "capability": {

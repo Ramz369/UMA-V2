@@ -22,7 +22,7 @@ class FunctionWrapperTool:
   "origin": {
     "discovered_by": "tool_hunter_agent",
     "discovered_from": "pattern://gen-patterns/function_wrapper",
-    "adaptation_date": "2025-08-06T23:04:49.768189",
+    "adaptation_date": "2025-08-06T23:15:43.466509",
     "original_protocol": "native"
   },
   "capability": {
