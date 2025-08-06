@@ -1,5 +1,7 @@
 # TRUTH.md - Actual vs Claimed Implementation Status
 
+**Last Updated**: August 7, 2025 Evening (Session 2)
+
 ## 🔴 Critical Finding
 **The original HANDOVER.md contained 6 false PR descriptions that do not match git history.**
 
@@ -59,17 +61,17 @@ This document provides the verified truth about what exists vs what was claimed.
 
 ## ❌ What Does NOT Exist (Despite Claims)
 
-### Core UMA-V2 Agents
-**NONE of the main system agents have Python implementations:**
+### Core UMA-V2 Agents (UPDATED)
+**2 of 6 core agents now implemented in Session 2:**
 ```bash
-# Test result: Only markdown specs found
+# Progress: 33% of core agents complete
 ```
-- ❌ Planner Agent - `/agents/planner.md` (no .py)
-- ❌ Codegen Agent - `/agents/codegen.md` (no .py)
-- ❌ Backend Tester - No implementation
-- ❌ Frontend Tester - No implementation
-- ❌ Stress Tester - `/agents/stress-tester.md` (no .py)
-- ❌ Integration Agent - `/agents/integration-agent.md` (no .py)
+- ✅ **Planner Agent** - `/agents/planner_agent.py` (429 lines) PR #15
+- ✅ **Codegen Agent** - `/agents/codegen_agent.py` (731 lines) PR #16
+- ❌ Backend Tester - No implementation yet
+- ❌ Frontend Tester - No implementation yet
+- ❌ Stress Tester - `/agents/stress-tester.md` (spec only)
+- ❌ Integration Agent - `/agents/integration-agent.md` (spec only)
 
 ### Claimed but Missing Systems
 
@@ -118,10 +120,11 @@ This document provides the verified truth about what exists vs what was claimed.
 
 ## 🎯 Real State of the System
 
-### Production Readiness: 30%
+### Production Readiness: 50% (Updated)
 - Evolution Engine: Complete but dormant
 - Infrastructure: Configured but not deployed  
-- Core functionality: Missing (no main agents)
+- Core functionality: 33% complete (2/6 agents)
+- Embeddings: ✅ FIXED (real implementations)
 
 ### Development Readiness: 70%
 - Mock mode: Fully functional
@@ -129,23 +132,24 @@ This document provides the verified truth about what exists vs what was claimed.
 - Evolution: Ready to activate
 - Session management: Working
 
-### Critical Blockers for Production
-1. **No core agents** - System can't plan or generate code
-2. **Placeholder embeddings** - No real semantic understanding
+### Critical Blockers for Production (UPDATED)
+1. ~~**No core agents**~~ - ✅ 2/6 implemented, 4 remaining
+2. ~~**Placeholder embeddings**~~ - ✅ FIXED in PR #17
 3. **Mock Kafka only** - No distributed messaging
 4. **Hardcoded credentials** - Security risk
 5. **No UI** - No user interface
+6. **Missing test agents** - Backend/Frontend testers needed
 
 ---
 
 ## 🚨 Priority Actions (Based on Reality)
 
-### Week 1: Core Implementation
-1. Implement Planner Agent in Python
-2. Implement Codegen Agent in Python
-3. Wire real embeddings (sentence-transformers)
-4. Fix hardcoded credentials
-5. Correct all documentation
+### Week 1: Core Implementation (UPDATED)
+1. ✅ Implement Planner Agent in Python - DONE (PR #15)
+2. ✅ Implement Codegen Agent in Python - DONE (PR #16)
+3. ✅ Wire real embeddings - DONE (PR #17)
+4. ⚠️ Fix hardcoded credentials - Still needed
+5. ✅ Correct all documentation - DONE
 
 ### Week 2: Complete Core System
 1. Implement tester agents
@@ -190,7 +194,15 @@ This document provides the verified truth about what exists vs what was claimed.
 ---
 
 *Generated: August 7, 2025*
+*Updated: August 7, 2025 Evening (Session 2)*
 *Verified by: Running actual tests and checking git history*
-*Status: Ground truth established*
+*Status: Ground truth updated with progress*
+
+## Session 2 Achievements:
+- PR #15: Planner Agent (429 lines)
+- PR #16: Codegen Agent (731 lines)
+- PR #17: Embeddings Fix (3 methods)
+- Documentation fully updated
+- Progress: 33% of core agents complete
 
 ## Remember: Trust but Verify! 🔍

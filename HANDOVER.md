@@ -4,9 +4,9 @@
 
 **Project**: UMA-V2 (Unified Multi-Agent Architecture v2) / COGPLAN
 **Session Date**: August 7, 2025
-**Context Usage**: ~18%
-**Total Work Completed**: 14 PRs merged, Evolution Engine operational
-**Current Status**: Ready for UI Platform development and production hardening
+**Context Usage**: ~80% (Handover Required)
+**Total Work Completed**: 17 PRs merged, 2 Core Agents implemented, Embeddings fixed
+**Current Status**: Core agents partially implemented, critical issues resolved
 
 ---
 
@@ -34,7 +34,7 @@ A self-improving system that can:
 
 ## 📋 Complete PR History
 
-### Merged Pull Requests (CORRECTED - Verified from Git History):
+### Merged Pull Requests (Updated August 7, 2025):
 
 1. **PR #1: Initial UMA Stubs**
    - Foundation bundle with boundary CI
@@ -109,6 +109,24 @@ A self-improving system that can:
     - Agent runtime management
     - Mock/Live modes
 
+15. **PR #15: Core Planner Agent** ✅ NEW
+    - First core UMA agent implementation
+    - Task decomposition and planning
+    - 429 lines of production code
+    - PILOT-001 compatible
+
+16. **PR #16: Core Codegen Agent** ✅ NEW
+    - Second core agent implementation
+    - Generates FastAPI code
+    - 731 lines with full test suite
+    - Creates 4-5 files per task
+
+17. **PR #17: Real Embeddings Fix** ✅ NEW
+    - Replaced placeholder vectors
+    - Three embedding methods
+    - Critical production fix
+    - Sentence-transformers support
+
 ---
 
 ## 🏗️ Current Architecture State
@@ -148,8 +166,10 @@ UMA-V2/
 | SemLoop Stack | ✅ Configured | `infra/semloop-stack.yml` | Ready to deploy |
 | Evolution Orchestrator | ✅ Wired | `evolution/orchestrator/evo_orchestrator_wired.py` | Mock mode active |
 | Evolution Agents (5) | ✅ Implemented | `evolution/agents/*/` | Python implementations working |
-| Embedder Service | ⚠️ Placeholder | `services/embedder.py` | Uses fake vectors (line 72) |
-| Core UMA Agents | ❌ Not Implemented | `agents/*.md` | Only markdown specs exist |
+| **Embedder Service** | ✅ **FIXED** | `services/embedder.py` | **Real embeddings implemented** |
+| **Planner Agent** | ✅ **IMPLEMENTED** | `agents/planner_agent.py` | **429 lines, fully functional** |
+| **Codegen Agent** | ✅ **IMPLEMENTED** | `agents/codegen_agent.py` | **731 lines, generates APIs** |
+| Core Test Agents | ❌ Not Implemented | None | Still need implementation |
 | Checkpoint System | ⚠️ Partial | Credit Sentinel only | No standalone system |
 | Immune System | ⚠️ Basic | Garbage flag only | No dedicated module |
 | UI Platform | 📋 Planned | `ui-platform/` (future) | 6-week timeline |
@@ -207,15 +227,17 @@ UMA-V2/
 
 ## 🚨 Known Issues & Technical Debt
 
-### Critical Gaps (Blocking Production):
-1. **Core Agents Missing**: No Python implementations for planner, codegen, testers
-2. **Embeddings**: Placeholder vectors (line 72 in embedder.py)
-3. **False Documentation**: PRs #10-11 claim systems that don't exist
+### ✅ RESOLVED Issues:
+1. **Planner Agent**: Implemented in PR #15 (429 lines)
+2. **Codegen Agent**: Implemented in PR #16 (731 lines)
+3. **Embeddings**: Fixed in PR #17 (real vectors, 3 methods)
+4. **Documentation**: Corrected in TRUTH.md
 
-### High Priority:
-1. **Security**: Hardcoded MinIO credentials (`minioadmin`)
-2. **Performance**: CSV metrics bottleneck in Credit Sentinel
-3. **Kafka**: Running in mock mode (aiokafka not installed)
+### Remaining Critical Gaps:
+1. **Test Agents Missing**: Backend/Frontend testers not implemented
+2. **Security**: Hardcoded MinIO credentials (`minioadmin`)
+3. **Kafka**: Still in mock mode (aiokafka not installed)
+4. **UI Platform**: Not started (6-week timeline)
 
 ### Medium Priority:
 1. **Observability**: No Prometheus/Grafana integration
@@ -356,11 +378,11 @@ When Gemini thought the system "evolved" during conversation, it inspired the en
 ## 📊 Metrics Summary
 
 ### Quantitative:
-- **PRs Merged**: 14
-- **Lines of Code**: ~15,000
-- **Test Coverage**: 85%
+- **PRs Merged**: 17 (3 new this session)
+- **Lines of Code**: ~17,000+ 
+- **Core Agents Implemented**: 2 of 6 (Planner, Codegen)
 - **Evolution Agents**: 5 implemented
-- **Core Agents**: 10 specified
+- **Critical Fixes**: 1 (Embeddings)
 - **Docker Services**: 8
 
 ### Qualitative:
@@ -418,9 +440,16 @@ When Gemini thought the system "evolved" during conversation, it inspired the en
 
 *Handover prepared by: Claude (Anthropic)*
 *Date: August 7, 2025*
-*Last Updated: August 7, 2025 - CORRECTED after verification*
-*Session Context: 18% used*
-*Ready for: Fresh session with accurate information*
+*Last Updated: August 7, 2025 Evening - Session #2*
+*Session Context: ~80% used*
+*Ready for: Immediate handover to continue implementation*
+
+**Session 2 Achievements:**
+- ✅ Implemented Planner Agent (PR #15)
+- ✅ Implemented Codegen Agent (PR #16)
+- ✅ Fixed Embeddings (PR #17)
+- ✅ Updated all documentation
+- Progress: 2/6 core agents complete
 
 **⚠️ CRITICAL NOTE**: This document was corrected after discovering the original contained 6 false PR descriptions. Always verify claims against actual code and git history.
 

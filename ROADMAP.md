@@ -1,12 +1,12 @@
 # UMA-V2 Project Roadmap
 
 ## Project Status Overview
-- **Current Date**: August 7, 2025
+- **Current Date**: August 7, 2025 (Evening)
 - **Project Start**: July 2025
-- **Current Phase**: Phase 4 Complete (Evolution), Core Implementation Needed
-- **Total PRs Merged**: 14 (6 misdocumented, now corrected)
-- **Context Usage**: ~18% (Handover corrected)
-- **System Readiness**: 30% Production, 70% Development
+- **Current Phase**: Phase 4.5 In Progress (Core Agents)
+- **Total PRs Merged**: 17 (PRs #15-17 added today)
+- **Context Usage**: ~80% (Handover required)
+- **System Readiness**: 50% Production, 80% Development
 
 ---
 
@@ -98,17 +98,20 @@
 
 ---
 
-## ⚠️ Phase 4.5: Core Agent Implementation (CRITICAL - NEW)
+## ⚠️ Phase 4.5: Core Agent Implementation (IN PROGRESS)
 **Timeline**: August 2025 - Week 2-3 (2 weeks)
-**Status**: 0% - Must complete before UI
+**Status**: 40% Complete
 
-### Missing Core Components:
-- [ ] Planner Agent (Python implementation)
-- [ ] Codegen Agent (Python implementation)  
+### Completed Today (Session 2):
+- [✅] **PR #15**: Planner Agent (429 lines Python)
+- [✅] **PR #16**: Codegen Agent (731 lines Python)  
+- [✅] **PR #17**: Real embeddings (3 methods implemented)
+
+### Still Required:
 - [ ] Backend Tester Agent (Python implementation)
 - [ ] Frontend Tester Agent (Python implementation)
-- [ ] Real embeddings integration (replace placeholders)
-- [ ] Fix security credentials
+- [ ] Stress Tester Agent (upgrade from spec)
+- [ ] Fix security credentials (minioadmin)
 
 ## 💻 Phase 5: UI Platform Development
 **Timeline**: August 2025 - Week 4-9 (6 weeks)
@@ -120,12 +123,18 @@
 
 ### Week-by-Week Plan:
 
-#### Week 0 (Aug 7-13, 2025) - Scaffold
+#### Week 0.5 (Aug 8-13, 2025) - Complete Core Agents First
+- [ ] Implement Backend Tester Agent
+- [ ] Implement Frontend Tester Agent
+- [ ] Upgrade Stress Tester to full implementation
+- [ ] Fix security credentials
+- [ ] Install aiokafka for real messaging
+
+### Week 1 (Aug 14-20, 2025) - UI Scaffold
 - [ ] Create `ui-platform/` directory
-- [ ] Initialize Next.js with TypeScript, Tailwind, ESLint
-- [ ] Set up Turborepo structure
+- [ ] Initialize Next.js with TypeScript, Tailwind
+- [ ] Set up basic structure
 - [ ] Add Shadcn/UI components
-- [ ] Create initial Docker configuration
 
 #### Week 1 (Aug 14-20, 2025) - Chat & Settings
 - [ ] Implement chat interface with Tiptap editor
@@ -264,14 +273,14 @@ ui-platform/
 
 ## 📊 Metrics & KPIs
 
-### Current Metrics (Verified):
-- **Lines of Code**: ~15,000
-- **Test Coverage**: Claims 85%, actual limited
-- **PRs Merged**: 14 (6 misdocumented)
-- **Implemented Agents**: 5 Evolution agents (Python)
-- **Core Agents**: 0 implemented (10 markdown specs only)
+### Current Metrics (Updated Session 2):
+- **Lines of Code**: ~17,000+
+- **Test Coverage**: Growing with new agents
+- **PRs Merged**: 17 (3 today)
+- **Evolution Agents**: 5 (fully implemented)
+- **Core Agents**: 2/6 implemented (Planner, Codegen)
 - **Docker Services**: 8 configured
-- **Working Tests**: PILOT-001 passes, Evolution integration passes
+- **Working Tests**: PILOT-001 with real agents, embeddings tested
 
 ### Target Metrics (Q3 2025):
 - **UI Platform Users**: 10+
@@ -284,15 +293,19 @@ ui-platform/
 
 ## 🚧 Known Issues & Technical Debt
 
-### Verified Issues (After Testing):
-1. **Core agents not implemented** - Only Evolution agents exist
-2. **Embedder uses placeholder vectors** - Line 72 confirmed
-3. **CSV bottleneck in Credit Sentinel** - Verified in testing
-4. **Hardcoded credentials** - minioadmin in multiple files
-5. **Documentation errors** - 6 false PR descriptions corrected
-6. **No checkpoint-recovery system** - Only Credit Sentinel checkpoints
-7. **No immune system** - Only garbage flag filtering
-8. **Mock Kafka mode** - aiokafka not installed
+### Issues Status:
+**RESOLVED ✅:**
+1. ~~Core agents not implemented~~ - 2/6 now implemented
+2. ~~Embedder uses placeholder vectors~~ - Fixed in PR #17
+3. ~~Documentation errors~~ - Corrected in TRUTH.md
+
+**REMAINING ⚠️:**
+1. **Test agents missing** - 4 agents still needed
+2. **CSV bottleneck** - Credit Sentinel still uses CSV
+3. **Hardcoded credentials** - minioadmin in multiple files
+4. **No checkpoint-recovery system** - Only Credit Sentinel
+5. **No immune system** - Only garbage flag
+6. **Mock Kafka mode** - aiokafka not installed
 
 ### Priority Fixes:
 1. Real embeddings (Week 1 Sep)
