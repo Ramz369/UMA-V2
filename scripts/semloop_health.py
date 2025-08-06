@@ -20,14 +20,24 @@ def check_port(host: str, port: int) -> bool:
         sock.close()
 
 
+def get_host(service: str, default: str = "localhost") -> str:
+    """Get hostname for service (supports container networking)."""
+    import os
+    # If running in container, use service name
+    if os.path.exists("/.dockerenv"):
+        return service
+    return default
+
+
 async def check_minio() -> Tuple[str, bool, str]:
     """Check MinIO health."""
-    if not check_port("localhost", 9000):
+    host = get_host("minio")
+    if not check_port(host, 9000):
         return "MinIO", False, "Port 9000 not accessible"
     
     # Try health endpoint
     proc = await asyncio.create_subprocess_exec(
-        "curl", "-f", "-s", "http://localhost:9000/minio/health/ready",
+        "curl", "-f", "-s", f"http://{host}:9000/minio/health/ready",
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE
     )
@@ -41,11 +51,12 @@ async def check_minio() -> Tuple[str, bool, str]:
 
 async def check_redpanda() -> Tuple[str, bool, str]:
     """Check Redpanda health."""
-    if not check_port("localhost", 9092):
+    host = get_host("redpanda")
+    if not check_port(host, 9092):
         return "Redpanda", False, "Port 9092 not accessible"
     
     # Check admin API
-    if check_port("localhost", 9644):
+    if check_port(host, 9644):
         return "Redpanda", True, "Kafka on 9092, Admin on 9644"
     else:
         return "Redpanda", True, "Kafka on 9092 (admin port not checked)"
@@ -53,12 +64,13 @@ async def check_redpanda() -> Tuple[str, bool, str]:
 
 async def check_postgres() -> Tuple[str, bool, str]:
     """Check PostgreSQL health."""
-    if not check_port("localhost", 5432):
+    host = get_host("postgres")
+    if not check_port(host, 5432):
         return "PostgreSQL", False, "Port 5432 not accessible"
     
     # Try pg_isready
     proc = await asyncio.create_subprocess_exec(
-        "pg_isready", "-h", "localhost", "-p", "5432", "-U", "semloop",
+        "pg_isready", "-h", host, "-p", "5432", "-U", "semloop",
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE
     )
@@ -67,7 +79,7 @@ async def check_postgres() -> Tuple[str, bool, str]:
     if proc.returncode == 0:
         # Check pgvector extension
         check_vector = await asyncio.create_subprocess_shell(
-            "PGPASSWORD=semloop123 psql -h localhost -U semloop -d semloop -t -c \"SELECT extname FROM pg_extension WHERE extname='vector';\" 2>/dev/null",
+            f"PGPASSWORD=semloop123 psql -h {host} -U semloop -d semloop -t -c \"SELECT extname FROM pg_extension WHERE extname='vector';\" 2>/dev/null",
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE
         )
@@ -83,12 +95,13 @@ async def check_postgres() -> Tuple[str, bool, str]:
 
 async def check_redis() -> Tuple[str, bool, str]:
     """Check Redis health."""
-    if not check_port("localhost", 6379):
+    host = get_host("redis")
+    if not check_port(host, 6379):
         return "Redis", False, "Port 6379 not accessible"
     
     # Try redis-cli ping
     proc = await asyncio.create_subprocess_exec(
-        "redis-cli", "-h", "localhost", "ping",
+        "redis-cli", "-h", host, "ping",
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE
     )
