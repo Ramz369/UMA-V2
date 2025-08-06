@@ -228,5 +228,9 @@ jobs:
           print('✅ Schema has required fields')
           "
       
+      - name: Run meta-analyst tests
+        run: |
+          python -m pytest tests/test_meta_analyst.py -v
+      
       - name: Success
         run: echo "✅ All session summary tests passed!"
