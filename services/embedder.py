@@ -2,7 +2,8 @@
 import asyncio
 import json
 import logging
-from typing import Any, Dict, Optional
+import os
+from typing import Any, Dict, Optional, List
 from uuid import UUID
 
 from semloop_models import EventEnvelope
@@ -91,24 +92,135 @@ class EmbedderService:
             
             return False
     
-    async def _generate_embedding(self, event: EventEnvelope) -> list:
-        """Generate embedding for event.
+    async def _generate_embedding(self, event: EventEnvelope) -> List[float]:
+        """Generate embedding for event using sentence transformers.
         
         Args:
             event: Event envelope to embed
             
         Returns:
-            Vector embedding (placeholder returns zeros)
+            Vector embedding from sentence transformer
         """
-        # Placeholder - actual implementation would use sentence transformer
-        # or OpenAI embeddings API
-        text = f"{event.type} {event.agent} {json.dumps(event.payload)}"
+        # Combine relevant text from event
+        text_parts = [
+            f"Type: {event.type}",
+            f"Agent: {event.agent}",
+        ]
         
-        # Simulate embedding generation
-        await asyncio.sleep(0.01)
+        # Add payload content (limited to avoid huge embeddings)
+        payload_str = json.dumps(event.payload)
+        if len(payload_str) > 1000:
+            payload_str = payload_str[:1000] + "..."
+        text_parts.append(f"Payload: {payload_str}")
         
-        # Return placeholder 1536-dimension vector (OpenAI ada-002 size)
-        return [0.0] * 1536
+        # Add metadata if present
+        if event.meta and event.meta.tags:
+            text_parts.append(f"Tags: {', '.join(event.meta.tags)}")
+        
+        text = " | ".join(text_parts)
+        
+        # Generate embedding using the selected method
+        embedding_method = os.getenv("EMBEDDING_METHOD", "sentence-transformers")
+        
+        if embedding_method == "sentence-transformers":
+            return await self._generate_sentence_transformer_embedding(text)
+        elif embedding_method == "openai":
+            return await self._generate_openai_embedding(text)
+        else:
+            # Fallback to simple hash-based embedding
+            return await self._generate_hash_embedding(text)
+    
+    async def _generate_sentence_transformer_embedding(self, text: str) -> List[float]:
+        """Generate embedding using sentence-transformers.
+        
+        This uses a lightweight model that can run locally.
+        Default model: all-MiniLM-L6-v2 (384 dimensions)
+        """
+        try:
+            # Lazy import to avoid dependency if not used
+            from sentence_transformers import SentenceTransformer
+            
+            # Cache model to avoid reloading
+            if not hasattr(self, '_sentence_model'):
+                model_name = os.getenv("SENTENCE_TRANSFORMER_MODEL", "all-MiniLM-L6-v2")
+                logger.info(f"Loading sentence transformer model: {model_name}")
+                self._sentence_model = SentenceTransformer(model_name)
+            
+            # Generate embedding
+            embedding = self._sentence_model.encode(text, convert_to_numpy=True)
+            
+            # Convert to list of floats
+            return embedding.tolist()
+            
+        except ImportError:
+            logger.warning("sentence-transformers not installed, falling back to hash embedding")
+            return await self._generate_hash_embedding(text)
+        except Exception as e:
+            logger.error(f"Error generating sentence transformer embedding: {e}")
+            return await self._generate_hash_embedding(text)
+    
+    async def _generate_openai_embedding(self, text: str) -> List[float]:
+        """Generate embedding using OpenAI API.
+        
+        Requires OPENAI_API_KEY environment variable.
+        Uses text-embedding-ada-002 (1536 dimensions)
+        """
+        try:
+            # Lazy import
+            import openai
+            
+            api_key = os.getenv("OPENAI_API_KEY")
+            if not api_key:
+                logger.warning("OPENAI_API_KEY not set, falling back to hash embedding")
+                return await self._generate_hash_embedding(text)
+            
+            openai.api_key = api_key
+            
+            # Generate embedding
+            response = await asyncio.to_thread(
+                openai.Embedding.create,
+                model="text-embedding-ada-002",
+                input=text
+            )
+            
+            return response["data"][0]["embedding"]
+            
+        except ImportError:
+            logger.warning("openai not installed, falling back to hash embedding")
+            return await self._generate_hash_embedding(text)
+        except Exception as e:
+            logger.error(f"Error generating OpenAI embedding: {e}")
+            return await self._generate_hash_embedding(text)
+    
+    async def _generate_hash_embedding(self, text: str) -> List[float]:
+        """Generate a deterministic embedding using hashing.
+        
+        This is a fallback method that creates a pseudo-embedding
+        using hash functions. Not as good as real embeddings but
+        deterministic and doesn't require external dependencies.
+        """
+        import hashlib
+        
+        # Use multiple hash functions for different dimensions
+        hashes = []
+        for i in range(8):  # Generate 8 hash values
+            h = hashlib.sha256(f"{i}:{text}".encode()).hexdigest()
+            # Convert hex to float in range [-1, 1]
+            value = (int(h[:8], 16) / 0xFFFFFFFF) * 2 - 1
+            hashes.append(value)
+        
+        # Expand to 384 dimensions (matching MiniLM) by repeating with variations
+        import math
+        embedding = []
+        for i in range(384):
+            idx = i % len(hashes)
+            # Add some variation based on position
+            value = hashes[idx] * (1 + 0.1 * math.sin(i / 10))
+            # Clip to [-1, 1] range
+            value = max(-1.0, min(1.0, value))
+            embedding.append(float(value))
+        
+        return embedding
     
     async def _store_embedding(self, event: EventEnvelope, embedding: list) -> None:
         """Store embedding in vector database.
@@ -117,14 +229,16 @@ class EmbedderService:
             event: Source event
             embedding: Generated embedding vector
         """
-        # Placeholder for actual vector store operation
+        # Store in vector database with metadata
         metadata = {
             "event_id": str(event.id),
             "event_type": event.type,
             "agent": event.agent,
             "timestamp": event.timestamp.isoformat(),
             "session_id": event.meta.session_id,
-            "garbage": event.garbage
+            "garbage": event.garbage,
+            "embedding_dim": len(embedding),
+            "embedding_method": os.getenv("EMBEDDING_METHOD", "sentence-transformers")
         }
         
         # Would call actual vector store here
