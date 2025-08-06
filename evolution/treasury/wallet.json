@@ -1,0 +1,47 @@
+{
+  "wallet_id": "evolution_treasury_001",
+  "created": "2024-01-01T00:00:00Z",
+  "network": "local_simulation",
+  "multisig": {
+    "enabled": true,
+    "threshold": 2,
+    "signers": [
+      {
+        "name": "architect",
+        "address": "0xARCHITECT_PLACEHOLDER",
+        "weight": 2,
+        "role": "primary"
+      },
+      {
+        "name": "evolution",
+        "address": "0xEVOLUTION_PLACEHOLDER",
+        "weight": 1,
+        "role": "automated"
+      }
+    ]
+  },
+  "balances": {
+    "USD": 500,
+    "USDC": 0,
+    "USDT": 0,
+    "ETH": 0,
+    "MATIC": 0
+  },
+  "seed_funding": {
+    "amount": 500,
+    "currency": "USD",
+    "date": "2024-01-01T00:00:00Z",
+    "source": "initial_seed",
+    "tx_hash": "SEED_FUNDING_PLACEHOLDER"
+  },
+  "transactions": [],
+  "runway_days": 50,
+  "burn_rate_daily": 10,
+  "revenue_streams": [],
+  "status": "active",
+  "alerts": {
+    "low_balance_threshold": 100,
+    "critical_balance_threshold": 50,
+    "notify_channel": "you@example.com"
+  }
+}
