@@ -1,0 +1,369 @@
+# Architect Mindspace - Knowledge Transfer System
+# Load conversations, ideas, and thought patterns from the architect
+
+version: 1.0
+
+# Knowledge Sources
+knowledge_sources:
+  conversation_imports:
+    description: "Import conversations with personal agents"
+    supported_formats:
+      - json
+      - markdown
+      - claude_export
+      - chatgpt_export
+      - plain_text
+    
+    storage_location: "evolution/knowledge/conversations/"
+    
+    processing:
+      - extract_patterns
+      - identify_preferences
+      - capture_innovations
+      - learn_communication_style
+      - understand_vision
+  
+  idea_repository:
+    description: "Architect's innovation ideas and explorations"
+    categories:
+      - architecture_patterns
+      - revenue_models
+      - technical_innovations
+      - philosophical_insights
+      - future_visions
+      - experimental_thoughts
+    
+    storage_location: "evolution/knowledge/ideas/"
+    
+    format:
+      title: "string"
+      description: "string"
+      category: "enum"
+      priority: "HIGH|MEDIUM|LOW"
+      feasibility: "IMMEDIATE|SHORT_TERM|LONG_TERM|EXPERIMENTAL"
+      notes: "text"
+      references: "array"
+      timestamp: "datetime"
+  
+  preference_patterns:
+    description: "Extracted patterns of architect's preferences"
+    
+    coding_style:
+      - clean_code_principles
+      - documentation_approach
+      - naming_conventions
+      - architecture_preferences
+      
+    decision_patterns:
+      - risk_tolerance
+      - innovation_appetite
+      - quality_standards
+      - speed_vs_perfection
+      
+    communication_style:
+      - directness_level
+      - detail_preference
+      - visual_vs_textual
+      - formality_level
+    
+    values:
+      - core_principles
+      - non_negotiables
+      - optimization_priorities
+      - ethical_boundaries
+  
+  inspiration_feed:
+    description: "Ongoing feed of architect's explorations"
+    
+    channels:
+      - daily_thoughts
+      - project_discoveries
+      - technology_interests
+      - business_insights
+      - philosophical_musings
+    
+    integration:
+      - rss_feed: "optional"
+      - api_endpoint: "optional"
+      - manual_upload: "always_available"
+      - email_forward: "optional"
+
+# Learning System
+learning_engine:
+  pattern_extraction:
+    methods:
+      - frequency_analysis
+      - sentiment_mapping
+      - concept_clustering
+      - decision_tree_building
+      
+    outputs:
+      - preference_model
+      - innovation_patterns
+      - communication_template
+      - vision_alignment_matrix
+  
+  continuous_learning:
+    update_frequency: "daily"
+    
+    feedback_loop:
+      - track_architect_corrections
+      - learn_from_approvals_rejections
+      - adapt_to_new_patterns
+      - evolve_understanding
+    
+    confidence_scoring:
+      - pattern_confidence: "0-100%"
+      - requires_verification: "threshold < 70%"
+      - auto_apply: "threshold > 90%"
+  
+  knowledge_synthesis:
+    combine_sources:
+      - conversations
+      - ideas
+      - decisions
+      - feedback
+    
+    generate:
+      - architect_digital_twin
+      - decision_prediction_model
+      - innovation_generator
+      - communication_simulator
+
+# Digital Twin Enhancement
+digital_twin:
+  capabilities:
+    current:
+      - basic_decision_making
+      - vision_alignment
+      - constraint_enforcement
+    
+    enhanced_with_knowledge:
+      - personality_simulation
+      - innovation_prediction
+      - communication_mimicry
+      - preference_anticipation
+      - creative_ideation
+  
+  accuracy_tracking:
+    measure:
+      - decision_alignment_rate
+      - communication_match_score
+      - innovation_relevance
+      - prediction_accuracy
+    
+    improvement:
+      - weekly_calibration
+      - feedback_integration
+      - pattern_refinement
+      - model_updates
+
+# Knowledge Application
+application:
+  in_evolution_cycle:
+    audit_phase:
+      - apply_architect_priorities
+      - focus_on_interest_areas
+      - use_preferred_metrics
+    
+    review_phase:
+      - apply_risk_tolerance
+      - use_decision_patterns
+      - consider_preferences
+    
+    decision_phase:
+      - predict_architect_choice
+      - align_with_values
+      - respect_boundaries
+    
+    implementation_phase:
+      - follow_coding_style
+      - apply_quality_standards
+      - use_preferred_tools
+  
+  in_innovation:
+    idea_generation:
+      - extend_architect_concepts
+      - combine_existing_ideas
+      - explore_interest_areas
+      - push_boundaries_appropriately
+    
+    experimentation:
+      - test_architect_hypotheses
+      - validate_assumptions
+      - explore_curiosities
+      - build_proof_of_concepts
+  
+  in_communication:
+    summoning_protocol:
+      - use_preferred_channel
+      - match_communication_style
+      - provide_right_detail_level
+      - respect_time_preferences
+    
+    reporting:
+      - format_to_preference
+      - highlight_interests
+      - summarize_appropriately
+      - visualize_if_preferred
+
+# Mutual Discussion App Specification
+discussion_app:
+  description: "Two-way communication platform between architect and evolution"
+  
+  features:
+    progress_tracking:
+      - real_time_dashboard
+      - evolution_metrics
+      - decision_history
+      - innovation_showcase
+      
+    idea_feeding:
+      - quick_capture_interface
+      - voice_notes_support
+      - sketch_upload
+      - link_sharing
+      
+    conversation:
+      - async_discussion_threads
+      - priority_channels
+      - context_preservation
+      - multimedia_support
+      
+    collaboration:
+      - shared_workspace
+      - co_creation_tools
+      - feedback_loops
+      - approval_workflows
+  
+  technical_spec:
+    frontend:
+      - react_or_vue
+      - responsive_design
+      - real_time_updates
+      - offline_capability
+      
+    backend:
+      - fastapi_or_nodejs
+      - websocket_support
+      - event_streaming
+      - blockchain_integration
+      
+    data:
+      - encrypted_storage
+      - ipfs_backup
+      - version_control
+      - audit_trail
+  
+  self_building_capability:
+    description: "Evolution agents build this app themselves"
+    
+    phases:
+      phase_1:
+        - basic_ui
+        - core_messaging
+        - progress_display
+        
+      phase_2:
+        - idea_capture
+        - knowledge_import
+        - pattern_learning
+        
+      phase_3:
+        - advanced_analytics
+        - prediction_features
+        - automation_tools
+        
+      phase_4:
+        - full_collaboration
+        - co_creation_space
+        - autonomous_features
+    
+    implementation:
+      - use_cogplan_base
+      - evolution_managed
+      - architect_guided
+      - self_improving
+
+# Privacy & Security
+privacy:
+  data_classification:
+    public:
+      - general_preferences
+      - published_ideas
+      - open_innovations
+      
+    private:
+      - personal_conversations
+      - sensitive_strategies
+      - proprietary_concepts
+      
+    encrypted:
+      - financial_discussions
+      - security_details
+      - private_keys
+  
+  access_control:
+    architect_only:
+      - full_access
+      - delete_capability
+      - export_rights
+      
+    evolution_agents:
+      - read_approved
+      - learn_from_patterns
+      - no_raw_access_to_private
+      
+    external:
+      - no_access
+      - unless_explicitly_shared
+      - audit_trail_required
+  
+  data_retention:
+    conversations: "permanent"
+    ideas: "permanent"
+    patterns: "updated_continuously"
+    sensitive: "architect_controlled"
+
+# Bootstrap Process
+bootstrap:
+  initial_load:
+    1_prepare:
+      - create_import_directory
+      - setup_processing_pipeline
+      
+    2_import:
+      - load_conversation_history
+      - import_idea_documents
+      - process_existing_notes
+      
+    3_learn:
+      - extract_initial_patterns
+      - build_preference_model
+      - calibrate_digital_twin
+      
+    4_validate:
+      - present_learned_patterns
+      - get_architect_feedback
+      - adjust_models
+      
+    5_activate:
+      - enable_enhanced_twin
+      - start_continuous_learning
+      - begin_innovation_generation
+  
+  continuous_integration:
+    daily:
+      - check_for_new_content
+      - process_new_conversations
+      - update_patterns
+      
+    weekly:
+      - synthesize_learnings
+      - generate_insights_report
+      - propose_innovations
+      
+    monthly:
+      - full_model_update
+      - accuracy_assessment
+      - capability_expansion

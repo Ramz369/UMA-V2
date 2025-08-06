@@ -1,0 +1,104 @@
+version: '3.8'
+
+# Isolated SemLoop stack for Evolution Engine
+# Completely separate from production UMA-V2 infrastructure
+
+networks:
+  evo_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
+
+services:
+  evo-minio:
+    image: minio/minio:RELEASE.2024-05-10T01-41-38Z
+    container_name: evo-minio
+    ports:
+      - "19000:9000"  # Different port from production
+      - "19001:9001"  # Console
+    environment:
+      MINIO_ROOT_USER: evoadmin
+      MINIO_ROOT_PASSWORD: evolution123
+      MINIO_SITE_REGION: us-east-1
+    command: server /data --console-address ":9001"
+    volumes:
+      - ../../.evolution-data/minio:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/ready"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      - evo_net
+
+  evo-redpanda:
+    image: redpandadata/redpanda:v23.3.6
+    container_name: evo-redpanda
+    ports:
+      - "19092:9092"  # Different Kafka port
+      - "19644:9644"  # Admin API
+      - "18081:8081"  # Schema Registry
+      - "18082:8082"  # Pandaproxy
+    command:
+      - redpanda
+      - start
+      - --smp 1
+      - --memory 1G
+      - --overprovisioned
+      - --node-id 0
+      - --kafka-addr internal://0.0.0.0:9092,external://0.0.0.0:9092
+      - --advertise-kafka-addr internal://evo-redpanda:9092,external://localhost:19092
+      - --pandaproxy-addr internal://0.0.0.0:8082,external://0.0.0.0:8082
+      - --advertise-pandaproxy-addr internal://evo-redpanda:8082,external://localhost:18082
+      - --schema-registry-addr internal://0.0.0.0:8081,external://0.0.0.0:8081
+      - --rpc-addr evo-redpanda:33145
+      - --advertise-rpc-addr evo-redpanda:33145
+    volumes:
+      - ../../.evolution-data/redpanda:/var/lib/redpanda/data
+    healthcheck:
+      test: ["CMD-SHELL", "rpk cluster health | grep -E 'Healthy|alive'"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - evo_net
+
+  evo-postgres:
+    image: pgvector/pgvector:pg16
+    container_name: evo-postgres
+    ports:
+      - "15432:5432"  # Different PostgreSQL port
+    environment:
+      POSTGRES_USER: evolution
+      POSTGRES_PASSWORD: evolution123
+      POSTGRES_DB: evolution
+    volumes:
+      - ../../.evolution-data/postgres:/var/lib/postgresql/data
+      - ../memory/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U evolution -d evolution"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - evo_net
+
+  evo-redis:
+    image: redis:7-alpine
+    container_name: evo-redis
+    ports:
+      - "16379:6379"  # Different Redis port
+    command: redis-server --save "" --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - ../../.evolution-data/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - evo_net
+
+# Volumes are stored in .evolution-data to keep them separate
+# from production .semloop-data

@@ -1,0 +1,286 @@
+# Crypto Economy Protocol - Blockchain-native financial system
+version: 1.0
+
+# Blockchain Configuration
+blockchain:
+  networks:
+    primary: "ethereum"  # or "polygon", "arbitrum" for lower fees
+    testnet: "sepolia"   # For testing
+    
+  supported_tokens:
+    - symbol: "USDC"
+      contract: "[TO_BE_CONFIGURED]"
+      decimals: 6
+      preferred: true
+      
+    - symbol: "USDT"
+      contract: "[TO_BE_CONFIGURED]"
+      decimals: 6
+      
+    - symbol: "ETH"
+      native: true
+      decimals: 18
+      
+    - symbol: "MATIC"
+      network: "polygon"
+      decimals: 18
+
+# Multi-Signature Wallet Configuration
+multisig:
+  type: "gnosis-safe"  # Industry standard multisig
+  
+  signers:
+    architect:
+      address: "[YOUR_WALLET_ADDRESS]"
+      role: "primary"
+      weight: 2  # Higher weight for architect
+      
+    evolution_treasury:
+      address: "[EVOLUTION_WALLET_ADDRESS]"
+      role: "automated"
+      weight: 1
+      
+    backup_signer:
+      address: "[OPTIONAL_BACKUP_ADDRESS]"
+      role: "emergency"
+      weight: 1
+  
+  thresholds:
+    small_transaction: 1    # < $100: Evolution can sign alone
+    medium_transaction: 2   # $100-$1000: Need architect OR backup
+    large_transaction: 3    # > $1000: Need architect + one more
+    emergency_withdrawal: 2 # Architect + any other
+  
+  time_locks:
+    large_transaction_delay: "24 hours"
+    emergency_withdrawal_delay: "48 hours"
+
+# Smart Contract Integration
+smart_contracts:
+  payment_receiver:
+    description: "Receives payments for services"
+    features:
+      - automatic_distribution
+      - revenue_tracking
+      - customer_whitelist
+    
+  subscription_manager:
+    description: "Handles recurring payments"
+    features:
+      - monthly_billing
+      - automatic_renewal
+      - grace_period_handling
+    
+  escrow_service:
+    description: "Holds funds for completed work"
+    features:
+      - milestone_based_release
+      - dispute_resolution
+      - automatic_refunds
+
+# Transaction Rules
+transaction_rules:
+  all_transactions_require_signature: true
+  
+  signing_flow:
+    1_propose: "Evolution proposes transaction"
+    2_validate: "Validate against rules"
+    3_queue: "Queue for architect signature"
+    4_notify: "Send notification to architect"
+    5_sign: "Architect signs or rejects"
+    6_execute: "Execute on blockchain"
+    7_confirm: "Wait for confirmations"
+    8_record: "Record in ledger"
+  
+  gas_management:
+    max_gas_price: "100 gwei"
+    priority_fee: "2 gwei"
+    gas_reserve: "0.1 ETH"  # Always keep for transactions
+  
+  safety_limits:
+    max_daily_spend: "$1000"
+    max_single_transaction: "$500"
+    require_2fa_above: "$100"
+
+# Revenue Collection
+revenue_collection:
+  payment_methods:
+    crypto_native:
+      - description: "Direct wallet transfer"
+        currencies: ["USDC", "USDT", "ETH"]
+        
+    payment_links:
+      - provider: "Request Network"
+        description: "Decentralized payment requests"
+        
+    subscriptions:
+      - provider: "Superfluid"
+        description: "Streaming payments"
+        currencies: ["USDCx", "DAIx"]
+    
+    invoicing:
+      - format: "EIP-3770"
+      - includes_qr_code: true
+      - payment_deadline: "30 days"
+  
+  pricing_strategy:
+    denomination: "USD"  # Price in USD
+    settlement: "USDC"   # Settle in stablecoin
+    
+    conversion_handling:
+      - use_chainlink_oracle: true
+      - max_slippage: "2%"
+      - update_frequency: "1 hour"
+
+# Treasury Management
+treasury:
+  allocation:
+    hot_wallet:
+      percentage: 10
+      max_amount: "$1000"
+      purpose: "Daily operations"
+      
+    warm_wallet:
+      percentage: 30
+      max_amount: "$5000"
+      purpose: "Weekly expenses"
+      requires_signature: true
+      
+    cold_storage:
+      percentage: 60
+      hardware_wallet: true
+      purpose: "Long-term reserves"
+      multisig_required: true
+  
+  yield_strategies:
+    stablecoin_lending:
+      protocol: "Aave"
+      allocation: "30%"
+      risk_level: "LOW"
+      
+    liquidity_provision:
+      protocol: "Uniswap V3"
+      pairs: ["USDC/USDT"]
+      allocation: "20%"
+      risk_level: "MEDIUM"
+    
+    staking:
+      enabled: false  # Enable when appropriate
+      validators: []
+
+# DeFi Integration
+defi:
+  protocols:
+    aave:
+      use_for: "Lending excess reserves"
+      risk_limit: "$10000"
+      
+    compound:
+      use_for: "Alternative lending"
+      risk_limit: "$5000"
+      
+    uniswap:
+      use_for: "Token swaps"
+      slippage_tolerance: "1%"
+  
+  risk_management:
+    max_protocol_exposure: "$10000"
+    diversification_required: true
+    audit_requirement: "Code4rena or similar"
+    
+# Reporting & Analytics
+analytics:
+  on_chain_tracking:
+    - etherscan_api_key: "[TO_BE_CONFIGURED]"
+    - dune_analytics_dashboard: "[TO_BE_CREATED]"
+    - zapper_fi_integration: true
+    
+  metrics:
+    - total_value_locked
+    - revenue_by_token
+    - gas_costs_daily
+    - yield_earned
+    - customer_acquisition_cost
+    
+  reports:
+    daily:
+      - wallet_balances
+      - pending_transactions
+      - revenue_collected
+      
+    weekly:
+      - profit_loss_statement
+      - gas_optimization_report
+      - yield_performance
+      
+    monthly:
+      - full_treasury_report
+      - tax_preparation_data
+      - audit_trail
+
+# Compliance & Security
+compliance:
+  kyc_requirements:
+    for_amounts_above: "$10000"
+    provider: "Synaps"
+    
+  tax_reporting:
+    track_all_transactions: true
+    export_format: "CSV"
+    integration: "CoinTracker"
+    
+  security:
+    transaction_monitoring: true
+    anomaly_detection: true
+    max_transaction_velocity: "10 per hour"
+    emergency_pause: true
+
+# Customer Payment Experience
+customer_experience:
+  payment_page:
+    accept_tokens: ["USDC", "USDT", "ETH", "MATIC"]
+    network_options: ["Ethereum", "Polygon", "Arbitrum"]
+    
+    features:
+      - wallet_connect
+      - metamask_integration
+      - qr_code_payment
+      - payment_status_tracking
+      - automatic_receipts
+    
+  refund_policy:
+    automated_refunds: true
+    refund_window: "30 days"
+    partial_refunds: true
+    gas_paid_by: "evolution_treasury"
+
+# Integration with Evolution System
+evolution_integration:
+  treasury_sync:
+    frequency: "every_block"
+    update_balance: true
+    track_pending: true
+    
+  decision_triggers:
+    low_gas: "Alert architect"
+    large_payment_received: "Celebrate + reinvest"
+    subscription_cancelled: "Analyze reason"
+    
+  automated_actions:
+    collect_revenue: true
+    pay_recurring_expenses: true
+    rebalance_portfolio: false  # Requires approval
+    
+# Bootstrap Configuration
+bootstrap:
+  initial_setup:
+    1_deploy_multisig: "Deploy Gnosis Safe"
+    2_configure_signers: "Add architect + evolution"
+    3_fund_wallet: "Architect sends seed crypto"
+    4_test_transaction: "Small test payment"
+    5_activate_revenue: "Enable payment collection"
+    
+  seed_funding:
+    expected_tokens: ["USDC", "ETH"]
+    minimum_amount: "$100 equivalent"
+    notification: "Alert when received"

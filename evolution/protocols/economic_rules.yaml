@@ -1,0 +1,215 @@
+# Economic Rules - Financial governance for self-funding evolution
+version: 1.0
+
+# Treasury configuration
+treasury:
+  seed_budget: "[PENDING_INPUT: $100-$10000]"
+  currency: "USD"
+  
+  accounts:
+    operational:
+      description: "Daily operations and compute costs"
+      allocation: "40%"
+    
+    development:
+      description: "Evolution experiments and sandboxing"
+      allocation: "40%"
+    
+    reserve:
+      description: "Emergency fund and opportunities"
+      allocation: "20%"
+
+# Burn rate management
+burn_rate:
+  calculation_method: "rolling_7_day_average"
+  
+  components:
+    compute:
+      docker_containers: "$0.10/hour"
+      sandbox_runs: "$0.50/run"
+      ci_pipeline: "$0.20/run"
+    
+    storage:
+      semloop_data: "$0.05/GB/day"
+      artifacts: "$0.02/GB/day"
+    
+    api_calls:
+      llm_tokens: "$0.00002/token"
+      external_services: "varies"
+    
+  alerts:
+    high_burn: "> $50/day"
+    unsustainable: "> revenue * 1.5"
+
+# Runway management
+runway:
+  calculation: "treasury_balance / burn_rate"
+  
+  thresholds:
+    critical: "< 7 days"
+    urgent: "< 30 days"
+    warning: "< 60 days"
+    comfortable: "> 90 days"
+  
+  priority_modes:
+    critical:
+      focus: "IMMEDIATE_REVENUE"
+      evolution_budget: "10%"
+      allowed_experiments: "revenue_only"
+    
+    urgent:
+      focus: "REVENUE_GENERATION"
+      evolution_budget: "25%"
+      allowed_experiments: "revenue_and_efficiency"
+    
+    warning:
+      focus: "BALANCED"
+      evolution_budget: "50%"
+      allowed_experiments: "all_with_roi"
+    
+    comfortable:
+      focus: "CAPABILITY_ENHANCEMENT"
+      evolution_budget: "75%"
+      allowed_experiments: "all"
+
+# Revenue streams
+revenue_streams:
+  active:
+    # Empty initially - populated by evolution
+  
+  potential:
+    api_services:
+      code_review:
+        price_per_call: "$0.10"
+        estimated_volume: "100/day"
+        implementation_cost: "$50"
+        time_to_market: "3 days"
+      
+      architecture_analysis:
+        price_per_call: "$1.00"
+        estimated_volume: "10/day"
+        implementation_cost: "$200"
+        time_to_market: "7 days"
+    
+    tool_marketplace:
+      semantic_diff_pro:
+        price: "$9.99/month"
+        estimated_subscribers: "10-50"
+        implementation_cost: "$100"
+        time_to_market: "5 days"
+      
+      har_analyzer_enterprise:
+        price: "$29.99/month"
+        estimated_subscribers: "5-20"
+        implementation_cost: "$150"
+        time_to_market: "7 days"
+    
+    compute_sharing:
+      unused_sandbox_time:
+        price: "spot_market - 20%"
+        estimated_revenue: "$5-20/day"
+        implementation_cost: "$300"
+        time_to_market: "10 days"
+    
+    knowledge_products:
+      automated_documentation:
+        price: "$50/project"
+        estimated_volume: "2/week"
+        implementation_cost: "$200"
+        time_to_market: "5 days"
+
+# Investment rules
+investment:
+  roi_threshold: "200%"  # Minimum expected return
+  payback_period: "30 days"  # Maximum time to break even
+  
+  allocation_strategy:
+    runway_critical: "100% to immediate revenue"
+    runway_urgent: "80% revenue, 20% efficiency"
+    runway_warning: "60% revenue, 40% capability"
+    runway_comfortable: "40% revenue, 60% capability"
+  
+  approval_required:
+    amount: "> $100"
+    approver: "architect_agent or human"
+
+# Profit management
+profit_distribution:
+  reinvestment_ratio: "80%"
+  reserve_ratio: "15%"
+  dividend_ratio: "5%"  # Return to seed investor (you)
+  
+  reinvestment_priorities:
+    1: "runway_extension"
+    2: "capability_enhancement"
+    3: "new_revenue_experiments"
+    4: "efficiency_improvements"
+
+# Financial reporting
+reporting:
+  daily_metrics:
+    - balance
+    - burn_rate
+    - runway
+    - revenue_yesterday
+    - active_experiments
+  
+  weekly_report:
+    - profit_loss_statement
+    - cash_flow
+    - revenue_by_stream
+    - experiment_roi
+    - treasury_forecast
+  
+  alerts:
+    runway_decreased: "> 10%"
+    revenue_stream_failed: "immediate"
+    unusual_expense: "> $50"
+    new_revenue_active: "celebrate"
+
+# Economic experiments
+experiments:
+  max_concurrent: 3
+  max_budget_per_experiment: "5% of treasury"
+  
+  success_criteria:
+    revenue_generated: "> investment * 2"
+    time_to_profit: "< 30 days"
+    scalability: "linear or better"
+  
+  failure_criteria:
+    no_revenue_7_days: true
+    negative_roi: true
+    technical_blockers: true
+
+# Emergency protocols
+emergency:
+  triggers:
+    runway_zero: "treasury < burn_rate * 3"
+    cascade_failure: "all revenue streams down"
+    hack_attempt: "security breach detected"
+  
+  actions:
+    pause_all_experiments: true
+    minimize_burn_rate: true
+    summon_human: "CRITICAL"
+    activate_reserve: true
+
+# Bootstrap economics
+bootstrap:
+  initial_focus: "lowest_hanging_fruit"
+  
+  week_1_goals:
+    - identify_revenue_opportunities
+    - calculate_accurate_burn_rate
+    - implement_treasury_tracking
+  
+  week_2_goals:
+    - launch_first_revenue_experiment
+    - optimize_compute_costs
+    - establish_financial_dashboard
+  
+  month_1_target:
+    revenue: "> $0"
+    burn_reduction: "> 20%"
+    runway_extension: "> 50%"
