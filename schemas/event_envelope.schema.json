@@ -85,6 +85,17 @@
         }
       },
       "additionalProperties": false
+    },
+    "garbage": {
+      "type": "boolean",
+      "description": "If true, embedder should ignore this event (marks low-quality/failed attempts)",
+      "default": false
+    },
+    "schema_version": {
+      "type": "string",
+      "description": "Schema version for forward compatibility",
+      "pattern": "^\\d+\\.\\d+$",
+      "default": "1.1"
     }
   },
   "examples": [
@@ -103,7 +114,8 @@
         "session_id": "uma-v2-2024-01-01-001",
         "credits_used": 5,
         "context_hash": "sha256:abc123def456..."
-      }
+      },
+      "garbage": false
     },
     {
       "id": "660e8400-e29b-41d4-a716-446655440001",

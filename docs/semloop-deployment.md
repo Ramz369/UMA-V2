@@ -107,3 +107,13 @@ make semloop-down
 rm -rf ./.semloop-data
 make semloop-up
 ```
+
+## Light-Mode Setup (Future)
+
+A simplified `docker-compose.light.yml` configuration is planned for local experimentation, replacing the full stack with:
+- SQLite with vector extension instead of PostgreSQL
+- File-based event log instead of Redpanda
+- Local file storage instead of MinIO
+- In-memory cache instead of Redis
+
+This light-mode setup will lower the barrier to entry for development and testing. Implementation tracked in roadmap - not yet available.
