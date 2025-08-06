@@ -1,0 +1,95 @@
+version: '3.8'
+
+services:
+  minio:
+    image: minio/minio:RELEASE.2024-05-10T01-41-38Z
+    container_name: semloop-minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"  # MinIO Console
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+      MINIO_SITE_REGION: us-east-1
+    command: server /data --console-address ":9001"
+    volumes:
+      - ./.semloop-data/minio:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/ready"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      - semloop
+
+  redpanda:
+    image: redpandadata/redpanda:v23.3.6
+    container_name: semloop-redpanda
+    ports:
+      - "9092:9092"
+      - "9644:9644"  # Admin API
+      - "8081:8081"  # Schema Registry
+      - "8082:8082"  # Pandaproxy
+    command:
+      - redpanda
+      - start
+      - --smp 1
+      - --memory 1G
+      - --overprovisioned
+      - --node-id 0
+      - --kafka-addr internal://0.0.0.0:9092,external://0.0.0.0:9092
+      - --advertise-kafka-addr internal://redpanda:9092,external://localhost:9092
+      - --pandaproxy-addr internal://0.0.0.0:8082,external://0.0.0.0:8082
+      - --advertise-pandaproxy-addr internal://redpanda:8082,external://localhost:8082
+      - --schema-registry-addr internal://0.0.0.0:8081,external://0.0.0.0:8081
+      - --rpc-addr redpanda:33145
+      - --advertise-rpc-addr redpanda:33145
+    volumes:
+      - ./.semloop-data/redpanda:/var/lib/redpanda/data
+    healthcheck:
+      test: ["CMD-SHELL", "rpk cluster health | grep -E 'Healthy|alive'"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - semloop
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: semloop-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: semloop
+      POSTGRES_PASSWORD: semloop123
+      POSTGRES_DB: semloop
+    volumes:
+      - ./.semloop-data/postgres:/var/lib/postgresql/data
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U semloop -d semloop"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - semloop
+
+  redis:
+    image: redis:7-alpine
+    container_name: semloop-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --save "" --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - ./.semloop-data/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - semloop
+
+networks:
+  semloop:
+    driver: bridge
