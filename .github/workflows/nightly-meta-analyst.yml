@@ -1,0 +1,204 @@
+name: Nightly Meta-Analyst
+
+on:
+  schedule:
+    # Run at 3:00 AM UTC every day
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    # Allow manual trigger for testing
+    inputs:
+      debug:
+        description: 'Enable debug output'
+        required: false
+        default: 'false'
+
+jobs:
+  analyze-metrics:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Full history for trend analysis
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install dependencies
+        run: |
+          pip install pyyaml pandas matplotlib seaborn
+      
+      - name: Generate timestamp
+        id: timestamp
+        run: |
+          echo "date=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+          echo "datetime=$(date +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_OUTPUT
+          echo "year=$(date +'%Y')" >> $GITHUB_OUTPUT
+          echo "month=$(date +'%m')" >> $GITHUB_OUTPUT
+      
+      - name: Run Meta-Analyst
+        id: analysis
+        run: |
+          python tools/meta_analyst.py \
+            --session-summary schemas/session_summary.yaml \
+            --metrics-csv schemas/metrics_v2.csv \
+            --output reports/meta/${{ steps.timestamp.outputs.date }}.md
+          
+          # Check if warnings were generated
+          if grep -q "WARNING:" reports/meta/${{ steps.timestamp.outputs.date }}.md; then
+            echo "has_warnings=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_warnings=false" >> $GITHUB_OUTPUT
+          fi
+          
+          # Extract key metrics for summary
+          TOTAL_CREDITS=$(grep "Total Credits Used:" reports/meta/${{ steps.timestamp.outputs.date }}.md | cut -d: -f2 | xargs)
+          ACTIVE_AGENTS=$(grep "Active Agents:" reports/meta/${{ steps.timestamp.outputs.date }}.md | cut -d: -f2 | xargs)
+          echo "total_credits=$TOTAL_CREDITS" >> $GITHUB_OUTPUT
+          echo "active_agents=$ACTIVE_AGENTS" >> $GITHUB_OUTPUT
+      
+      - name: Generate visualizations
+        if: always()
+        run: |
+          # Create trends chart if enough historical data
+          if [ -f schemas/metrics_v2.csv ]; then
+            python -c "
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from pathlib import Path
+
+# Read metrics
+df = pd.read_csv('schemas/metrics_v2.csv')
+if not df.empty and 'timestamp' in df.columns:
+    df['timestamp'] = pd.to_datetime(df['timestamp'])
+    
+    # Create figure
+    fig, axes = plt.subplots(2, 2, figsize=(12, 8))
+    
+    # Credits over time
+    if 'credits' in df.columns:
+        df.groupby(df['timestamp'].dt.date)['credits'].sum().plot(ax=axes[0,0])
+        axes[0,0].set_title('Daily Credit Usage')
+        axes[0,0].set_xlabel('Date')
+        axes[0,0].set_ylabel('Credits')
+    
+    # Agent activity
+    if 'agent' in df.columns:
+        agent_counts = df['agent'].value_counts().head(10)
+        agent_counts.plot(kind='bar', ax=axes[0,1])
+        axes[0,1].set_title('Top 10 Most Active Agents')
+        axes[0,1].set_xlabel('Agent')
+        axes[0,1].set_ylabel('Tool Calls')
+    
+    # Tool usage
+    if 'tool_call' in df.columns:
+        tool_counts = df['tool_call'].value_counts().head(10)
+        tool_counts.plot(kind='bar', ax=axes[1,0])
+        axes[1,0].set_title('Top 10 Most Used Tools')
+        axes[1,0].set_xlabel('Tool')
+        axes[1,0].set_ylabel('Calls')
+    
+    # Exit status distribution
+    if 'exit_status' in df.columns:
+        status_counts = df['exit_status'].value_counts()
+        status_counts.plot(kind='pie', ax=axes[1,1], autopct='%1.1f%%')
+        axes[1,1].set_title('Exit Status Distribution')
+    
+    plt.tight_layout()
+    plt.savefig('reports/meta/${{ steps.timestamp.outputs.date }}_charts.png')
+    print('Charts saved')
+else:
+    print('No data to visualize')
+            "
+          fi
+      
+      - name: Archive report
+        uses: actions/upload-artifact@v3
+        with:
+          name: meta-analyst-report-${{ steps.timestamp.outputs.date }}
+          path: |
+            reports/meta/${{ steps.timestamp.outputs.date }}.md
+            reports/meta/${{ steps.timestamp.outputs.date }}_charts.png
+      
+      - name: Create or update PR with report
+        if: steps.analysis.outputs.has_warnings == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: Meta-Analyst report for ${{ steps.timestamp.outputs.date }}"
+          title: "🔍 Meta-Analyst Report: ${{ steps.timestamp.outputs.datetime }}"
+          body: |
+            ## Meta-Analyst Nightly Report
+            
+            **Date**: ${{ steps.timestamp.outputs.datetime }}
+            **Total Credits Used**: ${{ steps.analysis.outputs.total_credits }}
+            **Active Agents**: ${{ steps.analysis.outputs.active_agents }}
+            
+            ### ⚠️ Warnings Detected
+            
+            The Meta-Analyst has detected issues that require attention.
+            Please review the full report in `reports/meta/${{ steps.timestamp.outputs.date }}.md`
+            
+            ### Quick Actions
+            
+            - [ ] Review credit usage warnings
+            - [ ] Check agent performance metrics
+            - [ ] Validate error rates are within threshold
+            - [ ] Update credit caps if needed
+            
+            ---
+            *This PR was automatically generated by the Nightly Meta-Analyst workflow.*
+          branch: meta-analyst/report-${{ steps.timestamp.outputs.date }}
+          delete-branch: true
+          labels: |
+            meta-analyst
+            automated
+            metrics
+      
+      - name: Post to Slack (if configured)
+        if: steps.analysis.outputs.has_warnings == 'true' && env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -X POST $SLACK_WEBHOOK_URL \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "text": "🔍 *Meta-Analyst Report*",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Meta-Analyst Nightly Report*\n*Date:* ${{ steps.timestamp.outputs.datetime }}\n*Credits:* ${{ steps.analysis.outputs.total_credits }}\n*Status:* ⚠️ Warnings detected"
+                  }
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "View Report"
+                      },
+                      "url": "https://github.com/${{ github.repository }}/blob/main/reports/meta/${{ steps.timestamp.outputs.date }}.md"
+                    }
+                  ]
+                }
+              ]
+            }'
+      
+      - name: Summary
+        run: |
+          echo "## 📊 Meta-Analyst Report Generated" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Date**: ${{ steps.timestamp.outputs.datetime }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Total Credits**: ${{ steps.analysis.outputs.total_credits }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Active Agents**: ${{ steps.analysis.outputs.active_agents }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Warnings**: ${{ steps.analysis.outputs.has_warnings }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Report saved to: \`reports/meta/${{ steps.timestamp.outputs.date }}.md\`" >> $GITHUB_STEP_SUMMARY
