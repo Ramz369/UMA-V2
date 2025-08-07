@@ -12,7 +12,12 @@ import logging
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any, List, Optional
-import asyncpg
+
+# Make asyncpg optional for testing
+try:
+    import asyncpg
+except ImportError:
+    asyncpg = None
 
 logger = logging.getLogger(__name__)
 

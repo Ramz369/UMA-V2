@@ -1,0 +1,33 @@
+# COGPLAN Project Configuration for Serena
+project_name: COGPLAN
+project_type: python
+language: python
+language_servers:
+  - python
+  - yaml
+  - json
+  - toml
+
+include_paths:
+  - src/
+  - lib/
+  - tests/
+  - scripts/
+
+exclude_paths:
+  - "**/__pycache__/**"
+  - "**/.venv/**"
+  - "**/venv/**"
+  - "**/.tox/**"
+  - "**/.mypy_cache/**"
+  - "**/.pytest_cache/**"
+  - "**/*.egg-info/**"
+  - "**/dist/**"
+  - "**/build/**"
+
+analysis:
+  track_todos: true
+  track_fixmes: true
+  analyze_complexity: true
+  dead_code_detection: true
+  type_checking: true
