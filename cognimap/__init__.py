@@ -21,13 +21,13 @@ CogniMap - Living Architecture Visualization System
 __version__ = "0.1.0"
 
 from .core.fingerprint import Fingerprint
-from .core.scanner import Scanner
-from .core.analyzer import Analyzer
+from .core.scanner import CodeScanner
+from .core.analyzer import SemanticAnalyzer
 from .core.protocol import CogniMapProtocol
 
 __all__ = [
     "Fingerprint",
-    "Scanner", 
-    "Analyzer",
+    "CodeScanner", 
+    "SemanticAnalyzer",
     "CogniMapProtocol"
 ]

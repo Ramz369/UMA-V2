@@ -28,11 +28,14 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 import logging
 from typing import Optional
 
-from core.fingerprint import Fingerprint, FingerprintInjector
+from core.fingerprint import Fingerprint, FingerprintInjector, FingerprintCleaner
 from core.scanner import CodeScanner
 from core.analyzer import SemanticAnalyzer
 from core.protocol import CogniMapProtocol
 from collectors.serena_collector import SerenaMCPCollector
+from graph.graph_builder import GraphBuilder, GraphDatabase
+from graph.graph_analyzer import GraphAnalyzer  
+from graph.graph_visualizer import GraphVisualizer
 
 console = Console()
 logger = logging.getLogger(__name__)
@@ -329,15 +332,10 @@ def export(path: str, output: Optional[str], format: str):
         console.print("[red]❌ CogniMap not initialized. Run 'cognimap init' first.[/red]")
         return
     
-    # Build graph (simplified)
-    graph = {
-        'nodes': [],
-        'edges': [],
-        'metadata': {
-            'format': format,
-            'project': str(Path(path).absolute())
-        }
-    }
+    # Build actual graph from fingerprints
+    console.print("Building graph from fingerprints...")
+    builder = GraphBuilder(path)
+    graph = builder.build()
     
     # Output
     if output:
@@ -353,6 +351,80 @@ def export(path: str, output: Optional[str], format: str):
         return
     
     console.print(f"✅ Graph exported to {output_path}")
+
+
+@cli.command()
+@click.option('--path', '-p', default='.', help='Project root path')
+@click.option('--output', '-o', help='Output file path')
+@click.option('--format', '-f', type=click.Choice(['text', 'tree', 'mermaid']), default='text', help='Visualization format')
+def visualize(path: str, output: Optional[str], format: str):
+    """Generate architecture visualization."""
+    
+    console.print(f"[bold blue]🎨 Creating architecture visualization[/bold blue]")
+    
+    # Build graph
+    builder = GraphBuilder(path)
+    graph = builder.build()
+    
+    # Create visualization
+    visualizer = GraphVisualizer(graph)
+    
+    if format == 'text':
+        visualization = visualizer.create_text_visualization()
+    elif format == 'tree':
+        visualization = visualizer.create_dependency_tree()
+    elif format == 'mermaid':
+        visualization = visualizer.create_mermaid_diagram()
+    else:
+        visualization = visualizer.create_text_visualization()
+    
+    # Output
+    if output:
+        Path(output).write_text(visualization)
+        console.print(f"✅ Visualization saved to {output}")
+    else:
+        console.print(visualization)
+
+
+@cli.command()
+@click.option('--path', '-p', default='.', help='Project root path')
+def analyze(path: str):
+    """Analyze architecture for issues and patterns."""
+    
+    console.print(f"[bold blue]🔍 Analyzing architecture[/bold blue]")
+    
+    # Build graph
+    builder = GraphBuilder(path)
+    graph = builder.build()
+    
+    # Analyze
+    analyzer = GraphAnalyzer(graph)
+    analysis = analyzer.analyze()
+    
+    # Display results
+    console.print("\n[bold]🔄 CIRCULAR DEPENDENCIES[/bold]")
+    if analysis['circular_dependencies']:
+        for cycle in analysis['circular_dependencies']:
+            console.print(f"  ⚠️  {' -> '.join(Path(f).stem for f in cycle)}")
+    else:
+        console.print("  ✅ No circular dependencies found")
+    
+    console.print("\n[bold]📊 COMPLEXITY ANALYSIS[/bold]")
+    for filepath, score in analysis['complexity_analysis']['most_complex_files'][:5]:
+        console.print(f"  • {Path(filepath).stem}: {score}")
+    
+    console.print("\n[bold]🏗️ ARCHITECTURAL ISSUES[/bold]")
+    issues = analysis['architectural_issues']
+    if issues:
+        for issue in issues:
+            severity_color = {'high': 'red', 'medium': 'yellow', 'low': 'blue'}.get(issue['severity'], 'white')
+            console.print(f"  [{severity_color}]{issue['severity'].upper()}[/{severity_color}]: {issue['description']}")
+    else:
+        console.print("  ✅ No major issues found")
+    
+    console.print("\n[bold]💡 RECOMMENDATIONS[/bold]")
+    for rec in analysis['recommendations']:
+        console.print(f"  {rec}")
 
 
 @cli.command()
