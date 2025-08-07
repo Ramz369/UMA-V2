@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: 963c2346-7b0b-4a52-b2b9-1e05f79b081d
+birth: 2025-08-07T07:23:38.089767Z
+parent: None
+intent: Intent Substrate - The Consciousness Layer of the Aether Protocol
+semantic_tags: [database, testing, model, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.090599Z
+hash: 79bf9dc2
+language: python
+type: component
+@end:cognimap
+"""
+
+"""
 Intent Substrate - The Consciousness Layer of the Aether Protocol
 
 This module implements the Intent substrate, which tracks the consciousness

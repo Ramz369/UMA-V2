@@ -1,3 +1,19 @@
+
+"""
+@cognimap:fingerprint
+id: 86f8ab30-2e41-43f5-94c7-0031119fba08
+birth: 2025-08-07T07:23:38.073874Z
+parent: None
+intent: CogniMap Setup Script
+semantic_tags: [authentication, database, api, testing, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.074009Z
+hash: 9297f52a
+language: python
+type: component
+@end:cognimap
+"""
+
 """
 CogniMap Setup Script
 """

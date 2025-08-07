@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+"""
+@cognimap:fingerprint
+id: a0ee398b-9374-4155-abf1-07af981a4bac
+birth: 2025-08-07T07:23:38.072770Z
+parent: None
+intent: Integration test for Evolution Engine with Kafka wiring.
+semantic_tags: [testing, utility, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.073046Z
+hash: f36322a8
+language: python
+type: test
+@end:cognimap
+"""
+
 """Integration test for Evolution Engine with Kafka wiring."""
 import asyncio
 import logging

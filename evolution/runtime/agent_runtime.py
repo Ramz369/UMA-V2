@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+"""
+@cognimap:fingerprint
+id: 0dfb9b60-f130-481b-93b2-eaf095536113
+birth: 2025-08-07T07:23:38.083084Z
+parent: None
+intent: Agent Runtime - Manages agent lifecycle and Kafka I/O.
+semantic_tags: [api, testing, ui, service, utility, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.083660Z
+hash: 670b7c05
+language: python
+type: agent
+@end:cognimap
+"""
+
 """Agent Runtime - Manages agent lifecycle and Kafka I/O."""
 import asyncio
 import logging

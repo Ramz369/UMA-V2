@@ -1,3 +1,19 @@
+
+"""
+@cognimap:fingerprint
+id: 693c88f0-2b6f-4574-a54a-a7f3a30c24b3
+birth: 2025-08-07T07:23:38.060265Z
+parent: None
+intent: GitHub Client - Wrapper for GitHub API operations via gh CLI.
+semantic_tags: [authentication, api, testing, ui, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.060699Z
+hash: f2b5ca04
+language: python
+type: tool
+@end:cognimap
+"""
+
 """GitHub Client - Wrapper for GitHub API operations via gh CLI."""
 import subprocess
 import json

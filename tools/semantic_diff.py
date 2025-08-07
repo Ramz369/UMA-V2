@@ -1,3 +1,19 @@
+
+"""
+@cognimap:fingerprint
+id: eab608ac-719f-45c9-afc5-2e5f257cef47
+birth: 2025-08-07T07:23:38.062022Z
+parent: None
+intent: AST-aware diff for JSON / YAML / SQL - Production Implementation.
+semantic_tags: [authentication, database, testing, security]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.062321Z
+hash: affecaba
+language: python
+type: tool
+@end:cognimap
+"""
+
 """AST-aware diff for JSON / YAML / SQL - Production Implementation."""
 from __future__ import annotations
 import json

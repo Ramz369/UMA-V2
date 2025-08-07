@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: fc957b14-4b15-474c-b6fb-2bd28424e7b9
+birth: 2025-08-07T07:23:38.073142Z
+parent: None
+intent: CogniMap CLI - Command-line interface for architecture visualization.
+semantic_tags: [authentication, database, api, service, utility, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.073724Z
+hash: d91185b5
+language: python
+type: component
+@end:cognimap
+"""
+
+"""
 CogniMap CLI - Command-line interface for architecture visualization.
 """
 
@@ -13,8 +28,11 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 import logging
 from typing import Optional
 
-from cognimap.core import Fingerprint, FingerprintInjector, CodeScanner, SemanticAnalyzer
-from cognimap.collectors import SerenaMCPCollector
+from core.fingerprint import Fingerprint, FingerprintInjector
+from core.scanner import CodeScanner
+from core.analyzer import SemanticAnalyzer
+from core.protocol import CogniMapProtocol
+from collectors.serena_collector import SerenaMCPCollector
 
 console = Console()
 logger = logging.getLogger(__name__)
@@ -203,6 +221,97 @@ def status(path: str, format: str):
         console.print_json(data=state)
     elif format == 'yaml':
         console.print(yaml.dump(state, default_flow_style=False))
+
+
+@cli.command()
+@click.option('--path', '-p', default='.', help='Project root path')
+@click.option('--dry-run', is_flag=True, help='Show what would be cleaned without actually doing it')
+@click.option('--verbose', '-v', is_flag=True, help='Verbose output')
+@click.confirmation_option(prompt='Are you sure you want to remove all CogniMap fingerprints?')
+def cleanup(path: str, dry_run: bool, verbose: bool):
+    """Remove all CogniMap fingerprints from files."""
+    from core.fingerprint import FingerprintCleaner
+    
+    console.print(f"[bold yellow]🧹 Cleaning CogniMap fingerprints[/bold yellow]")
+    console.print(f"Project path: {Path(path).absolute()}")
+    
+    if dry_run:
+        console.print("[yellow]DRY RUN MODE - No files will be modified[/yellow]")
+    
+    # Find all files with fingerprints
+    project_path = Path(path)
+    cleaned_count = 0
+    error_count = 0
+    
+    with Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description}"),
+        console=console
+    ) as progress:
+        # Discover files
+        task1 = progress.add_task("Scanning for fingerprints...", total=None)
+        
+        files_with_fingerprints = []
+        for filepath in project_path.rglob('*'):
+            if not filepath.is_file():
+                continue
+            if not _is_code_file(filepath):
+                continue
+            
+            try:
+                content = filepath.read_text(encoding='utf-8')
+                if '@cognimap:fingerprint' in content:
+                    files_with_fingerprints.append(filepath)
+            except:
+                continue
+        
+        progress.update(task1, completed=True)
+        console.print(f"✅ Found {len(files_with_fingerprints)} files with fingerprints")
+        
+        if not files_with_fingerprints:
+            console.print("[green]No fingerprints found. Project is clean![/green]")
+            return
+        
+        # Clean fingerprints
+        task2 = progress.add_task("Removing fingerprints...", total=len(files_with_fingerprints))
+        
+        for filepath in files_with_fingerprints:
+            try:
+                if verbose:
+                    console.print(f"  Cleaning: {filepath}")
+                
+                if not dry_run:
+                    if FingerprintCleaner.clean(str(filepath)):
+                        cleaned_count += 1
+                    else:
+                        error_count += 1
+                        if verbose:
+                            console.print(f"    [red]Failed to clean {filepath}[/red]")
+                else:
+                    cleaned_count += 1
+                
+                progress.update(task2, advance=1)
+            except Exception as e:
+                error_count += 1
+                if verbose:
+                    console.print(f"    [red]Error cleaning {filepath}: {e}[/red]")
+                progress.update(task2, advance=1)
+    
+    # Summary
+    if dry_run:
+        console.print(f"[yellow]Would remove fingerprints from {cleaned_count} files[/yellow]")
+    else:
+        console.print(f"✅ Removed fingerprints from {cleaned_count} files")
+        if error_count > 0:
+            console.print(f"[red]⚠️  Failed to clean {error_count} files[/red]")
+    
+    # Clean up .cognimap directory if not dry run
+    if not dry_run:
+        cognimap_dir = project_path / '.cognimap'
+        if cognimap_dir.exists():
+            import shutil
+            shutil.rmtree(cognimap_dir)
+            console.print("✅ Removed .cognimap directory")
 
 
 @cli.command()

@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: 9671c758-8606-4573-a9ff-5c3a0b0d14f1
+birth: 2025-08-07T07:23:38.093313Z
+parent: None
+intent: Karmic Orchestrator - The Balance Layer of the Aether Protocol
+semantic_tags: [database, api, testing, ui, model, configuration, security]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.093803Z
+hash: b0ef3746
+language: python
+type: component
+@end:cognimap
+"""
+
+"""
 Karmic Orchestrator - The Balance Layer of the Aether Protocol
 
 This module implements Sprint 2: Foundation of Balance, managing karmic

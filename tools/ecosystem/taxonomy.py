@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: ac96c1ab-5909-4089-824f-a6f5994240bc
+birth: 2025-08-07T07:23:38.074092Z
+parent: None
+intent: Tool Taxonomy System for COGPLAN
+semantic_tags: [api, testing, model, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.074839Z
+hash: dc94ee1d
+language: python
+type: tool
+@end:cognimap
+"""
+
+"""
 Tool Taxonomy System for COGPLAN
 
 Classifies tools into atomic (simple) and composite (complex) categories,

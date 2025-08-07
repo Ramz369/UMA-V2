@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+"""
+@cognimap:fingerprint
+id: 32533c6d-fc4f-4f0b-8105-ce049ce1d3fe
+birth: 2025-08-07T07:23:38.086164Z
+parent: None
+intent: Initialize the Evolution Treasury wallet with seed budget.
+semantic_tags: [database, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.086344Z
+hash: 70c60404
+language: python
+type: component
+@end:cognimap
+"""
+
 """Initialize the Evolution Treasury wallet with seed budget."""
 import json
 import argparse

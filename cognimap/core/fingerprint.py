@@ -5,10 +5,13 @@ CogniMap Fingerprint System - Unique semantic identity for every file.
 import uuid
 import json
 import re
+import logging
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any, Optional, List
 import hashlib
+
+logger = logging.getLogger(__name__)
 
 
 class Fingerprint:
@@ -212,6 +215,65 @@ class Fingerprint:
     def to_dict(self) -> Dict[str, Any]:
         """Get fingerprint as dictionary."""
         return self.data.copy()
+
+
+class FingerprintCleaner:
+    """Handles removal of fingerprints from files."""
+    
+    @staticmethod
+    def clean(filepath: str) -> bool:
+        """Remove fingerprint from a file."""
+        try:
+            filepath = Path(filepath)
+            content = filepath.read_text(encoding='utf-8')
+            
+            # Check if file has fingerprint
+            if '@cognimap:fingerprint' not in content:
+                return True  # Already clean
+            
+            # Find and remove fingerprint block
+            lines = content.split('\n')
+            cleaned_lines = []
+            in_fingerprint = False
+            skip_next_empty = False
+            
+            for i, line in enumerate(lines):
+                if '@cognimap:fingerprint' in line:
+                    in_fingerprint = True
+                    # Also remove the opening comment marker (previous line)
+                    if cleaned_lines and (cleaned_lines[-1].strip() in ('"""', '/*', '<!--', '#')):
+                        cleaned_lines.pop()
+                    continue
+                elif '@end:cognimap' in line:
+                    in_fingerprint = False
+                    skip_next_empty = True
+                    # Skip the closing comment marker on next line
+                    continue
+                elif in_fingerprint:
+                    continue
+                elif skip_next_empty:
+                    # Skip closing comment markers and empty lines after fingerprint
+                    if line.strip() in ('"""', '*/', '-->', '') or (line.strip() == '' and i < len(lines) - 1):
+                        skip_next_empty = False
+                        continue
+                    else:
+                        skip_next_empty = False
+                        cleaned_lines.append(line)
+                else:
+                    cleaned_lines.append(line)
+            
+            # Remove extra empty lines at the beginning
+            while cleaned_lines and cleaned_lines[0].strip() == '':
+                cleaned_lines.pop(0)
+            
+            # Write cleaned content
+            cleaned_content = '\n'.join(cleaned_lines)
+            filepath.write_text(cleaned_content, encoding='utf-8')
+            return True
+            
+        except Exception as e:
+            logger.error(f"Failed to clean fingerprint from {filepath}: {e}")
+            return False
 
 
 class FingerprintInjector:

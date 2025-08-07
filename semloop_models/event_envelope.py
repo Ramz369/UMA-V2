@@ -1,3 +1,19 @@
+
+"""
+@cognimap:fingerprint
+id: 9d5a12cf-7e67-41c2-980b-d3fbf1c53297
+birth: 2025-08-07T07:23:38.072132Z
+parent: None
+intent: Event envelope data model for SemLoop.
+semantic_tags: [testing, model, configuration, security]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.072272Z
+hash: 8e120ee9
+language: python
+type: model
+@end:cognimap
+"""
+
 """Event envelope data model for SemLoop."""
 from datetime import datetime
 from enum import Enum

@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: e93b9b81-8df0-4923-aeea-df0130328f26
+birth: 2025-08-07T07:23:38.068778Z
+parent: None
+intent: Test Suite for Aether Protocol Sprint 2: Karmic Ledger
+semantic_tags: [database, api, testing, model, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.069255Z
+hash: 95cc4115
+language: python
+type: test
+@end:cognimap
+"""
+
+"""
 Test Suite for Aether Protocol Sprint 2: Karmic Ledger
 
 Verifies the balance layer implementation including:
