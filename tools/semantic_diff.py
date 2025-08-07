@@ -3,8 +3,13 @@ from __future__ import annotations
 import json
 import sys
 import yaml
-import sqlparse
 from typing import Dict, List, Any, Tuple, Optional
+
+# Make sqlparse optional for testing
+try:
+    import sqlparse
+except ImportError:
+    sqlparse = None
 from dataclasses import dataclass
 from enum import Enum
 import hashlib
@@ -140,6 +145,10 @@ class SemanticDiffer:
     
     def _diff_sql(self, old_text: str, new_text: str) -> dict:
         """Parse and diff SQL statements."""
+        if sqlparse is None:
+            # Fallback to text diff if sqlparse not available
+            return self._diff_text(old_text, new_text)
+        
         old_parsed = sqlparse.parse(old_text)
         new_parsed = sqlparse.parse(new_text)
         

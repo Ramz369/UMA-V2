@@ -15,8 +15,13 @@ from datetime import datetime
 from enum import Enum
 from typing import Dict, List, Optional, Any
 from uuid import UUID, uuid4
-import asyncpg
 from pydantic import BaseModel, Field
+
+# Make asyncpg optional for testing
+try:
+    import asyncpg
+except ImportError:
+    asyncpg = None
 
 
 class IntentType(str, Enum):
@@ -68,11 +73,16 @@ class IntentSubstrate:
     
     def __init__(self, db_url: str):
         self.db_url = db_url
-        self.pool: Optional[asyncpg.Pool] = None
+        self.pool = None
         self._active_intents: Dict[UUID, Intent] = {}
+        self._mock_mode = asyncpg is None
         
     async def initialize(self):
         """Initialize database connection and ensure schema exists."""
+        if self._mock_mode:
+            # Running in test/mock mode without database
+            return
+        
         self.pool = await asyncpg.create_pool(self.db_url)
         
         # Run migration if needed

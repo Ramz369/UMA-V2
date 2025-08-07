@@ -248,8 +248,8 @@ async def test_tools_and_services():
     
     # Test Semantic Diff
     try:
-        from tools.semantic_diff import SemanticDiff
-        diff_tool = SemanticDiff()
+        from tools.semantic_diff import SemanticDiffer
+        diff_tool = SemanticDiffer()
         
         # Test diff
         result = diff_tool.compute_diff("text1", "text2")
