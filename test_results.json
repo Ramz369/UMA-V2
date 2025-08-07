@@ -1,0 +1,184 @@
+{
+  "timestamp": "2025-08-07T06:15:40.144098",
+  "total_components": 35,
+  "passed": 23,
+  "failed": 7,
+  "skipped": 5,
+  "results": {
+    "evolution.agents.auditor_agent": {
+      "status": "SKIP",
+      "details": "Import error: No module named 'evolution.agents.auditor_agent'",
+      "timestamp": "2025-08-07T06:15:40.144569"
+    },
+    "evolution.agents.reviewer_agent": {
+      "status": "SKIP",
+      "details": "Import error: No module named 'evolution.agents.reviewer_agent'",
+      "timestamp": "2025-08-07T06:15:40.144600"
+    },
+    "evolution.agents.architect_agent": {
+      "status": "PASS",
+      "details": "Module structure valid",
+      "timestamp": "2025-08-07T06:15:40.144693"
+    },
+    "evolution.agents.implementor_agent": {
+      "status": "PASS",
+      "details": "Module structure valid",
+      "timestamp": "2025-08-07T06:15:40.144785"
+    },
+    "evolution.agents.treasurer_agent": {
+      "status": "PASS",
+      "details": "Module structure valid",
+      "timestamp": "2025-08-07T06:15:40.144874"
+    },
+    "evolution.orchestrator": {
+      "status": "PASS",
+      "details": "Orchestrator initialized",
+      "timestamp": "2025-08-07T06:15:40.169984"
+    },
+    "evolution.runtime": {
+      "status": "FAIL",
+      "details": "AgentRuntime.__init__() missing 2 required positional arguments: 'agent_class' and 'agent_id'",
+      "timestamp": "2025-08-07T06:15:40.170464"
+    },
+    "aether.intent_substrate": {
+      "status": "FAIL",
+      "details": "No module named 'asyncpg'",
+      "timestamp": "2025-08-07T06:15:40.172101"
+    },
+    "aether.polarity_calculator": {
+      "status": "PASS",
+      "details": "Polarity: 0.0",
+      "timestamp": "2025-08-07T06:15:40.172451"
+    },
+    "aether.polarity_embedder": {
+      "status": "PASS",
+      "details": "Embedder initialized",
+      "timestamp": "2025-08-07T06:15:40.240408"
+    },
+    "aether.karmic_orchestrator": {
+      "status": "PASS",
+      "details": "Karmic system initialized",
+      "timestamp": "2025-08-07T06:15:40.242139"
+    },
+    "aether.karma_runtime": {
+      "status": "PASS",
+      "details": "Karma tracking: 0.1",
+      "timestamp": "2025-08-07T06:15:40.243104"
+    },
+    "aether.resonance_analyzer": {
+      "status": "PASS",
+      "details": "Pattern detected: standing_wave",
+      "timestamp": "2025-08-07T06:15:40.247214"
+    },
+    "aether.unified_field": {
+      "status": "PASS",
+      "details": "Consciousness: 79.8% (CONSCIOUS)",
+      "timestamp": "2025-08-07T06:15:40.250698"
+    },
+    "agents.planner": {
+      "status": "PASS",
+      "details": "Plan created with 2 phases",
+      "timestamp": "2025-08-07T06:15:40.251797"
+    },
+    "agents.codegen": {
+      "status": "PASS",
+      "details": "Codegen agent initialized",
+      "timestamp": "2025-08-07T06:15:40.252898"
+    },
+    "agents.tool_hunter": {
+      "status": "FAIL",
+      "details": "ToolHunterAgent.discover_tools() got an unexpected keyword argument 'search_mcp'",
+      "timestamp": "2025-08-07T06:15:40.298972"
+    },
+    "tools.credit_sentinel": {
+      "status": "FAIL",
+      "details": "'CreditSentinel' object has no attribute 'log_credit_usage'",
+      "timestamp": "2025-08-07T06:15:40.301738"
+    },
+    "tools.semantic_diff": {
+      "status": "FAIL",
+      "details": "No module named 'sqlparse'",
+      "timestamp": "2025-08-07T06:15:40.301985"
+    },
+    "tools.har_analyzer": {
+      "status": "SKIP",
+      "details": "Requires HAR file",
+      "timestamp": "2025-08-07T06:15:40.303313"
+    },
+    "services.embedder": {
+      "status": "FAIL",
+      "details": "EmbedderService.__init__() missing 2 required positional arguments: 'kafka_consumer' and 'vector_store'",
+      "timestamp": "2025-08-07T06:15:40.303738"
+    },
+    "tools.session_summarizer": {
+      "status": "PASS",
+      "details": "Summary generated",
+      "timestamp": "2025-08-07T06:15:40.617576"
+    },
+    "schema.event_envelope.schema": {
+      "status": "PASS",
+      "details": "Schema file exists",
+      "timestamp": "2025-08-07T06:15:40.617621"
+    },
+    "schema.session_summary.schema": {
+      "status": "PASS",
+      "details": "Schema file exists",
+      "timestamp": "2025-08-07T06:15:40.617634"
+    },
+    "schema.session_summary": {
+      "status": "PASS",
+      "details": "Schema file exists",
+      "timestamp": "2025-08-07T06:15:40.617645"
+    },
+    "schema.metrics_v2": {
+      "status": "PASS",
+      "details": "Schema file exists",
+      "timestamp": "2025-08-07T06:15:40.617653"
+    },
+    "schema.risks": {
+      "status": "PASS",
+      "details": "Schema file exists",
+      "timestamp": "2025-08-07T06:15:40.617662"
+    },
+    "schema.tasks_v2": {
+      "status": "PASS",
+      "details": "Schema file exists",
+      "timestamp": "2025-08-07T06:15:40.617670"
+    },
+    "docker.docker-compose": {
+      "status": "SKIP",
+      "details": "File not found",
+      "timestamp": "2025-08-07T06:15:40.617689"
+    },
+    "docker.semloop-stack": {
+      "status": "PASS",
+      "details": "Configuration exists",
+      "timestamp": "2025-08-07T06:15:40.617699"
+    },
+    "docker.docker-compose.evo": {
+      "status": "PASS",
+      "details": "Configuration exists",
+      "timestamp": "2025-08-07T06:15:40.617709"
+    },
+    "script.setup_evolution": {
+      "status": "SKIP",
+      "details": "Script not found",
+      "timestamp": "2025-08-07T06:15:40.617719"
+    },
+    "script.start_evolution": {
+      "status": "PASS",
+      "details": "Script exists",
+      "timestamp": "2025-08-07T06:15:40.617727"
+    },
+    "integration.evolution_aether": {
+      "status": "FAIL",
+      "details": "No module named 'asyncpg'",
+      "timestamp": "2025-08-07T06:15:40.622387"
+    },
+    "integration.agent_karma": {
+      "status": "PASS",
+      "details": "Karma-aware agents work",
+      "timestamp": "2025-08-07T06:15:40.622426"
+    }
+  }
+}
