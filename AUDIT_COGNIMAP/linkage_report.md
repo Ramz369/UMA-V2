@@ -1,0 +1,137 @@
+# CogniMap Linkage Report
+
+## Outward Imports (cognimap -> external)
+- `cognimap/__init__.py`
+  - core.analyzer.SemanticAnalyzer
+  - core.fingerprint.Fingerprint
+  - core.protocol.CogniMapProtocol
+  - core.scanner.CodeScanner
+- `cognimap/cli.py`
+  - click
+  - collectors.serena_collector.SerenaMCPCollector
+  - core.analyzer.SemanticAnalyzer
+  - core.fingerprint.Fingerprint
+  - core.fingerprint.FingerprintCleaner
+  - core.fingerprint.FingerprintInjector
+  - core.protocol.CogniMapProtocol
+  - core.scanner.CodeScanner
+  - graph.graph_analyzer.GraphAnalyzer
+  - graph.graph_builder.GraphBuilder
+  - graph.graph_builder.GraphDatabase
+  - graph.graph_visualizer.GraphVisualizer
+  - json
+  - logging
+  - pathlib.Path
+  - rich.console.Console
+  - rich.progress.Progress
+  - rich.progress.SpinnerColumn
+  - rich.progress.TextColumn
+  - rich.table.Table
+  - shutil
+  - typing.Optional
+  - yaml
+- `cognimap/collectors/__init__.py`
+  - serena_collector.SerenaMCPCollector
+  - serena_collector.SerenaMCPTool
+- `cognimap/collectors/serena_collector.py`
+  - core.fingerprint.Fingerprint
+  - core.fingerprint.FingerprintInjector
+  - datetime.datetime
+  - json
+  - logging
+  - pathlib.Path
+  - re
+  - typing.Any
+  - typing.Dict
+  - typing.List
+  - typing.Optional
+  - uuid
+- `cognimap/core/__init__.py`
+  - analyzer.IntentExtractor
+  - analyzer.SemanticAnalyzer
+  - fingerprint.Fingerprint
+  - fingerprint.FingerprintCleaner
+  - fingerprint.FingerprintInjector
+  - protocol.CogniMapProtocol
+  - protocol.ProtocolVersion
+  - scanner.CodeScanner
+  - scanner.MultiLanguageParser
+- `cognimap/core/analyzer.py`
+  - datetime.datetime
+  - hashlib
+  - json
+  - pathlib.Path
+  - re
+  - typing.Any
+  - typing.Dict
+  - typing.List
+  - typing.Optional
+  - typing.Set
+  - typing.Tuple
+- `cognimap/core/fingerprint.py`
+  - datetime.datetime
+  - hashlib
+  - json
+  - logging
+  - pathlib.Path
+  - re
+  - typing.Any
+  - typing.Dict
+  - typing.List
+  - typing.Optional
+  - uuid
+- `cognimap/core/protocol.py`
+  - dataclasses.asdict
+  - dataclasses.dataclass
+  - datetime.datetime
+  - enum.Enum
+  - json
+  - typing.Any
+  - typing.Dict
+  - typing.List
+  - typing.Optional
+- `cognimap/core/scanner.py`
+  - ast
+  - json
+  - pathlib.Path
+  - re
+  - typing.Any
+  - typing.Dict
+  - typing.List
+  - typing.Optional
+  - typing.Set
+- `cognimap/graph/__init__.py`
+  - graph_analyzer.GraphAnalyzer
+  - graph_builder.GraphBuilder
+  - graph_builder.GraphDatabase
+  - graph_visualizer.GraphVisualizer
+- `cognimap/graph/graph_analyzer.py`
+  - pathlib.Path
+  - typing.Any
+  - typing.Dict
+  - typing.List
+  - typing.Set
+  - typing.Tuple
+- `cognimap/graph/graph_builder.py`
+  - ast
+  - datetime.datetime
+  - json
+  - pathlib.Path
+  - re
+  - typing.Any
+  - typing.Dict
+  - typing.List
+  - typing.Set
+  - typing.Tuple
+- `cognimap/graph/graph_visualizer.py`
+  - pathlib.Path
+  - typing.Any
+  - typing.Dict
+  - typing.List
+- `cognimap/setup.py`
+  - pathlib.Path
+  - setuptools.find_packages
+  - setuptools.setup
+
+## External Imports (external -> cognimap)
+- `architecture_view.py` imports `cognimap.graph.graph_builder.GraphBuilder`

@@ -34,7 +34,7 @@ services:
       - redpanda
       - start
       - --smp 1
-      - --memory 1G
+      - --memory 512M
       - --overprovisioned
       - --node-id 0
       - --kafka-addr internal://0.0.0.0:9092,external://0.0.0.0:9092

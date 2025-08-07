@@ -1,0 +1,834 @@
+{
+  "nodes": [
+    {
+      "id": "cognimap/__init__.py",
+      "loc": 33,
+      "hash": "831b7ddc8d8bac4e",
+      "has_fingerprint": true
+    },
+    {
+      "id": "core.fingerprint.Fingerprint"
+    },
+    {
+      "id": "core.scanner.CodeScanner"
+    },
+    {
+      "id": "core.analyzer.SemanticAnalyzer"
+    },
+    {
+      "id": "core.protocol.CogniMapProtocol"
+    },
+    {
+      "id": "cognimap/cli.py",
+      "loc": 488,
+      "hash": "8b83edfcc1c35e18",
+      "has_fingerprint": true
+    },
+    {
+      "id": "click"
+    },
+    {
+      "id": "yaml"
+    },
+    {
+      "id": "json"
+    },
+    {
+      "id": "pathlib.Path"
+    },
+    {
+      "id": "rich.console.Console"
+    },
+    {
+      "id": "rich.table.Table"
+    },
+    {
+      "id": "rich.progress.Progress"
+    },
+    {
+      "id": "rich.progress.SpinnerColumn"
+    },
+    {
+      "id": "rich.progress.TextColumn"
+    },
+    {
+      "id": "logging"
+    },
+    {
+      "id": "typing.Optional"
+    },
+    {
+      "id": "core.fingerprint.FingerprintInjector"
+    },
+    {
+      "id": "core.fingerprint.FingerprintCleaner"
+    },
+    {
+      "id": "collectors.serena_collector.SerenaMCPCollector"
+    },
+    {
+      "id": "graph.graph_builder.GraphBuilder"
+    },
+    {
+      "id": "graph.graph_builder.GraphDatabase"
+    },
+    {
+      "id": "graph.graph_analyzer.GraphAnalyzer"
+    },
+    {
+      "id": "graph.graph_visualizer.GraphVisualizer"
+    },
+    {
+      "id": "shutil"
+    },
+    {
+      "id": "cognimap/setup.py",
+      "loc": 95,
+      "hash": "500bbde80a069016",
+      "has_fingerprint": true
+    },
+    {
+      "id": "setuptools.setup"
+    },
+    {
+      "id": "setuptools.find_packages"
+    },
+    {
+      "id": "cognimap/graph/__init__.py",
+      "loc": 14,
+      "hash": "edb6eb8610c951c2",
+      "has_fingerprint": false
+    },
+    {
+      "id": "graph_builder.GraphBuilder"
+    },
+    {
+      "id": "graph_builder.GraphDatabase"
+    },
+    {
+      "id": "graph_analyzer.GraphAnalyzer"
+    },
+    {
+      "id": "graph_visualizer.GraphVisualizer"
+    },
+    {
+      "id": "cognimap/graph/graph_visualizer.py",
+      "loc": 187,
+      "hash": "f7c804c03622cabb",
+      "has_fingerprint": false
+    },
+    {
+      "id": "typing.Dict"
+    },
+    {
+      "id": "typing.List"
+    },
+    {
+      "id": "typing.Any"
+    },
+    {
+      "id": "cognimap/graph/graph_analyzer.py",
+      "loc": 280,
+      "hash": "cf06eb068c0ea5b5",
+      "has_fingerprint": false
+    },
+    {
+      "id": "typing.Set"
+    },
+    {
+      "id": "typing.Tuple"
+    },
+    {
+      "id": "cognimap/graph/graph_builder.py",
+      "loc": 371,
+      "hash": "b406a8bbc4a5f58f",
+      "has_fingerprint": true
+    },
+    {
+      "id": "re"
+    },
+    {
+      "id": "datetime.datetime"
+    },
+    {
+      "id": "ast"
+    },
+    {
+      "id": "cognimap/collectors/__init__.py",
+      "loc": 26,
+      "hash": "1a351ea5b925684b",
+      "has_fingerprint": true
+    },
+    {
+      "id": "serena_collector.SerenaMCPCollector"
+    },
+    {
+      "id": "serena_collector.SerenaMCPTool"
+    },
+    {
+      "id": "cognimap/collectors/serena_collector.py",
+      "loc": 464,
+      "hash": "2fa5fd9b02d4260b",
+      "has_fingerprint": true
+    },
+    {
+      "id": "uuid"
+    },
+    {
+      "id": "cognimap/core/analyzer.py",
+      "loc": 482,
+      "hash": "7bcac65d8c6157d8",
+      "has_fingerprint": true
+    },
+    {
+      "id": "hashlib"
+    },
+    {
+      "id": "cognimap/core/__init__.py",
+      "loc": 38,
+      "hash": "adb389b8c2e811c4",
+      "has_fingerprint": true
+    },
+    {
+      "id": "fingerprint.Fingerprint"
+    },
+    {
+      "id": "fingerprint.FingerprintInjector"
+    },
+    {
+      "id": "fingerprint.FingerprintCleaner"
+    },
+    {
+      "id": "scanner.CodeScanner"
+    },
+    {
+      "id": "scanner.MultiLanguageParser"
+    },
+    {
+      "id": "analyzer.SemanticAnalyzer"
+    },
+    {
+      "id": "analyzer.IntentExtractor"
+    },
+    {
+      "id": "protocol.CogniMapProtocol"
+    },
+    {
+      "id": "protocol.ProtocolVersion"
+    },
+    {
+      "id": "cognimap/core/fingerprint.py",
+      "loc": 381,
+      "hash": "3e8f17a0f452bdc3",
+      "has_fingerprint": true
+    },
+    {
+      "id": "cognimap/core/protocol.py",
+      "loc": 339,
+      "hash": "09c08cabb0a1ce52",
+      "has_fingerprint": true
+    },
+    {
+      "id": "enum.Enum"
+    },
+    {
+      "id": "dataclasses.dataclass"
+    },
+    {
+      "id": "dataclasses.asdict"
+    },
+    {
+      "id": "cognimap/core/scanner.py",
+      "loc": 529,
+      "hash": "1a1a13f688aa7abc",
+      "has_fingerprint": true
+    }
+  ],
+  "links": [
+    {
+      "source": "cognimap/__init__.py",
+      "target": "core.fingerprint.Fingerprint",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/__init__.py",
+      "target": "core.scanner.CodeScanner",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/__init__.py",
+      "target": "core.analyzer.SemanticAnalyzer",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/__init__.py",
+      "target": "core.protocol.CogniMapProtocol",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "click",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "yaml",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "json",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "pathlib.Path",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "rich.console.Console",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "rich.table.Table",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "rich.progress.Progress",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "rich.progress.SpinnerColumn",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "rich.progress.TextColumn",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "logging",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "typing.Optional",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "core.fingerprint.Fingerprint",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "core.fingerprint.FingerprintInjector",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "core.fingerprint.FingerprintCleaner",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "core.scanner.CodeScanner",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "core.analyzer.SemanticAnalyzer",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "core.protocol.CogniMapProtocol",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "collectors.serena_collector.SerenaMCPCollector",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "graph.graph_builder.GraphBuilder",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "graph.graph_builder.GraphDatabase",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "graph.graph_analyzer.GraphAnalyzer",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "graph.graph_visualizer.GraphVisualizer",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/cli.py",
+      "target": "shutil",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/setup.py",
+      "target": "setuptools.setup",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/setup.py",
+      "target": "setuptools.find_packages",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/setup.py",
+      "target": "pathlib.Path",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/__init__.py",
+      "target": "graph_builder.GraphBuilder",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/__init__.py",
+      "target": "graph_builder.GraphDatabase",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/__init__.py",
+      "target": "graph_analyzer.GraphAnalyzer",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/__init__.py",
+      "target": "graph_visualizer.GraphVisualizer",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_visualizer.py",
+      "target": "typing.Dict",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_visualizer.py",
+      "target": "typing.List",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_visualizer.py",
+      "target": "typing.Any",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_visualizer.py",
+      "target": "pathlib.Path",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_analyzer.py",
+      "target": "typing.Dict",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_analyzer.py",
+      "target": "typing.List",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_analyzer.py",
+      "target": "typing.Any",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_analyzer.py",
+      "target": "typing.Set",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_analyzer.py",
+      "target": "typing.Tuple",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_analyzer.py",
+      "target": "pathlib.Path",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_builder.py",
+      "target": "json",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_builder.py",
+      "target": "re",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_builder.py",
+      "target": "pathlib.Path",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_builder.py",
+      "target": "typing.Dict",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_builder.py",
+      "target": "typing.List",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_builder.py",
+      "target": "typing.Any",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_builder.py",
+      "target": "typing.Set",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_builder.py",
+      "target": "typing.Tuple",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_builder.py",
+      "target": "datetime.datetime",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/graph/graph_builder.py",
+      "target": "ast",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/__init__.py",
+      "target": "serena_collector.SerenaMCPCollector",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/__init__.py",
+      "target": "serena_collector.SerenaMCPTool",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "json",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "uuid",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "pathlib.Path",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "typing.Dict",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "typing.List",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "typing.Any",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "typing.Optional",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "datetime.datetime",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "logging",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "core.fingerprint.FingerprintInjector",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "core.fingerprint.Fingerprint",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/collectors/serena_collector.py",
+      "target": "re",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/analyzer.py",
+      "target": "re",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/analyzer.py",
+      "target": "pathlib.Path",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/analyzer.py",
+      "target": "typing.Dict",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/analyzer.py",
+      "target": "typing.List",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/analyzer.py",
+      "target": "typing.Any",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/analyzer.py",
+      "target": "typing.Optional",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/analyzer.py",
+      "target": "typing.Set",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/analyzer.py",
+      "target": "typing.Tuple",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/analyzer.py",
+      "target": "json",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/analyzer.py",
+      "target": "datetime.datetime",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/analyzer.py",
+      "target": "hashlib",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/__init__.py",
+      "target": "fingerprint.Fingerprint",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/__init__.py",
+      "target": "fingerprint.FingerprintInjector",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/__init__.py",
+      "target": "fingerprint.FingerprintCleaner",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/__init__.py",
+      "target": "scanner.CodeScanner",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/__init__.py",
+      "target": "scanner.MultiLanguageParser",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/__init__.py",
+      "target": "analyzer.SemanticAnalyzer",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/__init__.py",
+      "target": "analyzer.IntentExtractor",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/__init__.py",
+      "target": "protocol.CogniMapProtocol",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/__init__.py",
+      "target": "protocol.ProtocolVersion",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/fingerprint.py",
+      "target": "uuid",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/fingerprint.py",
+      "target": "json",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/fingerprint.py",
+      "target": "re",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/fingerprint.py",
+      "target": "logging",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/fingerprint.py",
+      "target": "datetime.datetime",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/fingerprint.py",
+      "target": "pathlib.Path",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/fingerprint.py",
+      "target": "typing.Dict",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/fingerprint.py",
+      "target": "typing.Any",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/fingerprint.py",
+      "target": "typing.Optional",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/fingerprint.py",
+      "target": "typing.List",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/fingerprint.py",
+      "target": "hashlib",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/protocol.py",
+      "target": "typing.Dict",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/protocol.py",
+      "target": "typing.List",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/protocol.py",
+      "target": "typing.Any",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/protocol.py",
+      "target": "typing.Optional",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/protocol.py",
+      "target": "enum.Enum",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/protocol.py",
+      "target": "dataclasses.dataclass",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/protocol.py",
+      "target": "dataclasses.asdict",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/protocol.py",
+      "target": "datetime.datetime",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/protocol.py",
+      "target": "json",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/scanner.py",
+      "target": "ast",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/scanner.py",
+      "target": "re",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/scanner.py",
+      "target": "pathlib.Path",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/scanner.py",
+      "target": "typing.Dict",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/scanner.py",
+      "target": "typing.List",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/scanner.py",
+      "target": "typing.Any",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/scanner.py",
+      "target": "typing.Optional",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/scanner.py",
+      "target": "typing.Set",
+      "type": "imports"
+    },
+    {
+      "source": "cognimap/core/scanner.py",
+      "target": "json",
+      "type": "imports"
+    }
+  ]
+}

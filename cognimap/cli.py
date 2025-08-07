@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ruff: noqa: E402
 """
 @cognimap:fingerprint
 id: fc957b14-4b15-474c-b6fb-2bd28424e7b9
@@ -7,11 +8,10 @@ parent: None
 intent: CogniMap CLI - Command-line interface for architecture visualization.
 semantic_tags: [authentication, database, api, service, utility, configuration]
 version: 1.0.0
-last_sync: 2025-08-07T07:23:38.073724Z
-hash: d91185b5
+last_sync: 2025-08-07T10:53:39.071849
+hash: 61fbcec93e4c3274
 language: python
-type: component
-@end:cognimap
+type: component@end:cognimap
 """
 
 """
@@ -28,13 +28,11 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 import logging
 from typing import Optional
 
-from core.fingerprint import Fingerprint, FingerprintInjector, FingerprintCleaner
+from core.fingerprint import Fingerprint, FingerprintInjector
 from core.scanner import CodeScanner
 from core.analyzer import SemanticAnalyzer
-from core.protocol import CogniMapProtocol
-from collectors.serena_collector import SerenaMCPCollector
-from graph.graph_builder import GraphBuilder, GraphDatabase
-from graph.graph_analyzer import GraphAnalyzer  
+from graph.graph_builder import GraphBuilder
+from graph.graph_analyzer import GraphAnalyzer
 from graph.graph_visualizer import GraphVisualizer
 
 console = Console()
@@ -56,7 +54,7 @@ def cli():
 def init(path: str, config: Optional[str], mode: str, verbose: bool):
     """Initialize CogniMap for a project."""
     
-    console.print(f"[bold blue]🧠 Initializing CogniMap[/bold blue]")
+    console.print("[bold blue]🧠 Initializing CogniMap[/bold blue]")
     console.print(f"Project path: {Path(path).absolute()}")
     
     # Load configuration
@@ -124,7 +122,7 @@ def init(path: str, config: Optional[str], mode: str, verbose: bool):
         json.dump(state, f, indent=2)
     
     console.print("[bold green]✨ CogniMap initialized successfully![/bold green]")
-    console.print(f"Run [bold]cognimap serve[/bold] to start the visualization server")
+    console.print("Run [bold]cognimap serve[/bold] to start the visualization server")
 
 
 @cli.command()
@@ -134,7 +132,7 @@ def init(path: str, config: Optional[str], mode: str, verbose: bool):
 def update(path: str, since: str, force: bool):
     """Update fingerprints for changed files."""
     
-    console.print(f"[bold blue]🔄 Updating CogniMap[/bold blue]")
+    console.print("[bold blue]🔄 Updating CogniMap[/bold blue]")
     
     # Check if initialized
     cognimap_dir = Path(path) / '.cognimap'
@@ -172,7 +170,7 @@ def update(path: str, since: str, force: bool):
 def serve(path: str, port: int, host: str, no_browser: bool):
     """Start the visualization server."""
     
-    console.print(f"[bold blue]🌐 Starting CogniMap visualization server[/bold blue]")
+    console.print("[bold blue]🌐 Starting CogniMap visualization server[/bold blue]")
     console.print(f"URL: http://{host}:{port}")
     
     # Check if initialized
@@ -181,12 +179,9 @@ def serve(path: str, port: int, host: str, no_browser: bool):
         console.print("[red]❌ CogniMap not initialized. Run 'cognimap init' first.[/red]")
         return
     
-    # Start server (simplified - would start FastAPI server)
-    console.print("[yellow]Server implementation pending...[/yellow]")
-    console.print("In production, this would start the FastAPI server with:")
-    console.print(f"  - WebSocket support for real-time updates")
-    console.print(f"  - REST API for graph queries")
-    console.print(f"  - Static file serving for frontend")
+    # Start server (not yet implemented)
+    console.print("[yellow]Visualization server not implemented.[/yellow]")
+    raise NotImplementedError("Visualization server not yet implemented")
 
 
 @cli.command()
@@ -235,7 +230,7 @@ def cleanup(path: str, dry_run: bool, verbose: bool):
     """Remove all CogniMap fingerprints from files."""
     from core.fingerprint import FingerprintCleaner
     
-    console.print(f"[bold yellow]🧹 Cleaning CogniMap fingerprints[/bold yellow]")
+    console.print("[bold yellow]🧹 Cleaning CogniMap fingerprints[/bold yellow]")
     console.print(f"Project path: {Path(path).absolute()}")
     
     if dry_run:
@@ -265,7 +260,7 @@ def cleanup(path: str, dry_run: bool, verbose: bool):
                 content = filepath.read_text(encoding='utf-8')
                 if '@cognimap:fingerprint' in content:
                     files_with_fingerprints.append(filepath)
-            except:
+            except Exception:
                 continue
         
         progress.update(task1, completed=True)
@@ -324,7 +319,7 @@ def cleanup(path: str, dry_run: bool, verbose: bool):
 def export(path: str, output: Optional[str], format: str):
     """Export the architecture graph."""
     
-    console.print(f"[bold blue]📊 Exporting architecture graph[/bold blue]")
+    console.print("[bold blue]📊 Exporting architecture graph[/bold blue]")
     
     # Check if initialized
     cognimap_dir = Path(path) / '.cognimap'
@@ -360,7 +355,7 @@ def export(path: str, output: Optional[str], format: str):
 def visualize(path: str, output: Optional[str], format: str):
     """Generate architecture visualization."""
     
-    console.print(f"[bold blue]🎨 Creating architecture visualization[/bold blue]")
+    console.print("[bold blue]🎨 Creating architecture visualization[/bold blue]")
     
     # Build graph
     builder = GraphBuilder(path)
@@ -391,7 +386,7 @@ def visualize(path: str, output: Optional[str], format: str):
 def analyze(path: str):
     """Analyze architecture for issues and patterns."""
     
-    console.print(f"[bold blue]🔍 Analyzing architecture[/bold blue]")
+    console.print("[bold blue]🔍 Analyzing architecture[/bold blue]")
     
     # Build graph
     builder = GraphBuilder(path)
@@ -434,7 +429,7 @@ def analyze(path: str):
 def query(path: str, query: str, format: str):
     """Query the architecture graph."""
     
-    console.print(f"[bold blue]🔍 Querying architecture[/bold blue]")
+    console.print("[bold blue]🔍 Querying architecture[/bold blue]")
     console.print(f"Query: {query}")
     
     # This would implement a query language
