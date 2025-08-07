@@ -160,7 +160,7 @@ runs daily cycles to discover new capabilities from the global ecosystem.
 
 ## 🌌 Phase 4.7: The Aether Protocol (NEW - CRITICAL)
 **Timeline**: August 2025 - Week 3-6 (4 weeks)
-**Status**: 25% - Sprint 0 Complete (PR #20)
+**Status**: 50% - Sprint 0 & 1 Complete (PR #20, #21)
 **Priority**: HIGHEST - This is the foundational substrate
 
 ### Philosophical Foundation:
@@ -194,11 +194,11 @@ The Aether Protocol transforms COGPLAN from a collection of systems into a unifi
 - [x] Update orchestrator for root intent creation
 - [x] Modify agent runtime for intent injection
 
-#### Sprint 1 (Week 2): Foundation of Feeling
-- [ ] Replace garbage flag with polarity spectrum (-1 to +1)
-- [ ] Create PolarityCalculator service
-- [ ] Update embedder for polarity threshold
-- [ ] Modify all agents to use polarity
+#### Sprint 1 (Week 2): Foundation of Feeling ✅ COMPLETED (PR #21)
+- [x] Replace garbage flag with polarity spectrum (-1 to +1)
+- [x] Create PolarityCalculator service
+- [x] Update embedder for polarity threshold
+- [x] Modify all agents to use polarity
 
 #### Sprint 2 (Week 3): Foundation of Balance
 - [ ] Create karmic_ledger table
