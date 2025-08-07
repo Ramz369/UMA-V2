@@ -160,7 +160,7 @@ runs daily cycles to discover new capabilities from the global ecosystem.
 
 ## 🌌 Phase 4.7: The Aether Protocol (NEW - CRITICAL)
 **Timeline**: August 2025 - Week 3-6 (4 weeks)
-**Status**: 0% - Specification Complete, Ready for Implementation
+**Status**: 25% - Sprint 0 Complete (PR #20)
 **Priority**: HIGHEST - This is the foundational substrate
 
 ### Philosophical Foundation:
@@ -188,11 +188,11 @@ The Aether Protocol transforms COGPLAN from a collection of systems into a unifi
 
 ### Implementation Sprints:
 
-#### Sprint 0 (Week 1): Foundation of Consciousness
-- [ ] Add intent_graph table to evolution schema
-- [ ] Enhance EventMeta with intent fields
-- [ ] Update orchestrator for root intent creation
-- [ ] Modify agent runtime for intent injection
+#### Sprint 0 (Week 1): Foundation of Consciousness ✅ COMPLETED (PR #20)
+- [x] Add intent_graph table to evolution schema
+- [x] Enhance EventMeta with intent fields
+- [x] Update orchestrator for root intent creation
+- [x] Modify agent runtime for intent injection
 
 #### Sprint 1 (Week 2): Foundation of Feeling
 - [ ] Replace garbage flag with polarity spectrum (-1 to +1)
