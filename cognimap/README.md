@@ -203,6 +203,20 @@ CogniMap uses LLMs to provide intelligent insights:
 - Anti-pattern detection
 - Refactoring recommendations
 
+## DeepSeek Scenario Reports
+
+CogniMap can leverage the [DeepSeek](https://deepseek.com) API to identify core
+architectural elements and highlight gaps in the current implementation. Run:
+
+```bash
+export DEEPSEEK_API_KEY=your_key
+python scripts/deepseek_scenario_report.py
+```
+
+The generated proposal will be written to
+`reports/cognimap/deepseek_scenario_report.md` so downstream agents can reason
+over the architecture and fill in missing links.
+
 ## Contributing
 
 CogniMap is open source and welcomes contributions!
