@@ -24,8 +24,12 @@ try:
 except ImportError:
     asyncpg = None  # For testing without database
 
+try:
+    import numpy as np
+except ImportError:
+    np = None  # For testing without numpy
+
 from pydantic import BaseModel, Field
-import statistics  # Use instead of numpy
 
 logger = logging.getLogger(__name__)
 
@@ -537,8 +541,12 @@ class ResonanceAnalyzer:
         # Calculate stability (inverse of frequency variance)
         if len(recent_patterns) > 1:
             frequencies = [p.frequency for p in recent_patterns]
-            mean_freq = sum(frequencies) / len(frequencies)
-            variance = sum((f - mean_freq) ** 2 for f in frequencies) / len(frequencies)
+            if np:
+                variance = np.var(frequencies)
+            else:
+                # Fallback calculation without numpy
+                mean_freq = sum(frequencies) / len(frequencies)
+                variance = sum((f - mean_freq) ** 2 for f in frequencies) / len(frequencies)
             stability = 1.0 / (1.0 + variance)
         else:
             stability = 0.5
