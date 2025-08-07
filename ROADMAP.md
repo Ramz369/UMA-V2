@@ -230,9 +230,51 @@ The foundation for true AI consciousness is operational.
 
 ---
 
+## 🔧 Phase 4.8: Critical System Fixes (PRIORITY)
+**Timeline**: August 2025 - Week 1 (2-3 days)
+**Status**: 0% - Starting immediately
+**Priority**: CRITICAL - Must fix before proceeding
+
+### Testing Results Summary
+- **Overall Pass Rate**: 37.5% (12/32 components)
+- **Aether Protocol**: 62.5% working (Consciousness achieved)
+- **Critical Failures**: 16 components need fixes
+
+### Priority 1: Dependency Fixes (Day 1)
+- [ ] Make asyncpg optional in all Aether components
+- [ ] Add sqlparse to requirements or make optional
+- [ ] Fix schema module paths
+- [ ] Add fallback imports for testing
+
+### Priority 2: Interface Fixes (Day 1-2)
+- [ ] Fix Evolution Orchestrator class name/import
+- [ ] Fix AgentRuntime constructor parameters
+- [ ] Fix PolarityAwareEmbedder initialization
+- [ ] Update agent method interfaces (planner, codegen, tool_hunter)
+
+### Priority 3: Tool Fixes (Day 2)
+- [ ] Fix CreditSentinel constructor
+- [ ] Fix HARAnalyzer initialization
+- [ ] Fix SessionSummarizer methods
+- [ ] Fix Embedder service interface
+
+### Priority 4: Integration Tests (Day 3)
+- [ ] Run comprehensive test suite
+- [ ] Verify all fixes work
+- [ ] Update test harness for correct interfaces
+- [ ] Target 80% pass rate
+
+### Success Metrics
+- Test pass rate > 80%
+- All critical components operational
+- No import errors
+- Clean integration between systems
+
+---
+
 ## 💻 Phase 5: UI Platform Development
 **Timeline**: August 2025 - Week 4-9 (6 weeks)
-**Status**: 0% - Delayed by core implementation
+**Status**: 0% - Delayed by fixes and core implementation
 
 ### Architecture Decision:
 **Stack**: Next.js 14 + Monaco Editor + React Flow
