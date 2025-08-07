@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple CogniMap Test</title>
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+        #status { margin-bottom: 20px; padding: 10px; background: #f0f0f0; }
+        #graph-container { width: 100%; height: 500px; border: 2px solid #333; position: relative; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>CogniMap Simple Test</h1>
+    <div id="status">Initializing...</div>
+    <div id="graph-container"></div>
+    
+    <script src="./dist/bundle.js"></script>
+    <script>
+        const statusDiv = document.getElementById('status');
+        
+        function setStatus(msg, isError = false) {
+            statusDiv.innerHTML = msg;
+            statusDiv.className = isError ? 'error' : (msg.includes('✓') ? 'success' : '');
+            console.log(msg);
+        }
+        
+        async function initVisualization() {
+            try {
+                setStatus('Step 1: Checking CogniMapVisualizer...');
+                
+                if (typeof window.CogniMapVisualizer !== 'function') {
+                    throw new Error('CogniMapVisualizer is not a constructor function');
+                }
+                
+                setStatus('Step 2: Creating visualizer instance...');
+                const visualizer = new window.CogniMapVisualizer('graph-container', {
+                    defaultLayout: 'circular',
+                    autoLayout: false,
+                    renderLabels: true
+                });
+                
+                setStatus('Step 3: Loading graph data...');
+                const response = await fetch('./output/architecture_graph.json');
+                if (!response.ok) {
+                    throw new Error(`Failed to load data: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                setStatus(`Step 4: Initializing with ${data.nodes.length} nodes and ${data.edges.length} edges...`);
+                await visualizer.initialize(data);
+                
+                setStatus(`✓ Success! Visualization ready with ${data.nodes.length} nodes and ${data.edges.length} edges`);
+                
+                // Apply a layout after a short delay
+                setTimeout(async () => {
+                    setStatus('Applying ForceAtlas2 layout...');
+                    await visualizer.applyLayout('forceAtlas2');
+                    setStatus(`✓ Graph rendered! Nodes: ${data.nodes.length}, Edges: ${data.edges.length}`);
+                }, 1000);
+                
+            } catch (error) {
+                setStatus(`Error: ${error.message}`, true);
+                console.error('Full error:', error);
+            }
+        }
+        
+        // Start when page loads
+        window.addEventListener('DOMContentLoaded', initVisualization);
+    </script>
+</body>
+</html>
