@@ -79,6 +79,9 @@ export class CogniMapGraphAdapter {
         nodeType: node.type || 'unknown',  // Changed from 'type' to 'nodeType' to avoid Sigma conflict
         fingerprint: node.fingerprint || null,
         semantic_tags: node.semantic_tags || [],
+        semantic_fingerprint: node.semantic_fingerprint || {},
+        patterns: node.patterns || [],
+        confidence: node.confidence || 0,
         
         // Visual attributes
         size: this.calculateNodeSize(node),
@@ -141,6 +144,7 @@ export class CogniMapGraphAdapter {
         weight: edge.weight || 1,
         color: this.getEdgeColor(edge),
         size: edge.size || 1,
+        confidence: edge.confidence || 0,
         metadata: edge.metadata || {}
       };
       
