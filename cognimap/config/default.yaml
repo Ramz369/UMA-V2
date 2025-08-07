@@ -1,0 +1,162 @@
+# CogniMap Default Configuration
+# This file contains default settings for CogniMap
+
+# Core settings
+core:
+  version: "1.0.0"
+  auto_fingerprint: true
+  
+# Language support
+languages:
+  supported:
+    - python
+    - javascript
+    - typescript
+    - java
+    - go
+    - rust
+    - c
+    - cpp
+    - csharp
+    - ruby
+    - php
+    - swift
+    - kotlin
+    
+# Fingerprint settings
+fingerprint:
+  version: "1.0.0"
+  hash_algorithm: "sha256"
+  inject_on_init: true
+  update_on_save: false
+  
+# Collectors configuration
+collectors:
+  # Serena MCP collector (primary)
+  serena:
+    enabled: true
+    cache_enabled: true
+    batch_size: 100
+    
+  # Git collector
+  git:
+    enabled: true
+    track_history: true
+    
+  # Runtime collector
+  runtime:
+    enabled: false
+    
+# Analysis settings
+analysis:
+  depth: "deep"  # shallow, medium, deep
+  include_tests: false
+  semantic_provider: "claude"  # claude, openai, local
+  
+  # Complexity thresholds
+  complexity:
+    low: 10
+    medium: 20
+    high: 30
+    
+  # Quality metrics
+  quality:
+    min_maintainability: 60
+    min_testability: 70
+    
+# Graph database settings
+graph:
+  backend: "sqlite"  # sqlite, neo4j, memory
+  cache_enabled: true
+  
+  # SQLite settings
+  sqlite:
+    path: ".cognimap/graph.db"
+    
+  # Relationship settings
+  relationships:
+    track_implicit: true
+    track_semantic: true
+    min_semantic_similarity: 0.7
+    
+# Visualization settings
+visualization:
+  enabled: true
+  port: 8080
+  host: "localhost"
+  auto_open: true
+  
+  # Default view settings
+  default_view: "hierarchical"  # hierarchical, force-directed, circular
+  theme: "dark"  # light, dark
+  
+  # Performance
+  max_nodes_render: 1000
+  enable_clustering: true
+  
+# Exclude patterns
+exclude:
+  directories:
+    - "__pycache__"
+    - "node_modules"
+    - ".git"
+    - ".venv"
+    - "venv"
+    - "env"
+    - "build"
+    - "dist"
+    - ".pytest_cache"
+    - ".coverage"
+    
+  files:
+    - "*.pyc"
+    - "*.pyo"
+    - "*.pyd"
+    - ".DS_Store"
+    - "Thumbs.db"
+    - "*.log"
+    
+  # File size limits
+  max_file_size: 1048576  # 1MB
+  
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: ".cognimap/cognimap.log"
+  
+# Performance
+performance:
+  parallel_processing: true
+  max_workers: 4
+  cache_ttl: 3600  # seconds
+  
+# Integration settings
+integrations:
+  # Serena MCP
+  serena_mcp:
+    auto_connect: true
+    retry_attempts: 3
+    timeout: 30
+    
+  # Claude CLI
+  claude_cli:
+    bulk_mode: true
+    max_batch_size: 100
+    
+  # Git hooks
+  git_hooks:
+    pre_commit: true
+    post_commit: false
+    
+# Update settings
+updates:
+  auto_update_fingerprints: true
+  incremental_mode: true
+  watch_mode: false
+  
+# Storage paths
+storage:
+  root: ".cognimap"
+  fingerprints: ".cognimap/fingerprints"
+  cache: ".cognimap/cache"
+  logs: ".cognimap/logs"

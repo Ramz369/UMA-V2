@@ -1,0 +1,168 @@
+# Serena MCP Integration Configuration for CogniMap
+
+# Serena MCP connection settings
+serena:
+  enabled: true
+  
+  # Connection
+  server:
+    url: "http://localhost:3000"
+    timeout: 30
+    retry_attempts: 3
+    
+  # Authentication (if required)
+  auth:
+    enabled: false
+    token: ""
+    
+  # Project settings
+  project:
+    auto_activate: true
+    project_name: "COGPLAN"
+    
+# Data collection via Serena
+collection:
+  # Use Serena for file discovery
+  use_serena_discovery: true
+  
+  # Use Serena for symbol analysis
+  use_serena_symbols: true
+  
+  # Use Serena for relationship finding
+  use_serena_relationships: true
+  
+  # Caching
+  cache:
+    enabled: true
+    ttl: 3600  # seconds
+    
+# Bulk processing
+bulk_processing:
+  # Batch size for analysis
+  batch_size: 100
+  
+  # Include code snippets
+  include_snippets: true
+  snippet_size: 500  # characters
+  
+  # Parallel processing
+  parallel: true
+  max_workers: 4
+  
+# Symbol analysis
+symbols:
+  # Depth of symbol extraction
+  depth: 2  # How deep to traverse nested symbols
+  
+  # Include private symbols
+  include_private: false
+  
+  # Symbol types to include
+  include_types:
+    - class
+    - function
+    - method
+    - variable
+    - constant
+    
+# Relationship discovery
+relationships:
+  # Types to track
+  track_types:
+    - imports
+    - exports
+    - calls
+    - references
+    - inherits
+    - implements
+    
+  # Include implicit relationships
+  include_implicit: true
+  
+  # Minimum confidence for relationships
+  min_confidence: 0.5
+  
+# File filtering
+filters:
+  # Language filters (empty means all supported)
+  languages: []
+  
+  # File patterns to include
+  include_patterns:
+    - "**/*.py"
+    - "**/*.js"
+    - "**/*.ts"
+    - "**/*.jsx"
+    - "**/*.tsx"
+    - "**/*.java"
+    - "**/*.go"
+    
+  # File patterns to exclude
+  exclude_patterns:
+    - "**/test_*.py"
+    - "**/*.test.js"
+    - "**/*.spec.ts"
+    
+# Memory management
+memory:
+  # Use Serena's memory system
+  use_serena_memory: true
+  
+  # Memory file for fingerprints
+  fingerprint_memory: "cognimap_fingerprints.json"
+  
+  # Memory file for graph
+  graph_memory: "cognimap_graph.json"
+  
+# Performance optimization
+optimization:
+  # Use incremental updates
+  incremental: true
+  
+  # Skip unchanged files
+  skip_unchanged: true
+  
+  # Use Serena's cache
+  use_cache: true
+  
+# Error handling
+error_handling:
+  # Continue on file errors
+  continue_on_error: true
+  
+  # Log errors
+  log_errors: true
+  
+  # Retry failed files
+  retry_failed: true
+  retry_delay: 1  # seconds
+  
+# MCP tool registration
+mcp_tools:
+  # Register CogniMap tools with Serena
+  auto_register: true
+  
+  # Tool names
+  tools:
+    - name: "cognimap_analyze"
+      description: "Analyze project architecture"
+      
+    - name: "cognimap_update"
+      description: "Update fingerprints for changed files"
+      
+    - name: "cognimap_inject"
+      description: "Inject fingerprints into files"
+      
+    - name: "cognimap_graph"
+      description: "Build and return architecture graph"
+      
+# Monitoring
+monitoring:
+  # Track performance metrics
+  track_metrics: true
+  
+  # Log analysis progress
+  log_progress: true
+  
+  # Progress update interval
+  progress_interval: 10  # files

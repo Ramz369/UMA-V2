@@ -1,0 +1,37 @@
+# CogniMap Requirements
+# Core dependencies for CogniMap
+
+# Configuration and CLI
+pyyaml>=6.0.0
+click>=8.0.0
+rich>=10.0.0
+
+# Graph and analysis
+networkx>=2.6.0
+sqlalchemy>=1.4.0
+
+# Web server and API
+fastapi>=0.68.0
+uvicorn>=0.15.0
+websockets>=10.0.0
+aiofiles>=0.8.0
+
+# Utilities
+python-dateutil>=2.8.0
+typing-extensions>=4.0.0
+
+# Optional: For enhanced visualization
+# plotly>=5.0.0
+# dash>=2.0.0
+
+# Optional: For ML-based semantic analysis
+# sentence-transformers>=2.0.0
+# scikit-learn>=1.0.0
+
+# Development dependencies (optional)
+# pytest>=7.0.0
+# pytest-asyncio>=0.18.0
+# pytest-cov>=3.0.0
+# black>=22.0.0
+# mypy>=0.910
+# flake8>=4.0.0
