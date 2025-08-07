@@ -6,6 +6,7 @@ Provides interface between tools and the ecosystem
 from typing import Any, Dict, Optional, List
 from dataclasses import dataclass
 import json
+import logging
 
 
 @dataclass
@@ -47,9 +48,12 @@ class NativeBridge:
     def __init__(self):
         self.tools: Dict[str, ToolProtocol] = {}
         self.enabled = True
+        self.logger = logging.getLogger(__name__)
         
     def register_tool(self, tool: ToolProtocol) -> None:
         """Register a tool with the bridge"""
+        if tool.name in self.tools:
+            self.logger.warning("Tool '%s' already registered", tool.name)
         self.tools[tool.name] = tool
         
     def get_tool(self, name: str) -> Optional[ToolProtocol]:
@@ -77,7 +81,11 @@ class NativeBridge:
                 data=None,
                 error=str(e)
             )
-    
+
+    async def query(self, *args, **kwargs) -> List[ToolResult]:
+        """Placeholder for future search capability."""
+        raise NotImplementedError("Query engine not yet implemented")
+
     def marshal_result(self, result: Any) -> str:
         """Marshal a result to JSON"""
         if isinstance(result, ToolResult):

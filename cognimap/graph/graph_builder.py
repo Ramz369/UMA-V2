@@ -2,12 +2,10 @@
 Graph Builder - Constructs architecture graph from fingerprints.
 """
 
-import json
 import re
 from pathlib import Path
-from typing import Dict, List, Any, Set, Tuple
+from typing import Dict, List, Any
 from datetime import datetime
-import ast
 
 
 class GraphNode:
@@ -65,8 +63,16 @@ class GraphEdge:
 class GraphBuilder:
     """Builds architecture graph from CogniMap fingerprints."""
     
-    def __init__(self, project_path: str = '.'):
+    def __init__(self, project_path: str = '.', scope: str = 'full'):
+        """Create a new builder.
+
+        Args:
+            project_path: Root directory of the project.
+            scope: 'full' to scan entire project, 'cognimap' for subsystem only.
+        """
         self.project_path = Path(project_path)
+        self.scope = scope
+        self.scan_path = self.project_path / 'cognimap' if scope == 'cognimap' else self.project_path
         self.nodes = {}  # filepath -> GraphNode
         self.edges = []  # List of GraphEdge
         self.fingerprints = {}  # filepath -> fingerprint data
@@ -95,7 +101,7 @@ class GraphBuilder:
     
     def _collect_fingerprints(self):
         """Collect all fingerprints from Python files."""
-        for filepath in self.project_path.rglob('*.py'):
+        for filepath in self.scan_path.rglob('*.py'):
             if any(skip in str(filepath) for skip in ['__pycache__', '.venv', 'node_modules']):
                 continue
             
@@ -105,7 +111,7 @@ class GraphBuilder:
                 if fingerprint:
                     rel_path = str(filepath.relative_to(self.project_path))
                     self.fingerprints[rel_path] = fingerprint
-            except:
+            except Exception:
                 continue
     
     def _extract_fingerprint(self, content: str) -> Dict[str, Any]:
@@ -146,7 +152,7 @@ class GraphBuilder:
                 try:
                     content = full_path.read_text(encoding='utf-8')
                     self._analyze_file_content(node, content)
-                except:
+                except Exception:
                     pass
             
             self.nodes[filepath] = node
@@ -281,7 +287,6 @@ class GraphBuilder:
         # Create special relationships
         agents = type_groups.get('agent', [])
         tools = type_groups.get('tool', [])
-        services = type_groups.get('service', [])
         
         # Agents use tools
         for agent in agents:
