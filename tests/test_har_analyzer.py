@@ -1,3 +1,19 @@
+
+"""
+@cognimap:fingerprint
+id: 31e9009e-3331-4717-b856-be0c11b9c8dd
+birth: 2025-08-07T07:23:38.064449Z
+parent: None
+intent: Unit tests for HAR analyzer tool.
+semantic_tags: [database, api, testing, ui]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.064951Z
+hash: 5051569b
+language: python
+type: test
+@end:cognimap
+"""
+
 """Unit tests for HAR analyzer tool."""
 import pytest
 import json

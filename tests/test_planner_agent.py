@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+"""
+@cognimap:fingerprint
+id: 5c2bf869-781e-42ab-a89d-35cd308183a3
+birth: 2025-08-07T07:23:38.062382Z
+parent: None
+intent: Tests for the Planner Agent.
+semantic_tags: [authentication, api, testing, ui, service, configuration, security]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.062616Z
+hash: 582d754f
+language: python
+type: agent
+@end:cognimap
+"""
+
 """Tests for the Planner Agent."""
 import asyncio
 import json
@@ -9,7 +24,7 @@ import sys
 # Add parent to path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from agents.planner_agent import (
+from src.agents.planner_agent import (
     PlannerAgent, 
     TaskPlan, 
     TaskComplexity,

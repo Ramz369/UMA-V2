@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: ebead0cd-ae33-44cb-80c8-9123070e08b1
+birth: 2025-08-07T07:23:38.087091Z
+parent: None
+intent: Polarity Migration Script
+semantic_tags: [database, testing, ui, model, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.087532Z
+hash: c3dd2f03
+language: python
+type: component
+@end:cognimap
+"""
+
+"""
 Polarity Migration Script
 
 Migrates existing events from binary garbage flag to polarity spectrum.

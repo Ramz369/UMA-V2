@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: 332cf672-f9ed-4327-9753-dbd78113f1fc
+birth: 2025-08-07T07:23:38.082496Z
+parent: None
+intent: Planner Agent - Decomposes tasks into actionable plans for other agents.
+semantic_tags: [authentication, api, testing, ui, service, model, configuration, security]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.082988Z
+hash: 80121d38
+language: python
+type: agent
+@end:cognimap
+"""
+
+"""
 Planner Agent - Decomposes tasks into actionable plans for other agents.
 Core agent for UMA-V2 system orchestration.
 """

@@ -1,3 +1,19 @@
+
+"""
+@cognimap:fingerprint
+id: 264273be-b9f4-4bb1-ba0c-f68358536ddc
+birth: 2025-08-07T07:23:38.069426Z
+parent: None
+intent: Unit tests for Meta-Analyst.
+semantic_tags: [authentication, database, testing, utility]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.069821Z
+hash: 7995827f
+language: python
+type: test
+@end:cognimap
+"""
+
 """Unit tests for Meta-Analyst."""
 import tempfile
 import yaml

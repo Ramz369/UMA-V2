@@ -1,3 +1,19 @@
+
+"""
+@cognimap:fingerprint
+id: 1d0cfbff-0f4d-4327-953b-9eb88d21fced
+birth: 2025-08-07T07:23:38.067818Z
+parent: None
+intent: Integration tests for SemLoop stack bootstrap.
+semantic_tags: [database, api, testing, service, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.068070Z
+hash: 5a70ef3f
+language: python
+type: test
+@end:cognimap
+"""
+
 """Integration tests for SemLoop stack bootstrap."""
 import pytest
 import subprocess

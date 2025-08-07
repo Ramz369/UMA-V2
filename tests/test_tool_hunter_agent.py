@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: af1569c9-2491-490e-b1d8-298b55e29457
+birth: 2025-08-07T07:23:38.063770Z
+parent: None
+intent: Tests for Tool Hunter Agent
+semantic_tags: [database, testing, model, utility, configuration, security]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.064333Z
+hash: 271780da
+language: python
+type: agent
+@end:cognimap
+"""
+
+"""
 Tests for Tool Hunter Agent
 """
 import asyncio
@@ -13,7 +28,7 @@ import shutil
 # Add parent to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from agents.tool_hunter_agent import (
+from src.agents.tool_hunter_agent import (
     ToolHunterAgent,
     ToolProtocol,
     TrustLevel,

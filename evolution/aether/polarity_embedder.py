@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: 8efd9a87-0f22-4106-bd4c-66e6988bf048
+birth: 2025-08-07T07:23:38.088707Z
+parent: None
+intent: Polarity-Aware Embedder Service
+semantic_tags: [database, testing, ui, service, model, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.089164Z
+hash: 5e37c46c
+language: python
+type: service
+@end:cognimap
+"""
+
+"""
 Polarity-Aware Embedder Service
 
 Enhanced embedder that uses polarity spectrum instead of binary garbage flag.

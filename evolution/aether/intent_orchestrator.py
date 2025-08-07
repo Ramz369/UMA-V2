@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: 42db8456-7955-4974-a701-5b55172ead3e
+birth: 2025-08-07T07:23:38.090769Z
+parent: None
+intent: Intent-Aware Evolution Orchestrator
+semantic_tags: [authentication, database, testing, ui, service, configuration, security]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.091417Z
+hash: 947b3cd9
+language: python
+type: component
+@end:cognimap
+"""
+
+"""
 Intent-Aware Evolution Orchestrator
 
 Extends the base Evolution Orchestrator to integrate with the Intent Substrate,

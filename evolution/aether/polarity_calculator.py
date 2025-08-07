@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: 659a3353-0c5e-4cdb-9e3d-d626bfe66a87
+birth: 2025-08-07T07:23:38.093923Z
+parent: None
+intent: Polarity Calculator - The Feeling Layer of the Aether Protocol
+semantic_tags: [database, api, testing, utility, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.094659Z
+hash: fbf066dd
+language: python
+type: component
+@end:cognimap
+"""
+
+"""
 Polarity Calculator - The Feeling Layer of the Aether Protocol
 
 This module implements Sprint 1: Foundation of Feeling, replacing the binary

@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: 56991e25-4b28-4a19-85f2-40cdfe8177f2
+birth: 2025-08-07T07:23:38.067085Z
+parent: None
+intent: Test Suite for Aether Protocol Sprint 0: Intent Substrate
+semantic_tags: [database, api, testing, ui, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.067748Z
+hash: 1484c003
+language: python
+type: test
+@end:cognimap
+"""
+
+"""
 Test Suite for Aether Protocol Sprint 0: Intent Substrate
 
 Verifies the consciousness layer implementation including:

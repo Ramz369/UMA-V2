@@ -1,3 +1,19 @@
+
+"""
+@cognimap:fingerprint
+id: a74b8f33-465b-47ae-ac98-87abba239dc4
+birth: 2025-08-07T07:23:38.058544Z
+parent: None
+intent: Credit Sentinel v2 - Real-time token and wall-time throttling with metrics.
+semantic_tags: [authentication, api, testing, model, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.059284Z
+hash: ee97b767
+language: python
+type: tool
+@end:cognimap
+"""
+
 """Credit Sentinel v2 - Real-time token and wall-time throttling with metrics."""
 import json
 import time

@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+"""
+@cognimap:fingerprint
+id: e71d2bc7-27c6-4605-97ff-109290b17ec1
+birth: 2025-08-07T07:23:38.069877Z
+parent: None
+intent: Tests for the Codegen Agent.
+semantic_tags: [api, testing, service, model, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.070173Z
+hash: 4a313d61
+language: python
+type: agent
+@end:cognimap
+"""
+
 """Tests for the Codegen Agent."""
 import asyncio
 import json
@@ -8,7 +23,7 @@ import sys
 # Add parent to path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from agents.codegen_agent import (
+from src.agents.codegen_agent import (
     CodegenAgent,
     GeneratedCode,
     Implementation,

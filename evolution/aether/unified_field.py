@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+@cognimap:fingerprint
+id: 10d6be64-d8f2-48a3-ad99-b52f0a7392a9
+birth: 2025-08-07T07:23:38.092194Z
+parent: None
+intent: Unified Field Calculator - The Crown of the Aether Protocol
+semantic_tags: [database, testing, ui, model, utility, configuration]
+version: 1.0.0
+last_sync: 2025-08-07T07:23:38.093155Z
+hash: 8778c36c
+language: python
+type: component
+@end:cognimap
+"""
+
+"""
 Unified Field Calculator - The Crown of the Aether Protocol
 
 This module unifies all three substrates (Intent, Polarity, Karma) with the
