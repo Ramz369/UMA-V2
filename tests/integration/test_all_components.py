@@ -193,7 +193,7 @@ async def test_core_agents():
     
     # Test Planner Agent
     try:
-        from agents.planner_agent import PlannerAgent
+        from src.agents.planner_agent import PlannerAgent
         planner = PlannerAgent("planner_test")
         
         # Test planning
@@ -207,7 +207,7 @@ async def test_core_agents():
     
     # Test Codegen Agent
     try:
-        from agents.codegen_agent import CodegenAgent
+        from src.agents.codegen_agent import CodegenAgent
         codegen = CodegenAgent("codegen_test")
         
         # Test API generation
@@ -221,7 +221,7 @@ async def test_core_agents():
     
     # Test Tool Hunter Agent
     try:
-        from agents.tool_hunter_agent import ToolHunterAgent
+        from src.agents.tool_hunter_agent import ToolHunterAgent
         hunter = ToolHunterAgent("hunter_test")
         
         # Test tool discovery
