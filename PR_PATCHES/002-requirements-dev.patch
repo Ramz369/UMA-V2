@@ -1,0 +1,8 @@
+diff --git a/requirements-dev.txt b/requirements-dev.txt
+new file mode 100644
+index 0000000..fbf62bb
+--- /dev/null
++++ b/requirements-dev.txt
+@@ -0,0 +1,2 @@
++jsonschema
++pytest-asyncio
