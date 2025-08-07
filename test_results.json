@@ -1,0 +1,169 @@
+{
+  "timestamp": "2025-08-07T05:31:14.003763",
+  "total_components": 32,
+  "passed": 12,
+  "failed": 16,
+  "skipped": 4,
+  "results": {
+    "evolution.agents.auditor_agent": {
+      "status": "SKIP",
+      "details": "Import error: No module named 'evolution.agents.auditor_agent'",
+      "timestamp": "2025-08-07T05:31:14.004288"
+    },
+    "evolution.agents.reviewer_agent": {
+      "status": "SKIP",
+      "details": "Import error: No module named 'evolution.agents.reviewer_agent'",
+      "timestamp": "2025-08-07T05:31:14.004328"
+    },
+    "evolution.agents.architect_agent": {
+      "status": "PASS",
+      "details": "Module structure valid",
+      "timestamp": "2025-08-07T05:31:14.004445"
+    },
+    "evolution.agents.implementor_agent": {
+      "status": "PASS",
+      "details": "Module structure valid",
+      "timestamp": "2025-08-07T05:31:14.004559"
+    },
+    "evolution.agents.treasurer_agent": {
+      "status": "PASS",
+      "details": "Module structure valid",
+      "timestamp": "2025-08-07T05:31:14.004662"
+    },
+    "evolution.orchestrator": {
+      "status": "FAIL",
+      "details": "cannot import name 'EvolutionOrchestrator' from 'evolution.orchestrator.evo_orchestrator_wired' (/home/ramz/Documents/adev/COGPLAN/evolution/orchestrator/evo_orchestrator_wired.py)",
+      "timestamp": "2025-08-07T05:31:14.023010"
+    },
+    "evolution.runtime": {
+      "status": "FAIL",
+      "details": "AgentRuntime.__init__() got an unexpected keyword argument 'agent_name'",
+      "timestamp": "2025-08-07T05:31:14.023450"
+    },
+    "aether.intent_substrate": {
+      "status": "FAIL",
+      "details": "No module named 'asyncpg'",
+      "timestamp": "2025-08-07T05:31:14.025109"
+    },
+    "aether.polarity_calculator": {
+      "status": "PASS",
+      "details": "Polarity: 0.0",
+      "timestamp": "2025-08-07T05:31:14.027584"
+    },
+    "aether.polarity_embedder": {
+      "status": "FAIL",
+      "details": "PolarityAwareEmbedder.__init__() got an unexpected keyword argument 'threshold'",
+      "timestamp": "2025-08-07T05:31:14.095796"
+    },
+    "aether.karmic_orchestrator": {
+      "status": "PASS",
+      "details": "Karmic system initialized",
+      "timestamp": "2025-08-07T05:31:14.100181"
+    },
+    "aether.karma_runtime": {
+      "status": "PASS",
+      "details": "Karma tracking: 0.1",
+      "timestamp": "2025-08-07T05:31:14.103005"
+    },
+    "aether.resonance_analyzer": {
+      "status": "PASS",
+      "details": "Pattern detected: standing_wave",
+      "timestamp": "2025-08-07T05:31:14.110001"
+    },
+    "aether.unified_field": {
+      "status": "PASS",
+      "details": "Consciousness: 79.8% (CONSCIOUS)",
+      "timestamp": "2025-08-07T05:31:14.116013"
+    },
+    "agents.planner": {
+      "status": "FAIL",
+      "details": "'TaskPlan' object has no attribute 'get'",
+      "timestamp": "2025-08-07T05:31:14.117106"
+    },
+    "agents.codegen": {
+      "status": "FAIL",
+      "details": "'CodegenAgent' object has no attribute 'generate_api'",
+      "timestamp": "2025-08-07T05:31:14.122085"
+    },
+    "agents.tool_hunter": {
+      "status": "FAIL",
+      "details": "ToolHunterAgent.__init__() takes 1 positional argument but 2 were given",
+      "timestamp": "2025-08-07T05:31:14.187704"
+    },
+    "tools.credit_sentinel": {
+      "status": "FAIL",
+      "details": "CreditSentinel.__init__() got an unexpected keyword argument 'checkpoint_dir'",
+      "timestamp": "2025-08-07T05:31:14.188906"
+    },
+    "tools.semantic_diff": {
+      "status": "FAIL",
+      "details": "No module named 'sqlparse'",
+      "timestamp": "2025-08-07T05:31:14.190328"
+    },
+    "tools.har_analyzer": {
+      "status": "FAIL",
+      "details": "HARAnalyzer.__init__() missing 1 required positional argument: 'har_path'",
+      "timestamp": "2025-08-07T05:31:14.193324"
+    },
+    "services.embedder": {
+      "status": "FAIL",
+      "details": "cannot import name 'Embedder' from 'services.embedder' (/home/ramz/Documents/adev/COGPLAN/services/embedder.py)",
+      "timestamp": "2025-08-07T05:31:14.194839"
+    },
+    "tools.session_summarizer": {
+      "status": "FAIL",
+      "details": "'SessionSummarizer' object has no attribute 'summarize'",
+      "timestamp": "2025-08-07T05:31:14.197732"
+    },
+    "schemas.events": {
+      "status": "FAIL",
+      "details": "No module named 'schemas.events'",
+      "timestamp": "2025-08-07T05:31:14.198032"
+    },
+    "schemas.agent_events": {
+      "status": "FAIL",
+      "details": "No module named 'schemas.agent_events'",
+      "timestamp": "2025-08-07T05:31:14.198094"
+    },
+    "schemas.credit_events": {
+      "status": "FAIL",
+      "details": "No module named 'schemas.credit_events'",
+      "timestamp": "2025-08-07T05:31:14.198140"
+    },
+    "docker.docker-compose": {
+      "status": "SKIP",
+      "details": "File not found",
+      "timestamp": "2025-08-07T05:31:14.198172"
+    },
+    "docker.semloop-stack": {
+      "status": "PASS",
+      "details": "Configuration exists",
+      "timestamp": "2025-08-07T05:31:14.198185"
+    },
+    "docker.docker-compose.evo": {
+      "status": "PASS",
+      "details": "Configuration exists",
+      "timestamp": "2025-08-07T05:31:14.198195"
+    },
+    "script.setup_evolution": {
+      "status": "SKIP",
+      "details": "Script not found",
+      "timestamp": "2025-08-07T05:31:14.198206"
+    },
+    "script.start_evolution": {
+      "status": "PASS",
+      "details": "Script exists",
+      "timestamp": "2025-08-07T05:31:14.198214"
+    },
+    "integration.evolution_aether": {
+      "status": "FAIL",
+      "details": "No module named 'asyncpg'",
+      "timestamp": "2025-08-07T05:31:14.204206"
+    },
+    "integration.agent_karma": {
+      "status": "PASS",
+      "details": "Karma-aware agents work",
+      "timestamp": "2025-08-07T05:31:14.204263"
+    }
+  }
+}
