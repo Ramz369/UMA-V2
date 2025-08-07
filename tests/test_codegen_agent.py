@@ -19,6 +19,7 @@ import asyncio
 import json
 from pathlib import Path
 import sys
+import pytest
 
 # Add parent to path
 sys.path.append(str(Path(__file__).parent.parent))
@@ -33,6 +34,7 @@ from src.agents.codegen_agent import (
 )
 
 
+@pytest.mark.asyncio
 async def test_basic_generation():
     """Test basic code generation."""
     print("Testing basic code generation...")
@@ -60,6 +62,7 @@ async def test_basic_generation():
     print(f"  ✅ Total lines: {implementation.total_lines}")
 
 
+@pytest.mark.asyncio
 async def test_complex_generation():
     """Test complex API generation with caching."""
     print("\nTesting complex generation with caching...")
@@ -103,6 +106,7 @@ async def test_complex_generation():
     print(f"  ✅ Framework: {api_file.framework.value}")
 
 
+@pytest.mark.asyncio
 async def test_pilot_001_compatibility():
     """Test PILOT-001 compatibility."""
     print("\nTesting PILOT-001 compatibility...")
@@ -142,6 +146,7 @@ async def test_pilot_001_compatibility():
     print(f"  ✅ Endpoints: {len(result['endpoints_implemented'])}")
 
 
+@pytest.mark.asyncio
 async def test_language_selection():
     """Test language selection logic."""
     print("\nTesting language selection...")
@@ -167,6 +172,7 @@ async def test_language_selection():
     print("  ✅ TypeScript selected for real-time/UI")
 
 
+@pytest.mark.asyncio
 async def test_metrics_tracking():
     """Test metrics tracking."""
     print("\nTesting metrics tracking...")
@@ -198,6 +204,7 @@ async def test_metrics_tracking():
     print(f"  ✅ Avg lines: {metrics['avg_lines_per_implementation']:.0f}")
 
 
+@pytest.mark.asyncio
 async def test_generated_code_quality():
     """Test that generated code has proper structure."""
     print("\nTesting generated code quality...")

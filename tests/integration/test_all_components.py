@@ -22,6 +22,7 @@ Tests all components in order and generates a testing status report
 import asyncio
 import json
 import sys
+import pytest
 import traceback
 from datetime import datetime
 from pathlib import Path
@@ -63,6 +64,7 @@ def log_test(component: str, status: str, details: str = ""):
         test_results["skipped"] += 1
 
 
+@pytest.mark.asyncio
 async def test_evolution_engine():
     """Test Evolution Engine components."""
     print("\n" + "="*60)
@@ -112,6 +114,7 @@ async def test_evolution_engine():
         log_test("evolution.runtime", "FAIL", str(e))
 
 
+@pytest.mark.asyncio
 async def test_aether_protocol():
     """Test Aether Protocol components (Sprints 0-3)."""
     print("\n" + "="*60)
@@ -207,6 +210,7 @@ async def test_aether_protocol():
         log_test("aether.unified_field", "FAIL", str(e))
 
 
+@pytest.mark.asyncio
 async def test_core_agents():
     """Test Core UMA Agents."""
     print("\n" + "="*60)
@@ -243,6 +247,7 @@ async def test_core_agents():
     log_test("agents.tool_hunter", "SKIP", "Skipped due to import hang")
 
 
+@pytest.mark.asyncio
 async def test_tools_and_services():
     """Test Tools and Services."""
     print("\n" + "="*60)
@@ -307,6 +312,7 @@ async def test_tools_and_services():
         log_test("tools.session_summarizer", "FAIL", str(e))
 
 
+@pytest.mark.asyncio
 async def test_schemas():
     """Test Schema definitions."""
     print("\n" + "="*60)
@@ -331,6 +337,7 @@ async def test_schemas():
             log_test(f"schema.{path.stem}", "FAIL", "Schema file not found")
 
 
+@pytest.mark.asyncio
 async def test_infrastructure():
     """Test Infrastructure components."""
     print("\n" + "="*60)
@@ -365,6 +372,7 @@ async def test_infrastructure():
             log_test(f"script.{path.stem}", "SKIP", "Script not found")
 
 
+@pytest.mark.asyncio
 async def test_integration():
     """Test Integration between components."""
     print("\n" + "="*60)

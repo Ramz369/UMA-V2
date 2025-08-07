@@ -1,3 +1,4 @@
+from __future__ import annotations
 
 """
 @cognimap:fingerprint
@@ -15,7 +16,6 @@ type: tool
 """
 
 """AST-aware diff for JSON / YAML / SQL - Production Implementation."""
-from __future__ import annotations
 import json
 import sys
 import yaml
