@@ -9,7 +9,7 @@ import sys
 # Add parent to path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from agents.planner_agent import (
+from src.agents.planner_agent import (
     PlannerAgent, 
     TaskPlan, 
     TaskComplexity,

@@ -13,7 +13,7 @@ import shutil
 # Add parent to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from agents.tool_hunter_agent import (
+from src.agents.tool_hunter_agent import (
     ToolHunterAgent,
     ToolProtocol,
     TrustLevel,

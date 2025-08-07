@@ -8,7 +8,7 @@ import sys
 # Add parent to path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from agents.codegen_agent import (
+from src.agents.codegen_agent import (
     CodegenAgent,
     GeneratedCode,
     Implementation,
