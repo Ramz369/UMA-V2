@@ -2,101 +2,44 @@
 graph TD
     %% COGPLAN Architecture
 
-    subgraph TOOL
-        tools_meta_analyst_py[meta_analyst]
-        tools_credit_sentinel_v2_py[credit_sentinel_v2]
-        tools_session_summarizer_py[session_summarizer]
-        tools_lock_watcher_py[lock_watcher]
-        tools_github_client_py[github_client]
-        tools_context_validator_py[context_validator]
-        tools_har_analyzer_py[har_analyzer]
-        tools_semantic_diff_py[semantic_diff]
-        tools_ecosystem_taxonomy_py[taxonomy]
-        tools_ecosystem_library_evolution_sql_query_py[sql_query]
-    end
-
-    subgraph AGENT
-        tests_test_planner_agent_py[test_planner_agent]
-        tests_test_tool_hunter_agent_py[test_tool_hunter_agent]
-        tests_test_codegen_agent_py[test_codegen_agent]
-        tools_ecosystem_library_intelligence_agent_chat_py[agent_chat]
-        tests_tools_test_agent_chat_py[test_agent_chat]
-        src_agents_codegen_agent_py[codegen_agent]
-        src_agents_tool_hunter_agent_py[tool_hunter_agent]
-        src_agents___init___py[__init__]
-        src_agents_planner_agent_py[planner_agent]
-        evolution_runtime_agent_runtime_py[agent_runtime]
-    end
-
-    subgraph TEST
-        tests_test_garbage_flag_py[test_garbage_flag]
-        tests_test_pilot_001_e2e_py[test_pilot_001_e2e]
-        tests_test_har_analyzer_py[test_har_analyzer]
-        tests_test_credit_sentinel_py[test_credit_sentinel]
-        tests_test_aether_sprint_1_py[test_aether_sprint_1]
-        tests_test_aether_sprint_0_py[test_aether_sprint_0]
-        tests_test_semloop_bootstrap_py[test_semloop_bootstrap]
-        tests_test_session_summarizer_py[test_session_summarizer]
-        tests_test_aether_sprint_2_py[test_aether_sprint_2]
-        tests___init___py[__init__]
-    end
-
     subgraph COMPONENT
-        src___init___py[__init__]
-        scripts_semloop_health_py[semloop_health]
-        cognimap_cli_py[cli]
-        cognimap___init___py[__init__]
-        cognimap_setup_py[setup]
-        tests_cognimap_test_fingerprint_updater_py[test_fingerprint_updater]
-        evolution_orchestrator_evo_orchestrator_wired_py[evo_orchestrator_wired]
-        evolution_orchestrator_evo_orchestrator_py[evo_orchestrator]
-        evolution_treasury_init_wallet_py[init_wallet]
-        evolution_treasury_crypto_wallet_py[crypto_wallet]
-    end
-
-    subgraph MODEL
-        semloop_models_event_envelope_py[event_envelope]
-        semloop_models___init___py[__init__]
-    end
-
-    subgraph SERVICE
-        services_embedder_py[embedder]
-        evolution_aether_polarity_embedder_py[polarity_embedder]
+        cli_py[cli]
+        __init___py[__init__]
+        setup_py[setup]
+        collectors___init___py[__init__]
+        core_analyzer_py[analyzer]
+        core_scanner_py[scanner]
+        core___init___py[__init__]
     end
 
     subgraph PROTOCOL
-        cognimap_core_protocol_py[protocol]
+        core_protocol_py[protocol]
     end
 
     %% Relationships
-    tests_test_garbage_flag_py --> semloop_models___init___py
-    tests_test_har_analyzer_py --> tools_har_analyzer_py
-    tests_test_session_summarizer_py --> tools_session_summarizer_py
-    tests_test_meta_analyst_py --> tools_meta_analyst_py
-    tests_test_real_embeddings_py --> services_embedder_py
-    tests_test_semantic_diff_py --> tools_semantic_diff_py
-    semloop_models___init___py --> semloop_models_event_envelope_py
-    cognimap___init___py --> cognimap_core_analyzer_py
-    evolution_aether_polarity_embedder_py --> evolution_aether_enhanced_events_py
-    evolution_aether_polarity_embedder_py --> semloop_models___init___py
-    evolution_aether_enhanced_events_py --> semloop_models_event_envelope_py
-    cognimap_core___init___py --> cognimap_core_analyzer_py
-    tools_meta_analyst_py -.-> tools_credit_sentinel_v2_py
-    tools_credit_sentinel_v2_py -.-> tools_github_client_py
-    tools_github_client_py -.-> tools_semantic_diff_py
-    tools_semantic_diff_py -.-> tests_test_planner_agent_py
-    tests_test_planner_agent_py -.-> tests_test_credit_sentinel_py
-    tests_test_credit_sentinel_py -.-> tests_test_meta_analyst_py
-    tests_test_meta_analyst_py -.-> tests_test_github_client_py
-    tests_test_github_client_py -.-> scripts_semloop_health_py
-    scripts_semloop_health_py -.-> cognimap_cli_py
-    cognimap_cli_py -.-> cognimap_setup_py
-    cognimap_setup_py -.-> tools_ecosystem_library_composite_research_topic_research_orchestrator_py
-    tools_ecosystem_library_composite_research_topic_research_orchestrator_py -.-> src_agents_tool_hunter_agent_py
-    src_agents_tool_hunter_agent_py -.-> src_agents_planner_agent_py
-    src_agents_planner_agent_py -.-> evolution_treasury_crypto_wallet_py
-    evolution_treasury_crypto_wallet_py -.-> evolution_aether_intent_orchestrator_py
-    evolution_aether_intent_orchestrator_py -.-> evolution_agents_architect_agent_architect_py
-    evolution_agents_architect_agent_architect_py -.-> cognimap_core_analyzer_py
-    tools_meta_analyst_py -.-> tools_semantic_diff_py
+    cli_py --> core_scanner_py
+    __init___py --> core_analyzer_py
+    core___init___py --> core_analyzer_py
+    cli_py -.-> setup_py
+    setup_py -.-> core_analyzer_py
+    cli_py -.-> setup_py
+    setup_py -.-> core_analyzer_py
+    core_analyzer_py -.-> core_scanner_py
+    cli_py -.-> setup_py
+    setup_py -.-> core_analyzer_py
+    core_analyzer_py -.-> core_scanner_py
+    cli_py -.-> core_analyzer_py
+    core_analyzer_py -.-> core_protocol_py
+    cli_py -.-> core_analyzer_py
+    core_analyzer_py -.-> core_scanner_py
+    core_scanner_py -.-> core_protocol_py
+    cli_py -.-> setup_py
+    setup_py -.-> core_analyzer_py
+    core_analyzer_py -.-> core_scanner_py
+    core_scanner_py -.-> core_protocol_py
+    setup_py -.-> core_analyzer_py
+    core_analyzer_py -.-> core_scanner_py
+    core_scanner_py -.-> core_protocol_py
+    core_analyzer_py -.-> core_protocol_py
+    core_analyzer_py -.-> core_protocol_py
 ```

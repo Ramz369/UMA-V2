@@ -9,9 +9,11 @@ echo "1) Run Explorer (generates new graphs)"
 echo "2) Open Dashboard (HTML view)"
 echo "3) View Mermaid Diagram"
 echo "4) Show Graph Statistics"
-echo "5) Exit"
+echo "5) Run Semantic Analysis (Enhanced)"
+echo "6) Open Interactive Visualization"
+echo "7) Exit"
 echo ""
-read -p "Enter choice [1-5]: " choice
+read -p "Enter choice [1-7]: " choice
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -60,6 +62,44 @@ case $choice in
         fi
         ;;
     5)
+        echo "Running semantic analysis..."
+        python3 "$SCRIPT_DIR/integrate_semantic.py"
+        echo ""
+        echo "✅ Semantic analysis complete!"
+        echo "Use option 6 to view the enhanced visualization."
+        ;;
+    6)
+        echo "Opening interactive visualization..."
+        # Check if enhanced graph exists
+        if [ -f "$SCRIPT_DIR/visualizer/output/architecture_graph_enhanced.json" ]; then
+            echo "✅ Using enhanced graph with semantic data"
+        else
+            echo "⚠️  Enhanced graph not found. Run option 5 first for semantic features."
+        fi
+        
+        # Start a simple HTTP server and open browser
+        echo "Starting local server on port 8080..."
+        cd "$SCRIPT_DIR/visualizer"
+        python3 -m http.server 8080 &
+        SERVER_PID=$!
+        sleep 2
+        
+        if command -v firefox &> /dev/null; then
+            firefox "http://localhost:8080/interactive.html" &
+        elif command -v google-chrome &> /dev/null; then
+            google-chrome "http://localhost:8080/interactive.html" &
+        elif command -v xdg-open &> /dev/null; then
+            xdg-open "http://localhost:8080/interactive.html" &
+        else
+            echo "Please open: http://localhost:8080/interactive.html"
+        fi
+        
+        echo ""
+        echo "Server running on PID: $SERVER_PID"
+        echo "Press Ctrl+C to stop the server"
+        wait $SERVER_PID
+        ;;
+    7)
         echo "Goodbye!"
         exit 0
         ;;

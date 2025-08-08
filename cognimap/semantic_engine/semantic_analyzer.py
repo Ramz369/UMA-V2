@@ -34,7 +34,13 @@ class SemanticAnalyzer:
     # ------------------------------------------------------------------
     def scan_symbols(self):
         """Scan the repository for top level class and function symbols."""
+        # Skip common directories that shouldn't be scanned
+        skip_dirs = {'node_modules', '__pycache__', '.git', '.venv', 'venv', 'dist', 'build'}
+        
         for path in self.root_path.rglob("*.py"):
+            # Skip if path contains any of the skip directories
+            if any(skip_dir in path.parts for skip_dir in skip_dirs):
+                continue
             with open(path, "r", encoding="utf-8", errors="ignore") as fh:
                 for line in fh:
                     match = self.SYMBOL_REGEX.match(line)

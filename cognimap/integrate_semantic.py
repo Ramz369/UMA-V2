@@ -45,7 +45,7 @@ def enhance_graph_with_semantics():
     analyzer.save_reports(gaps)
     
     # Load existing graph data
-    graph_file = Path("cognimap/visualizer/output/architecture_graph.json")
+    graph_file = Path(__file__).parent / "visualizer/output/architecture_graph.json"
     if not graph_file.exists():
         print(f"❌ Graph file not found: {graph_file}")
         return
@@ -128,7 +128,7 @@ def enhance_graph_with_semantics():
     graph_data["edges"].extend(suggested_edges)
     
     # Save enhanced graph
-    enhanced_file = Path("cognimap/visualizer/output/architecture_graph_enhanced.json")
+    enhanced_file = Path(__file__).parent / "visualizer/output/architecture_graph_enhanced.json"
     with open(enhanced_file, "w") as f:
         json.dump(graph_data, f, indent=2)
     

@@ -6,7 +6,15 @@
       "name": "meta_analyst",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "api",
+        "testing",
+        "ui",
+        "model",
+        "utility"
+      ],
       "imports": [
         "argparse\nimport csv\nimport yaml\nfrom pathlib import Path\nfrom datetime import datetime, timedelta, timezone\nfrom typing import Dict, Any, List\nfrom collections import defaultdict\n\n\nclass MetaAnalyst"
       ],
@@ -35,16 +43,7 @@
         "hash": "5e489a00",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "MetaAnalyst",
-          "main"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "a74b8f33-465b-47ae-ac98-87abba239dc4",
@@ -52,7 +51,13 @@
       "name": "credit_sentinel_v2",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "api",
+        "testing",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "json\nimport time\nimport threading\nimport os\nfrom pathlib import Path\nfrom typing import Dict, Any, Optional, List, Tuple\nfrom dataclasses import dataclass, field, asdict\nfrom datetime import datetime, timedelta\nfrom enum import Enum\nimport csv\nimport yaml\n\n\nclass ThrottleAction"
       ],
@@ -84,19 +89,7 @@
         "hash": "ee97b767",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "ThrottleAction",
-          "AgentMetrics",
-          "GlobalMetrics",
-          "CreditSentinel",
-          "get_sentinel"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "cf7d30f7-cf43-4b21-b5bb-77feb7a87e0a",
@@ -104,7 +97,12 @@
       "name": "session_summarizer",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "testing",
+        "model",
+        "security"
+      ],
       "imports": [
         "json\nimport hashlib\nimport subprocess\nimport yaml\nfrom pathlib import Path\nfrom typing import Dict, Any, List, Optional\nfrom datetime import datetime, timezone\nimport time\n\n"
       ],
@@ -131,17 +129,7 @@
         "hash": "ae6c0de9",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "SessionSummarizer",
-          "generate_session_summary",
-          "save_session_summary"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "efe65f07-ff95-42f2-b38f-0a594550d66f",
@@ -149,7 +137,10 @@
       "name": "lock_watcher",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing",
+        "configuration"
+      ],
       "imports": [
         "time, yaml, pathlib\nCFG "
       ],
@@ -172,15 +163,7 @@
         "hash": "76d3da47",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "run_once"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "693c88f0-2b6f-4574-a54a-a7f3a30c24b3",
@@ -188,7 +171,13 @@
       "name": "github_client",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "api",
+        "testing",
+        "ui",
+        "configuration"
+      ],
       "imports": [
         "subprocess\nimport json\nimport os\nimport time\nfrom typing import Dict, Any, Optional, List, Tuple\nfrom dataclasses import dataclass\nfrom enum import Enum\n\n\nclass MergeMethod"
       ],
@@ -217,18 +206,7 @@
         "hash": "f2b5ca04",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "MergeMethod",
-          "PullRequest",
-          "CIStatus",
-          "GitHubClient"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "e7779f26-2783-49d2-9d36-59aacc48ff6b",
@@ -236,7 +214,11 @@
       "name": "context_validator",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing",
+        "model",
+        "security"
+      ],
       "imports": [
         "hashlib\nimport json\nimport subprocess\nfrom pathlib import Path\nfrom typing import Dict, Any, Tuple, Optional\nfrom datetime import datetime, timezone\n\ntry"
       ],
@@ -262,17 +244,7 @@
         "hash": "feec182a",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "ContextValidator",
-          "validate_and_get_context",
-          "check_context_status"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "ae2ca678-32e8-4dc7-8aad-99dca43c8064",
@@ -280,7 +252,10 @@
       "name": "har_analyzer",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "ui"
+      ],
       "imports": [
         "pathlib",
         "json\nimport sys\nimport statistics as stats\nfrom typing import Dict, List, Any, Optional, Tuple\nfrom dataclasses import dataclass\nfrom datetime import datetime\nimport urllib"
@@ -307,18 +282,7 @@
         "hash": "ce9ac395",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TimingMetrics",
-          "RequestMetrics",
-          "HARAnalyzer",
-          "analyze"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "eab608ac-719f-45c9-afc5-2e5f257cef47",
@@ -326,7 +290,12 @@
       "name": "semantic_diff",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "testing",
+        "security"
+      ],
       "imports": [
         "dataclasses",
         "__future__",
@@ -356,18 +325,7 @@
         "hash": "affecaba",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "ChangeType",
-          "DiffNode",
-          "SemanticDiffer",
-          "diff"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "5c2bf869-781e-42ab-a89d-35cd308183a3",
@@ -375,7 +333,15 @@
       "name": "test_planner_agent",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "api",
+        "testing",
+        "ui",
+        "service",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "asyncio\nimport json\nimport pytest\nfrom pathlib import Path\nimport sys\n\n"
       ],
@@ -405,17 +371,7 @@
         "hash": "582d754f",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestPlannerAgent",
-          "test_task_complexity_enum",
-          "test_task_plan_dataclass"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "ef146e83-572f-4cd0-865b-b3e8b5bdf43c",
@@ -423,7 +379,12 @@
       "name": "test_garbage_flag",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing",
+        "service",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "json\nimport pytest\nfrom datetime import datetime\nfrom uuid import uuid4\nfrom unittest",
         "semloop_models"
@@ -453,17 +414,7 @@
         "hash": "da184075",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestEventEnvelopeGarbageFlag",
-          "TestEmbedderServiceGarbageHandling",
-          "TestSchemaValidation"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "1fac3343-5bbe-4ca9-be1d-54cfb3edf94f",
@@ -471,7 +422,14 @@
       "name": "test_pilot_001_e2e",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "testing",
+        "ui",
+        "service",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nimport json\nimport time\nfrom datetime import datetime, timedelta\nfrom pathlib import Path\nfrom typing import Dict, List, Any\n"
       ],
@@ -500,17 +458,7 @@
         "hash": "e4a7e200",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "MockSemLoopClient",
-          "MockCreditSentinel",
-          "PILOT001Pipeline"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "af1569c9-2491-490e-b1d8-298b55e29457",
@@ -518,7 +466,14 @@
       "name": "test_tool_hunter_agent",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "testing",
+        "model",
+        "utility",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "asyncio\nimport json\nfrom datetime import datetime\nfrom pathlib import Path\nimport sys\nimport tempfile\nimport shutil\n\n"
       ],
@@ -545,15 +500,7 @@
         "hash": "271780da",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestToolHunterAgent"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "31e9009e-3331-4717-b856-be0c11b9c8dd",
@@ -561,7 +508,12 @@
       "name": "test_har_analyzer",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "testing",
+        "ui"
+      ],
       "imports": [
         "pytest\nimport json\nimport tempfile\nfrom pathlib import Path\nimport sys\n\n",
         "tools.har_analyzer"
@@ -589,15 +541,7 @@
         "hash": "5051569b",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestHARAnalyzer"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "f004cb7b-696f-4574-9fd8-48d3b53d1d1d",
@@ -605,7 +549,12 @@
       "name": "test_credit_sentinel",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "api",
+        "testing",
+        "configuration"
+      ],
       "imports": [
         "pytest\nimport json\nimport time\nimport tempfile\nimport csv\nfrom pathlib import Path\nfrom datetime import datetime, timedelta\nimport sys\nimport threading\n\n"
       ],
@@ -630,15 +579,7 @@
         "hash": "9a892dc4",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestCreditSentinel"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "85b6e525-8907-4368-a323-5a268effe464",
@@ -646,7 +587,12 @@
       "name": "test_aether_sprint_1",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing",
+        "ui",
+        "service",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nimport json\nimport sys\nfrom pathlib import Path\nfrom typing import Dict, Any, List\nfrom datetime import datetime\nfrom uuid import uuid4\n\n"
       ],
@@ -675,19 +621,7 @@
         "hash": "7073da27",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestPolarityCalculator",
-          "TestPolarityThreshold",
-          "TestPolarityEmbedder",
-          "TestMigration",
-          "test_sprint_1_requirements"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "56991e25-4b28-4a19-85f2-40cdfe8177f2",
@@ -695,7 +629,13 @@
       "name": "test_aether_sprint_0",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "testing",
+        "ui",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nimport pytest\nimport sys\nimport os\nfrom datetime import datetime\nfrom uuid import UUID, uuid4\nfrom pathlib import Path\n\n"
       ],
@@ -724,18 +664,7 @@
         "hash": "1484c003",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestIntentSubstrate",
-          "TestEnhancedEvents",
-          "TestIntegration",
-          "test_sprint_0_requirements"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "1d0cfbff-0f4d-4327-953b-9eb88d21fced",
@@ -743,7 +672,13 @@
       "name": "test_semloop_bootstrap",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "testing",
+        "service",
+        "configuration"
+      ],
       "imports": [
         "pytest\nimport subprocess\nimport time\nfrom pathlib import Path\nimport sys\n\n"
       ],
@@ -769,15 +704,7 @@
         "hash": "5a70ef3f",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestSemLoopBootstrap"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "a459b0cc-64d2-447b-a496-f1c34c8e6521",
@@ -785,7 +712,11 @@
       "name": "test_session_summarizer",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing",
+        "model",
+        "security"
+      ],
       "imports": [
         "tools.session_summarizer",
         "datetime",
@@ -814,16 +745,7 @@
         "hash": "8d44b32a",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestSessionSummarizer",
-          "TestContextValidator"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "e93b9b81-8df0-4923-aeea-df0130328f26",
@@ -831,7 +753,13 @@
       "name": "test_aether_sprint_2",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "testing",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nimport sys\nfrom pathlib import Path\nfrom typing import Dict, Any, List\nfrom datetime import datetime, timedelta\nfrom uuid import uuid4\n\n"
       ],
@@ -860,18 +788,7 @@
         "hash": "95cc4115",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestKarmicOrchestrator",
-          "TestKarmaAgentRuntime",
-          "TestInterestCalculation",
-          "test_sprint_2_requirements"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "7106be42-d2c5-44c2-a45e-a52327aaf4b8",
@@ -907,7 +824,12 @@
       "name": "test_meta_analyst",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "testing",
+        "utility"
+      ],
       "imports": [
         "tools.meta_analyst",
         "tempfile\nimport yaml\nimport csv\nimport pytest\nfrom pathlib import Path\nimport sys\n\n"
@@ -935,15 +857,7 @@
         "hash": "7995827f",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestMetaAnalyst"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "e71d2bc7-27c6-4605-97ff-109290b17ec1",
@@ -989,7 +903,12 @@
       "name": "test_github_client",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "api",
+        "testing"
+      ],
       "imports": [
         "subprocess\nfrom pathlib import Path\nimport sys\n\n",
         "pytest\nimport json\nfrom unittest"
@@ -1015,15 +934,7 @@
         "hash": "7b1b061a",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestGitHubClient"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "c15937fb-abe2-40ab-bbbf-0ca55bd60e80",
@@ -1074,7 +985,11 @@
       "name": "test_semantic_diff",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "testing",
+        "configuration"
+      ],
       "imports": [
         "tools.semantic_diff",
         "pytest\nimport json\nimport yaml\nfrom pathlib import Path\nimport sys\n\n"
@@ -1101,15 +1016,7 @@
         "hash": "41ef5416",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestSemanticDiff"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "759c934d-3559-44d4-a165-a8800d786df9",
@@ -1141,7 +1048,13 @@
       "name": "semloop_health",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "api",
+        "service",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nimport sys\nimport socket\nimport subprocess\nfrom typing import Tuple, List\n\n\ndef check_port"
       ],
@@ -1169,17 +1082,7 @@
         "hash": "ef0ae530",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "check_port",
-          "get_host",
-          "main"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "9d5a12cf-7e67-41c2-980b-d3fbf1c53297",
@@ -1187,7 +1090,12 @@
       "name": "event_envelope",
       "type": "model",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing",
+        "model",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "datetime"
       ],
@@ -1214,17 +1122,7 @@
         "hash": "8e120ee9",
         "language": "python",
         "type": "model"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "EventType",
-          "EventMeta",
-          "EventEnvelope"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "dace12d7-4a61-4791-8095-d117dc3d851f",
@@ -1266,7 +1164,15 @@
       "name": "embedder",
       "type": "service",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "testing",
+        "service",
+        "model",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "asyncio\nimport json\nimport logging\nimport os\nfrom typing import Any, Dict, Optional, List\nfrom uuid import UUID\n\nfrom semloop_models import EventEnvelope\n\n\nlogger "
       ],
@@ -1296,17 +1202,7 @@
         "hash": "b9561922",
         "language": "python",
         "type": "service"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "EmbedderService",
-          "MockKafkaConsumer",
-          "MockVectorStore"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "a0ee398b-9374-4155-abf1-07af981a4bac",
@@ -1349,7 +1245,14 @@
       "name": "cli",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "api",
+        "service",
+        "utility",
+        "configuration"
+      ],
       "imports": [
         "rich.table",
         "graph.graph_visualizer",
@@ -1393,19 +1296,7 @@
         "hash": "61fbcec93e4c3274",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "cli",
-          "init",
-          "update",
-          "serve",
-          "status"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "9dcbae98-b924-4b2b-b7cf-c23a2f06111a",
@@ -1480,7 +1371,12 @@
       "name": "taxonomy",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "testing",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "enum"
       ],
@@ -1517,19 +1413,7 @@
         "hash": "dc94ee1d",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "ToolType",
-          "ToolComplexity",
-          "ToolDomain",
-          "ToolMetadata",
-          "BaseTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "e1b43e14-2ade-430e-ac7a-e167fba51088",
@@ -1537,7 +1421,12 @@
       "name": "sql_query",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -1562,15 +1451,7 @@
         "hash": "3caa854a",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "SqlQueryTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "19c2bbf5-71e3-4665-82f8-2f224c3be3ff",
@@ -1578,7 +1459,11 @@
       "name": "document_loader",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -1602,15 +1487,7 @@
         "hash": "503ce0a8",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "DocumentLoaderTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "a24ee7d4-96f1-4c62-ab92-76f1f7cc54d8",
@@ -1618,7 +1495,11 @@
       "name": "github",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -1642,15 +1523,7 @@
         "hash": "36c73dc2",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "GithubTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "5b3dce17-cbac-40a0-b2d0-64d6783975a4",
@@ -1658,7 +1531,11 @@
       "name": "function_wrapper",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -1682,15 +1559,7 @@
         "hash": "d06b8b8a",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "FunctionWrapperTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "b2e71fb2-ec53-4e38-80c3-37dff4bb3d54",
@@ -1698,7 +1567,11 @@
       "name": "data_connector",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -1722,15 +1595,7 @@
         "hash": "08c35777",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "DataConnectorTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "a53a1513-ddb4-4ebb-992b-4d415f8a5718",
@@ -1738,7 +1603,12 @@
       "name": "sqlite",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -1763,15 +1633,7 @@
         "hash": "01f422fb",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "SqliteTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "0912c582-1d75-4525-8713-6705d1c848f1",
@@ -1779,7 +1641,11 @@
       "name": "rag_pipeline",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -1803,15 +1669,7 @@
         "hash": "de634467",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "RagPipelineTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "d5d42715-69b7-4cf0-92d9-36686e76cdef",
@@ -1819,7 +1677,11 @@
       "name": "slack",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -1843,15 +1705,7 @@
         "hash": "27d0f411",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "SlackTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "264c273b-3f2f-466a-a3f0-29f15566f6bb",
@@ -1859,7 +1713,12 @@
       "name": "code_executor",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "typing"
       ],
@@ -1884,15 +1743,7 @@
         "hash": "5075cec5",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "CodeExecutorTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "7ea9717e-f48e-44bd-a158-c999ac0093f3",
@@ -1900,7 +1751,11 @@
       "name": "filesystem",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -1924,15 +1779,7 @@
         "hash": "4ee194e5",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "FilesystemTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "a92ec473-c6b9-4e19-a130-46565016c65c",
@@ -1940,7 +1787,11 @@
       "name": "agent_chat",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -1964,15 +1815,7 @@
         "hash": "13485ee7",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "AgentChatTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "4da9e7a8-d59f-4185-80f6-a3b3066e5e8b",
@@ -1980,7 +1823,12 @@
       "name": "brave-search",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -2005,15 +1853,7 @@
         "hash": "43759c11",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "Brave"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "efe40c56-d540-4f9b-8b56-15bd88c5d3ae",
@@ -2021,7 +1861,12 @@
       "name": "vector_search",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -2046,15 +1891,7 @@
         "hash": "ba7c365d",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "VectorSearchTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "6e716765-243c-4cb0-8c16-f92bec58c356",
@@ -2062,7 +1899,12 @@
       "name": "web_search",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom typing import Dict, Any, Optional\nfrom tools"
       ],
@@ -2087,15 +1929,7 @@
         "hash": "68cf7cae",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "WebSearchTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "93b1dc4e-7877-455f-a12d-ad7d26a379f2",
@@ -2103,7 +1937,17 @@
       "name": "topic_research_orchestrator",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "api",
+        "testing",
+        "ui",
+        "model",
+        "utility",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "taxonomy",
         "sys\nsys",
@@ -2135,15 +1979,7 @@
         "hash": "8d007b35",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TopicResearchOrchestrator"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "88fe08c1-4088-4ca4-87bf-add63a80334b",
@@ -2151,7 +1987,9 @@
       "name": "test_agent_chat",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2173,15 +2011,7 @@
         "hash": "8ffda029",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestAgentChat"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "e3f2fd12-d224-454c-be90-5c70eff218ae",
@@ -2189,7 +2019,10 @@
       "name": "test_sql_query",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2212,15 +2045,7 @@
         "hash": "28674923",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestSqlQuery"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "20cb6dc0-443c-4f53-bc46-937a03836346",
@@ -2228,7 +2053,9 @@
       "name": "test_vector_search",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2250,15 +2077,7 @@
         "hash": "e24b12ae",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestVectorSearch"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "353aad42-90f0-4086-be32-a0315300b790",
@@ -2266,7 +2085,9 @@
       "name": "test_brave-search",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2288,15 +2109,7 @@
         "hash": "43da0aae",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestBraveSearch"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "7d1f0b8c-02c6-445f-b921-f00c83cb3076",
@@ -2304,7 +2117,9 @@
       "name": "test_code_executor",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2326,15 +2141,7 @@
         "hash": "5b8ad617",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestCodeExecutor"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "de408d1c-d97a-4429-add0-bdcbf9a1d0b9",
@@ -2342,7 +2149,9 @@
       "name": "test_github",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2364,15 +2173,7 @@
         "hash": "f3461409",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestGithub"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "5f8b8ce1-ba8a-443e-9448-1574299a801b",
@@ -2380,7 +2181,9 @@
       "name": "test_slack",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2402,15 +2205,7 @@
         "hash": "c6c7580e",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestSlack"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "313e8070-f3ad-4828-aeaf-91c4f522788f",
@@ -2418,7 +2213,9 @@
       "name": "test_document_loader",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2440,15 +2237,7 @@
         "hash": "2c1b7f6b",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestDocumentLoader"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "a39c08f8-ef09-47e5-b35e-6bab1859cddd",
@@ -2456,7 +2245,9 @@
       "name": "test_web_search",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2478,15 +2269,7 @@
         "hash": "e2b70190",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestWebSearch"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "bd0bb470-b954-44fb-81ad-7a7e33b67daf",
@@ -2522,7 +2305,10 @@
       "name": "test_sqlite",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2545,15 +2331,7 @@
         "hash": "57359b68",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestSqlite"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "52c781da-fd36-4b24-9569-4f724db2bebe",
@@ -2561,7 +2339,9 @@
       "name": "test_data_connector",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2583,15 +2363,7 @@
         "hash": "6a7ae4ce",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestDataConnector"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "766ec664-9104-48c2-903e-715f10b14e40",
@@ -2599,7 +2371,9 @@
       "name": "test_rag_pipeline",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2621,15 +2395,7 @@
         "hash": "2799fe20",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestRagPipeline"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "86606984-525d-433d-97f0-f6daef558fab",
@@ -2637,7 +2403,9 @@
       "name": "test_function_wrapper",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2659,15 +2427,7 @@
         "hash": "67f6f807",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestFunctionWrapper"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "e7500dba-0494-428e-98bf-0c6a2be10892",
@@ -2675,7 +2435,9 @@
       "name": "test_filesystem",
       "type": "tool",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing"
+      ],
       "imports": [
         "pytest\nimport asyncio\nfrom tools"
       ],
@@ -2697,15 +2459,7 @@
         "hash": "6d32d314",
         "language": "python",
         "type": "tool"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestFilesystem"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "e4fa21cd-711b-47a6-9b70-0044b4690ce2",
@@ -2714,7 +2468,13 @@
       "type": "test",
       "language": "python",
       "semantic_tags": [
-        "repo"
+        "database",
+        "api",
+        "testing",
+        "ui",
+        "service",
+        "model",
+        "configuration"
       ],
       "imports": [
         "asyncio\nimport json\nimport sys\nimport pytest\nimport traceback\nfrom datetime import datetime\nfrom pathlib import Path\nfrom typing import Dict, List, Any, Tuple\n\n"
@@ -2744,18 +2504,7 @@
         "hash": "219dc346",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "log_test",
-          "generate_report"
-        ],
-        "tags": [
-          "repo"
-        ],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "123",
@@ -2763,7 +2512,9 @@
       "name": "test_fingerprint_updater",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "demo"
+      ],
       "imports": [
         "tempfile\nfrom pathlib import Path\nfrom AUDIT_COGNIMAP"
       ],
@@ -2786,16 +2537,7 @@
         "hash": "deadbeef",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "read_fp",
-          "test_updater_updates_and_idempotent"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "09878737-4c5b-4ec8-b7e9-00678311f59c",
@@ -2803,7 +2545,14 @@
       "name": "codegen_agent",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "testing",
+        "service",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "services.pricing_calculator",
         "asyncio\nimport json\nimport logging\nfrom datetime import datetime, timezone\nfrom typing import Dict, List, Any, Optional\nfrom dataclasses import dataclass, asdict\nfrom enum import Enum\nfrom pathlib import Path\n\nlogger ",
@@ -2847,19 +2596,7 @@
         "hash": "376fe735",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "CodeLanguage",
-          "FrameworkType",
-          "GeneratedCode",
-          "Implementation",
-          "CodegenAgent"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "53455a39-4303-412e-9707-87a5b064dff3",
@@ -2867,7 +2604,16 @@
       "name": "tool_hunter_agent",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "api",
+        "testing",
+        "ui",
+        "model",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "asyncio\nimport json\nimport hashlib\nimport re\nfrom datetime import datetime, timedelta\nfrom pathlib import Path\nfrom typing import Dict, List, Any, Optional, Tuple\nfrom dataclasses import dataclass, asdict\nfrom enum import Enum\nimport yaml\nimport aiohttp\nfrom urllib",
         "pytest\nimport asyncio\nfrom tools",
@@ -2905,19 +2651,7 @@
         "hash": "c56452a9",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "ToolProtocol",
-          "TrustLevel",
-          "DiscoveredTool",
-          "ToolPattern",
-          "AdaptedTool"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "229fb59d-7e02-44cf-9af2-b314ad00c87f",
@@ -2949,7 +2683,16 @@
       "name": "planner_agent",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "api",
+        "testing",
+        "ui",
+        "service",
+        "model",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "asyncio\nimport json\nimport logging\nfrom datetime import datetime, timezone\nfrom typing import Dict, List, Any, Optional\nfrom dataclasses import dataclass, asdict\nfrom enum import Enum\n\nlogger "
       ],
@@ -2980,17 +2723,7 @@
         "hash": "80121d38",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TaskComplexity",
-          "TaskPlan",
-          "PlannerAgent"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "0dfb9b60-f130-481b-93b2-eaf095536113",
@@ -2998,7 +2731,14 @@
       "name": "agent_runtime",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "testing",
+        "ui",
+        "service",
+        "utility",
+        "configuration"
+      ],
       "imports": [
         "common.kafka_utils",
         "asyncio\nimport logging\nimport os\nimport signal\nimport sys\nfrom datetime import datetime\nfrom pathlib import Path\nfrom typing import Dict, Any, Optional, Type\nimport json\n\n"
@@ -3028,17 +2768,7 @@
         "hash": "670b7c05",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "AgentRuntime",
-          "AgentSpawner",
-          "TestAgent"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "888bd125-d504-400f-9bd9-ee0c3e3cfff1",
@@ -3046,7 +2776,13 @@
       "name": "evo_orchestrator_wired",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "testing",
+        "ui",
+        "utility",
+        "configuration"
+      ],
       "imports": [
         "runtime.agent_runtime",
         "agents.architect_agent.architect",
@@ -3076,15 +2812,7 @@
         "hash": "e922c6a0",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "WiredEvolutionOrchestrator"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "50c3ca98-21ee-44e2-85cd-af63d7d36215",
@@ -3092,7 +2820,11 @@
       "name": "evo_orchestrator",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "ui",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "sys\nsys",
         "agents.architect_agent.architect",
@@ -3120,15 +2852,7 @@
         "hash": "22f9a6dc",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "EvolutionOrchestrator"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "a134fe9e-5b6e-4266-9724-9a5f8bae57d3",
@@ -3136,7 +2860,11 @@
       "name": "test_aether_sprint_3",
       "type": "test",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing",
+        "ui",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nimport pytest\nfrom datetime import datetime\nfrom uuid import uuid4\nimport sys\nfrom pathlib import Path\n\n"
       ],
@@ -3165,19 +2893,7 @@
         "hash": "334cd481",
         "language": "python",
         "type": "test"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TestResonanceAnalyzer",
-          "TestUnifiedField",
-          "TestIntegration",
-          "test_consciousness_formula",
-          "test_pattern_energy"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "32533c6d-fc4f-4f0b-8105-ce049ce1d3fe",
@@ -3185,7 +2901,10 @@
       "name": "init_wallet",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "configuration"
+      ],
       "imports": [
         "json\nimport argparse\nfrom datetime import datetime\nfrom pathlib import Path\n\n\ndef initialize_wallet"
       ],
@@ -3209,16 +2928,7 @@
         "hash": "70c60404",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "initialize_wallet",
-          "main"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "499cdb51-c944-4dcf-a788-90deb99ebc3a",
@@ -3226,7 +2936,15 @@
       "name": "crypto_wallet",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "api",
+        "testing",
+        "service",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "json\nimport logging\nfrom datetime import datetime\nfrom typing import Dict, List, Optional, Any\nfrom pathlib import Path\nfrom decimal import Decimal\n\nlogger "
       ],
@@ -3254,15 +2972,7 @@
         "hash": "38b7dc45",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "CryptoWalletManager"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "ebead0cd-ae33-44cb-80c8-9123070e08b1",
@@ -3270,7 +2980,13 @@
       "name": "polarity_migration",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "testing",
+        "ui",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nimport json\nimport logging\nfrom datetime import datetime\nfrom pathlib import Path\nfrom typing import Dict, Any, List, Optional\n\n"
       ],
@@ -3296,15 +3012,7 @@
         "hash": "c3dd2f03",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "PolarityMigration"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "47eed971-96dd-4a73-9497-4fda4f95f99c",
@@ -3312,7 +3020,14 @@
       "name": "resonance_analyzer",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "testing",
+        "ui",
+        "model",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "pydantic",
         "asyncio\nimport hashlib\nimport logging\nimport math\nfrom collections import defaultdict, Counter\nfrom datetime import datetime, timedelta\nfrom enum import Enum\nfrom typing import Dict, Any, List, Optional, Tuple, Set\nfrom uuid import UUID, uuid4\n\ntry"
@@ -3343,18 +3058,7 @@
         "hash": "726a46a2",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "PatternType",
-          "InterferenceType",
-          "ResonancePattern",
-          "ResonanceAnalyzer"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "8efd9a87-0f22-4106-bd4c-66e6988bf048",
@@ -3362,7 +3066,14 @@
       "name": "polarity_embedder",
       "type": "service",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "testing",
+        "ui",
+        "service",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "evolution.aether.enhanced_events",
         "semloop_models",
@@ -3395,16 +3106,7 @@
         "hash": "5e37c46c",
         "language": "python",
         "type": "service"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "PolarityAwareEmbedder",
-          "MigratedEmbedderService"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "6b251604-ed7d-4754-a098-8c9b2ac3350f",
@@ -3412,7 +3114,14 @@
       "name": "enhanced_events",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "testing",
+        "ui",
+        "model",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "datetime",
         "sys\nimport os\nsys",
@@ -3445,17 +3154,7 @@
         "hash": "73682a0a",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "AetherEventMeta",
-          "AetherEventEnvelope",
-          "IntentAwareEventPublisher"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "963c2346-7b0b-4a52-b2b9-1e05f79b081d",
@@ -3463,7 +3162,12 @@
       "name": "intent_substrate",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "testing",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nimport json\nfrom datetime import datetime\nfrom enum import Enum\nfrom typing import Dict, List, Optional, Any\nfrom uuid import UUID, uuid4\nfrom pydantic import BaseModel, Field\n\n"
       ],
@@ -3491,18 +3195,7 @@
         "hash": "79bf9dc2",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "IntentType",
-          "GestationPhase",
-          "Intent",
-          "IntentSubstrate"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "42db8456-7955-4974-a701-5b55172ead3e",
@@ -3510,7 +3203,15 @@
       "name": "intent_orchestrator",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "testing",
+        "ui",
+        "service",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "orchestrator.evo_orchestrator_wired",
         "asyncio\nimport logging\nimport os\nimport sys\nfrom datetime import datetime\nfrom pathlib import Path\nfrom typing import Dict, List, Any, Optional\nfrom uuid import UUID\n\n",
@@ -3540,15 +3241,7 @@
         "hash": "947b3cd9",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "IntentAwareEvolutionOrchestrator"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "3d5bff7d-7987-453e-ad92-d34e1b282b20",
@@ -3556,7 +3249,14 @@
       "name": "karma_agent_runtime",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "testing",
+        "ui",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "asyncio\nimport logging\nfrom datetime import datetime\nfrom typing import Dict, Any, Optional, List\nfrom uuid import UUID\nimport sys\nfrom pathlib import Path\n\n"
       ],
@@ -3584,16 +3284,7 @@
         "hash": "fa7f2676",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "KarmaAwareAgentRuntime",
-          "MockKarmicOrchestrator"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "10d6be64-d8f2-48a3-ad99-b52f0a7392a9",
@@ -3601,7 +3292,14 @@
       "name": "unified_field",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "testing",
+        "ui",
+        "model",
+        "utility",
+        "configuration"
+      ],
       "imports": [
         "pydantic",
         "asyncio\nimport logging\nimport math\nfrom datetime import datetime, timedelta\nfrom enum import Enum\nfrom typing import Dict, Any, List, Optional, Tuple\nfrom uuid import UUID\n\ntry"
@@ -3631,17 +3329,7 @@
         "hash": "8778c36c",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "ConsciousnessState",
-          "FieldState",
-          "UnifiedField"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "9671c758-8606-4573-a9ff-5c3a0b0d14f1",
@@ -3649,7 +3337,15 @@
       "name": "karmic_orchestrator",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "testing",
+        "ui",
+        "model",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "pydantic",
         "asyncio\nimport json\nimport logging\nfrom datetime import datetime, timedelta\nfrom enum import Enum\nfrom typing import Dict, Any, List, Optional, Tuple\nfrom uuid import UUID, uuid4\ntry"
@@ -3681,18 +3377,7 @@
         "hash": "b0ef3746",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "KarmaCategory",
-          "ActionType",
-          "KarmicAction",
-          "KarmicOrchestrator"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "659a3353-0c5e-4cdb-9e3d-d626bfe66a87",
@@ -3700,7 +3385,13 @@
       "name": "polarity_calculator",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "testing",
+        "utility",
+        "configuration"
+      ],
       "imports": [
         "re\nfrom typing import Dict, Any, List, Optional, Tuple\nfrom enum import Enum\nfrom datetime import datetime\nimport json\n\n\nclass PolarityFactors"
       ],
@@ -3730,19 +3421,7 @@
         "hash": "fbf066dd",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "PolarityFactors",
-          "PolarityCalculator",
-          "PolarityThreshold",
-          "migrate_garbage_to_polarity",
-          "calculate_aggregate_polarity"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "7c9a4f19-ec45-4eb4-9809-eba0a89b7c21",
@@ -3750,7 +3429,12 @@
       "name": "kafka_utils",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing",
+        "service",
+        "utility",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nimport json\nimport logging\nfrom typing import Dict, Any, Optional, Callable, List\nfrom datetime import datetime\nimport os\n\n"
       ],
@@ -3776,16 +3460,7 @@
         "hash": "0f2ce399",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "KafkaIntegration",
-          "get_kafka"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "07bd99c5-764e-4dda-a59c-fc43bf300707",
@@ -3793,7 +3468,15 @@
       "name": "architect",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "api",
+        "testing",
+        "ui",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "logging\nimport yaml\nfrom datetime import datetime\nfrom typing import Dict, List, Any, Optional\n\nlogger "
       ],
@@ -3821,15 +3504,7 @@
         "hash": "11d9aace",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "ArchitectAgent"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "83a92304-0adb-4f9b-933f-7d2e6302f11d",
@@ -3837,7 +3512,15 @@
       "name": "auditor",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "testing",
+        "service",
+        "model",
+        "utility",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "json\nimport logging\nfrom datetime import datetime\nfrom typing import Dict, List, Any\nfrom pathlib import Path\n\nlogger "
       ],
@@ -3865,15 +3548,7 @@
         "hash": "c53f8561",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "ExternalAuditor"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "80feed09-906e-42cc-8252-131456361d86",
@@ -3881,7 +3556,11 @@
       "name": "treasurer",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "api",
+        "service",
+        "configuration"
+      ],
       "imports": [
         "json\nimport logging\nfrom datetime import datetime, timedelta\nfrom typing import Dict, List, Any, Optional\nfrom pathlib import Path\n\nlogger "
       ],
@@ -3905,15 +3584,7 @@
         "hash": "8940cfb5",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "TreasurerAgent"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "7eb5a2d8-916d-4cdc-b02b-e6c6c791b202",
@@ -3921,7 +3592,15 @@
       "name": "reviewer",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "ui",
+        "service",
+        "model",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "logging\nfrom datetime import datetime\nfrom typing import Dict, List, Any, Tuple\n\nlogger "
       ],
@@ -3949,15 +3628,7 @@
         "hash": "7afdc0dc",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "DiscussionAgent"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "9a657298-9fc8-4a2b-8356-7dfa2dc737a9",
@@ -3965,7 +3636,14 @@
       "name": "implementor",
       "type": "agent",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "testing",
+        "service",
+        "model",
+        "configuration"
+      ],
       "imports": [
         "asyncio\nfrom concurrent",
         "time\n\nclass OptimizedProcessor",
@@ -3999,19 +3677,7 @@
         "hash": "4b5c3530",
         "language": "python",
         "type": "agent"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "ImplementorAgent",
-          "AnalysisRequest",
-          "AnalysisResponse",
-          "OptimizedProcessor",
-          "EvolutionImplementation"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "b8accef2-d575-40be-8c93-dfa8f4dfc0ae",
@@ -4045,7 +3711,18 @@
       "name": "analyzer",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "authentication",
+        "database",
+        "api",
+        "testing",
+        "ui",
+        "service",
+        "model",
+        "utility",
+        "configuration",
+        "security"
+      ],
       "imports": [
         "re\nfrom pathlib import Path\nfrom typing import Dict, List, Any, Optional, Set, Tuple\nimport json\nfrom datetime import datetime\nimport hashlib\n\n\nclass SemanticAnalyzer"
       ],
@@ -4077,16 +3754,7 @@
         "hash": "59ac31db",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "SemanticAnalyzer",
-          "IntentExtractor"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "8b309d52-c224-4b8f-a4a6-4a88aa934dba",
@@ -4094,7 +3762,13 @@
       "name": "scanner",
       "type": "component",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "database",
+        "api",
+        "testing",
+        "utility",
+        "configuration"
+      ],
       "imports": [
         "ast\nimport re\nfrom pathlib import Path\nfrom typing import Dict, List, Any, Optional, Set\nimport json\n\n\nclass MultiLanguageParser"
       ],
@@ -4126,19 +3800,7 @@
         "hash": "a2b64240",
         "language": "python",
         "type": "component"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "MultiLanguageParser",
-          "BaseParser",
-          "PythonParser",
-          "JavaScriptParser",
-          "JavaParser"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     },
     {
       "id": "cbcc7d16-0e03-442e-891d-499fafb4a18e",
@@ -4175,7 +3837,14 @@
       "name": "protocol",
       "type": "protocol",
       "language": "python",
-      "semantic_tags": [],
+      "semantic_tags": [
+        "testing",
+        "ui",
+        "service",
+        "model",
+        "utility",
+        "configuration"
+      ],
       "imports": [
         "typing"
       ],
@@ -4212,19 +3881,7 @@
         "hash": "6a350c52",
         "language": "python",
         "type": "protocol"
-      },
-      "semantic_fingerprint": {
-        "symbols": [
-          "ProtocolVersion",
-          "ComponentType",
-          "RelationshipType",
-          "ArchitecturalLayer",
-          "EventType"
-        ],
-        "tags": [],
-        "patterns": []
-      },
-      "patterns": []
+      }
     }
   ],
   "edges": [

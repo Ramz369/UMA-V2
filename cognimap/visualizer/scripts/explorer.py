@@ -63,6 +63,20 @@ def explore_architecture():
         json.dump(full_graph, f, indent=2, default=str)
     print(f"✅ Full graph saved to: {json_path}")
     
+    # Run semantic enhancement
+    print("\n🔬 RUNNING SEMANTIC ENHANCEMENT")
+    print("-" * 40)
+    try:
+        # Import and run the semantic integration
+        import sys
+        sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+        from integrate_semantic import enhance_graph_with_semantics
+        enhance_graph_with_semantics()
+        print("✅ Semantic enhancement complete!")
+    except Exception as e:
+        print(f"⚠️ Semantic enhancement failed: {e}")
+        print("  Continuing with basic graph...")
+    
     # Component type analysis
     print("\n5️⃣ COMPONENT TYPES")
     print("-" * 40)
