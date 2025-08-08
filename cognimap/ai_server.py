@@ -18,12 +18,13 @@ from aiohttp import ClientSession
 import aiohttp_cors
 from dotenv import load_dotenv
 
-# CogniMap imports
+# CogniMap imports - using relative imports since we run from cognimap directory
 from graph.graph_analyzer import GraphAnalyzer
 from semantic_engine.semantic_analyzer import SemanticAnalyzer
 from semantic_engine.deepseek_integration import request_improvements
 from core.fingerprint import Fingerprint
 from scripts.deepseek_scenario_report import generate_report as deepseek_generate
+from semantic_engine.smart_context_builder import SmartContextBuilder, enhanced_deepseek_request
 
 # Load environment variables
 load_dotenv()
@@ -47,8 +48,10 @@ class CogniMapAIServer:
         self.ws_port = int(os.getenv('WEBSOCKET_PORT', 8091))
         self.enable_live = os.getenv('ENABLE_LIVE_ANALYSIS', 'true').lower() == 'true'
         
-        # Load graph data
-        self.graph_path = Path(__file__).parent / 'visualizer/output/architecture_graph_enhanced.json'
+        # Load graph data - use real graph if available, fallback to enhanced
+        real_graph_path = Path(__file__).parent / 'visualizer/output/architecture_graph_real.json'
+        enhanced_graph_path = Path(__file__).parent / 'visualizer/output/architecture_graph_enhanced.json'
+        self.graph_path = real_graph_path if real_graph_path.exists() else enhanced_graph_path
         self.graph_data = self.load_graph()
         
         # Initialize analyzers
@@ -58,7 +61,11 @@ class CogniMapAIServer:
             memory_path="reports/cognimap/semantic"
         )
         
+        # Initialize smart context builder for focused AI analysis
+        self.context_builder = SmartContextBuilder(max_tokens=4000)
+        
         logger.info(f"CogniMap AI Server initialized. DeepSeek API: {'✓' if self.api_key else '✗'}")
+        logger.info(f"Smart Context Builder: Enabled (4k token windows)")
     
     def load_graph(self) -> Optional[Dict]:
         """Load the architecture graph"""
@@ -192,25 +199,56 @@ class CogniMapAIServer:
         return web.json_response(analysis)
     
     async def handle_analyze_gaps(self, request):
-        """Find and analyze architectural gaps"""
-        # Run semantic analyzer to find gaps
-        self.semantic_analyzer.scan_symbols()
-        self.semantic_analyzer.map_references()
-        self.semantic_analyzer.build_fingerprints()
-        gaps = self.semantic_analyzer.analyze_gaps()
+        """Find and analyze architectural gaps with smart context"""
+        # Build focused gap analysis context
+        gap_context = self.context_builder.build_gap_analysis_context(self.graph_data)
+        
+        # Create focused prompt for gap analysis
+        prompt = self.context_builder.create_focused_prompt(gap_context, 'gap')
+        
+        gaps = {
+            'orphaned_components': gap_context['orphaned_components'],
+            'highly_coupled': gap_context['highly_coupled'],
+            'missing_tests': gap_context['missing_tests'][:20],  # Limit for display
+            'component_distribution': gap_context['component_types']
+        }
         
         # Enhance with AI if available
-        if self.api_key and gaps:
+        if self.api_key and self.enable_live:
             try:
-                enhanced_gaps = await self._deepseek_enhance_gaps(gaps)
-                gaps = enhanced_gaps
+                async with ClientSession() as session:
+                    headers = {"Authorization": f"Bearer {self.api_key}"}
+                    payload = {
+                        "model": "deepseek-chat",
+                        "messages": [
+                            {"role": "system", "content": "You are an expert architect analyzing CogniMap for architectural gaps and improvements."},
+                            {"role": "user", "content": prompt}
+                        ],
+                        "temperature": 0.3,
+                        "max_tokens": 2000
+                    }
+                    
+                    async with session.post(
+                        "https://api.deepseek.com/chat/completions",
+                        headers=headers,
+                        json=payload
+                    ) as response:
+                        data = await response.json()
+                        ai_analysis = data['choices'][0]['message']['content']
+                        
+                        gaps['ai_analysis'] = ai_analysis
+                        gaps['context_tokens'] = len(prompt) // 4  # Rough token estimate
+                        
             except Exception as e:
                 logger.error(f"Gap enhancement failed: {e}")
+                gaps['ai_analysis'] = f"Analysis failed: {str(e)}"
         
         result = {
             'gaps': gaps,
-            'total': len(gaps),
-            'categories': self._categorize_gaps(gaps)
+            'total_orphaned': len(gap_context['orphaned_components']),
+            'total_highly_coupled': len(gap_context['highly_coupled']),
+            'total_missing_tests': len(gap_context['missing_tests']),
+            'categories': self._categorize_gaps([])  # Simplified for now
         }
         
         # Send to WebSocket clients
@@ -402,40 +440,43 @@ class CogniMapAIServer:
         return structured
     
     async def _deepseek_analyze_node(self, node):
-        """Analyze a node with DeepSeek"""
-        prompt = f"""
-        Analyze this software component:
-        Name: {node.get('name')}
-        Type: {node.get('type')}
-        Language: {node.get('language')}
-        Semantic Tags: {node.get('semantic_tags', [])}
-        Filepath: {node.get('filepath')}
+        """Analyze a node with DeepSeek using smart context"""
+        # Build focused context for this node
+        context = self.context_builder.build_node_context(node['id'], self.graph_data)
         
-        Provide:
-        1. Purpose and responsibility
-        2. Potential improvements
-        3. Missing connections
-        4. Architectural concerns
-        """
+        # Create focused prompt with actual code and context
+        prompt = self.context_builder.create_focused_prompt(context, 'node')
         
-        # Call DeepSeek API
+        # Call DeepSeek API with focused context
         async with ClientSession() as session:
             headers = {"Authorization": f"Bearer {self.api_key}"}
             payload = {
                 "model": "deepseek-chat",
                 "messages": [
-                    {"role": "system", "content": "You are a software architecture expert."},
+                    {"role": "system", "content": "You are analyzing CogniMap, a living architecture visualization system. Provide specific, actionable feedback based on the actual code provided."},
                     {"role": "user", "content": prompt}
-                ]
+                ],
+                "temperature": 0.3,  # Lower temperature for more focused analysis
+                "max_tokens": 1500
             }
             
             async with session.post(
-                "https://api.deepseek.com/v1/chat/completions",
+                "https://api.deepseek.com/chat/completions",
                 headers=headers,
                 json=payload
             ) as response:
                 data = await response.json()
-                return data['choices'][0]['message']['content']
+                analysis = data['choices'][0]['message']['content']
+                
+                # Add context metadata to response
+                return {
+                    'analysis': analysis,
+                    'context_size': len(prompt),
+                    'focused': True,
+                    'code_analyzed': bool(context.get('code_snippet')),
+                    'dependencies_found': len(context.get('direct_dependencies', [])),
+                    'dependents_found': len(context.get('direct_dependents', []))
+                }
     
     async def _deepseek_enhance_gaps(self, gaps):
         """Enhance gap analysis with DeepSeek insights"""

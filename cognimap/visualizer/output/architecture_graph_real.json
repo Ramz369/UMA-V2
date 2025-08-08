@@ -1,0 +1,2331 @@
+{
+  "nodes": [
+    {
+      "id": "4baf6c1d",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/test_deepseek.py",
+      "name": "test_deepseek",
+      "label": "Test Deepseek",
+      "type": "module",
+      "language": "python",
+      "group": "module",
+      "size": 18.9,
+      "metadata": {
+        "classes": [],
+        "functions": [
+          "test_deepseek_v3",
+          "test_cognimap_context"
+        ],
+        "imports": [
+          "requests",
+          "json",
+          "os",
+          "dotenv.load_dotenv"
+        ],
+        "lines": 189
+      },
+      "semantic_tags": [
+        "has_functions",
+        "testing"
+      ],
+      "fingerprint": {
+        "id": "4baf6c1d",
+        "birth": "2025-08-08T07:48:46.040532",
+        "intent": "test_deepseek - module component",
+        "version": "1.0.0",
+        "hash": "4baf6c1d"
+      }
+    },
+    {
+      "id": "c008bd86",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/regenerate_graph.py",
+      "name": "regenerate_graph",
+      "label": "Regenerate Graph",
+      "type": "graph_engine",
+      "language": "python",
+      "group": "graph_engine",
+      "size": 22.2,
+      "metadata": {
+        "classes": [],
+        "functions": [
+          "scan_python_file",
+          "generate_real_graph"
+        ],
+        "imports": [
+          "json",
+          "datetime.datetime",
+          "ast",
+          "pathlib.Path",
+          "os",
+          "hashlib"
+        ],
+        "lines": 222
+      },
+      "semantic_tags": [
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "c008bd86",
+        "birth": "2025-08-08T07:48:46.043792",
+        "intent": "regenerate_graph - graph_engine component",
+        "version": "1.0.0",
+        "hash": "c008bd86"
+      }
+    },
+    {
+      "id": "b1513123",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/cli.py",
+      "name": "cli",
+      "label": "Cli",
+      "type": "module",
+      "language": "python",
+      "group": "module",
+      "size": 48.2,
+      "metadata": {
+        "classes": [],
+        "functions": [
+          "cli",
+          "init",
+          "update",
+          "serve",
+          "status",
+          "cleanup",
+          "export",
+          "visualize",
+          "analyze",
+          "query"
+        ],
+        "imports": [
+          "rich.table.Table",
+          "shutil",
+          "typing.Optional",
+          "yaml",
+          "core.fingerprint.FingerprintCleaner",
+          "pathlib.Path",
+          "graph.graph_visualizer.GraphVisualizer",
+          "json",
+          "core.fingerprint.FingerprintInjector",
+          "rich.progress.Progress"
+        ],
+        "lines": 482
+      },
+      "semantic_tags": [
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "b1513123",
+        "birth": "2025-08-08T07:48:46.050700",
+        "intent": "cli - module component",
+        "version": "1.0.0",
+        "hash": "b1513123"
+      }
+    },
+    {
+      "id": "d0764214",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/ai_server.py",
+      "name": "ai_server",
+      "label": "Ai Server",
+      "type": "server",
+      "language": "python",
+      "group": "server",
+      "size": 49.1,
+      "metadata": {
+        "classes": [
+          "CogniMapAIServer"
+        ],
+        "functions": [
+          "__init__",
+          "load_graph",
+          "setup_routes",
+          "setup_cors",
+          "_calculate_node_coupling",
+          "_calculate_node_cohesion",
+          "_categorize_gaps",
+          "_summarize_patterns",
+          "_parse_scenario_report",
+          "run"
+        ],
+        "imports": [
+          "scripts.deepseek_scenario_report.generate_report",
+          "datetime.datetime",
+          "scripts.deepseek_scenario_report.collect_repo_context",
+          "aiohttp.ClientSession",
+          "typing.Any",
+          "semantic_engine.deepseek_integration.request_improvements",
+          "dotenv.load_dotenv",
+          "semantic_engine.semantic_analyzer.SemanticAnalyzer",
+          "typing.Optional",
+          "typing.Dict"
+        ],
+        "lines": 491
+      },
+      "semantic_tags": [
+        "has_classes",
+        "has_functions",
+        "api"
+      ],
+      "fingerprint": {
+        "id": "d0764214",
+        "birth": "2025-08-08T07:48:46.060458",
+        "intent": "ai_server - server component",
+        "version": "1.0.0",
+        "hash": "d0764214"
+      }
+    },
+    {
+      "id": "743b1adb",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/__init__.py",
+      "name": "__init__",
+      "label": "  Init  ",
+      "type": "module",
+      "language": "python",
+      "group": "module",
+      "size": 10,
+      "metadata": {
+        "classes": [],
+        "functions": [],
+        "imports": [
+          "core.analyzer.SemanticAnalyzer",
+          "core.protocol.CogniMapProtocol",
+          "core.fingerprint.Fingerprint",
+          "core.scanner.CodeScanner"
+        ],
+        "lines": 32
+      },
+      "semantic_tags": [],
+      "fingerprint": {
+        "id": "743b1adb",
+        "birth": "2025-08-08T07:48:46.060733",
+        "intent": "__init__ - module component",
+        "version": "1.0.0",
+        "hash": "743b1adb"
+      }
+    },
+    {
+      "id": "2eeaed66",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/setup.py",
+      "name": "setup",
+      "label": "Setup",
+      "type": "module",
+      "language": "python",
+      "group": "module",
+      "size": 10,
+      "metadata": {
+        "classes": [],
+        "functions": [],
+        "imports": [
+          "setuptools.setup",
+          "pathlib.Path",
+          "setuptools.find_packages"
+        ],
+        "lines": 94
+      },
+      "semantic_tags": [],
+      "fingerprint": {
+        "id": "2eeaed66",
+        "birth": "2025-08-08T07:48:46.061209",
+        "intent": "setup - module component",
+        "version": "1.0.0",
+        "hash": "2eeaed66"
+      }
+    },
+    {
+      "id": "c5f75407",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/integrate_semantic.py",
+      "name": "integrate_semantic",
+      "label": "Integrate Semantic",
+      "type": "semantic_engine",
+      "language": "python",
+      "group": "semantic_engine",
+      "size": 17.7,
+      "metadata": {
+        "classes": [],
+        "functions": [
+          "enhance_graph_with_semantics"
+        ],
+        "imports": [
+          "json",
+          "sys",
+          "pathlib.Path",
+          "cognimap.semantic_engine.semantic_analyzer.SemanticAnalyzer"
+        ],
+        "lines": 177
+      },
+      "semantic_tags": [
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "c5f75407",
+        "birth": "2025-08-08T07:48:46.064246",
+        "intent": "integrate_semantic - semantic_engine component",
+        "version": "1.0.0",
+        "hash": "c5f75407"
+      }
+    },
+    {
+      "id": "771a3875",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/semantic_engine/smart_context_builder.py",
+      "name": "smart_context_builder",
+      "label": "Smart Context Builder",
+      "type": "semantic_engine",
+      "language": "python",
+      "group": "semantic_engine",
+      "size": 41.6,
+      "metadata": {
+        "classes": [
+          "SmartContextBuilder"
+        ],
+        "functions": [
+          "enhanced_deepseek_request",
+          "__init__",
+          "build_node_context",
+          "_get_code_snippet",
+          "_get_dependencies",
+          "_get_dependents",
+          "_get_related_files",
+          "_get_architectural_context",
+          "build_gap_analysis_context",
+          "create_focused_prompt"
+        ],
+        "imports": [
+          "requests",
+          "json",
+          "typing.Optional",
+          "typing.Dict",
+          "ast",
+          "typing.Any",
+          "pathlib.Path",
+          "hashlib",
+          "typing.List"
+        ],
+        "lines": 416
+      },
+      "semantic_tags": [
+        "has_classes",
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "771a3875",
+        "birth": "2025-08-08T07:48:46.069980",
+        "intent": "smart_context_builder - semantic_engine component",
+        "version": "1.0.0",
+        "hash": "771a3875"
+      }
+    },
+    {
+      "id": "2c8a29bf",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/semantic_engine/semantic_analyzer.py",
+      "name": "semantic_analyzer",
+      "label": "Semantic Analyzer",
+      "type": "semantic_engine",
+      "language": "python",
+      "group": "semantic_engine",
+      "size": 14.6,
+      "metadata": {
+        "classes": [
+          "SemanticAnalyzer"
+        ],
+        "functions": [
+          "__init__",
+          "scan_symbols",
+          "map_references",
+          "build_fingerprints",
+          "analyze_gaps",
+          "save_reports",
+          "run"
+        ],
+        "imports": [
+          "json",
+          "gap_finder.find_gaps",
+          "pattern_detector.detect_patterns",
+          "re",
+          "pathlib.Path",
+          "os",
+          "deepseek_integration.request_improvements"
+        ],
+        "lines": 146
+      },
+      "semantic_tags": [
+        "has_classes",
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "2c8a29bf",
+        "birth": "2025-08-08T07:48:46.072276",
+        "intent": "semantic_analyzer - semantic_engine component",
+        "version": "1.0.0",
+        "hash": "2c8a29bf"
+      }
+    },
+    {
+      "id": "8b109df9",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/semantic_engine/gap_finder.py",
+      "name": "gap_finder",
+      "label": "Gap Finder",
+      "type": "semantic_engine",
+      "language": "python",
+      "group": "semantic_engine",
+      "size": 10,
+      "metadata": {
+        "classes": [],
+        "functions": [
+          "find_gaps"
+        ],
+        "imports": [
+          "itertools.combinations",
+          "collections.defaultdict"
+        ],
+        "lines": 24
+      },
+      "semantic_tags": [
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "8b109df9",
+        "birth": "2025-08-08T07:48:46.072808",
+        "intent": "gap_finder - semantic_engine component",
+        "version": "1.0.0",
+        "hash": "8b109df9"
+      }
+    },
+    {
+      "id": "48d4bc4c",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/semantic_engine/__init__.py",
+      "name": "__init__",
+      "label": "  Init  ",
+      "type": "semantic_engine",
+      "language": "python",
+      "group": "semantic_engine",
+      "size": 10,
+      "metadata": {
+        "classes": [],
+        "functions": [],
+        "imports": [],
+        "lines": 0
+      },
+      "semantic_tags": [],
+      "fingerprint": {
+        "id": "48d4bc4c",
+        "birth": "2025-08-08T07:48:46.072905",
+        "intent": "__init__ - semantic_engine component",
+        "version": "1.0.0",
+        "hash": "48d4bc4c"
+      }
+    },
+    {
+      "id": "f96f4a5b",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/semantic_engine/pattern_detector.py",
+      "name": "pattern_detector",
+      "label": "Pattern Detector",
+      "type": "semantic_engine",
+      "language": "python",
+      "group": "semantic_engine",
+      "size": 10,
+      "metadata": {
+        "classes": [],
+        "functions": [
+          "detect_patterns"
+        ],
+        "imports": [
+          "re"
+        ],
+        "lines": 18
+      },
+      "semantic_tags": [
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "f96f4a5b",
+        "birth": "2025-08-08T07:48:46.073200",
+        "intent": "pattern_detector - semantic_engine component",
+        "version": "1.0.0",
+        "hash": "f96f4a5b"
+      }
+    },
+    {
+      "id": "a6ccb3a4",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/semantic_engine/deepseek_integration.py",
+      "name": "deepseek_integration",
+      "label": "Deepseek Integration",
+      "type": "semantic_engine",
+      "language": "python",
+      "group": "semantic_engine",
+      "size": 10,
+      "metadata": {
+        "classes": [],
+        "functions": [
+          "request_improvements"
+        ],
+        "imports": [
+          "requests",
+          "json",
+          "pathlib.Path",
+          "os",
+          "dotenv.load_dotenv"
+        ],
+        "lines": 95
+      },
+      "semantic_tags": [
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "a6ccb3a4",
+        "birth": "2025-08-08T07:48:46.074063",
+        "intent": "deepseek_integration - semantic_engine component",
+        "version": "1.0.0",
+        "hash": "a6ccb3a4"
+      }
+    },
+    {
+      "id": "eb4ace77",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/graph/__init__.py",
+      "name": "__init__",
+      "label": "  Init  ",
+      "type": "graph_engine",
+      "language": "python",
+      "group": "graph_engine",
+      "size": 10,
+      "metadata": {
+        "classes": [],
+        "functions": [],
+        "imports": [
+          "graph_visualizer.GraphVisualizer",
+          "graph_builder.GraphDatabase",
+          "graph_builder.GraphBuilder",
+          "graph_analyzer.GraphAnalyzer"
+        ],
+        "lines": 13
+      },
+      "semantic_tags": [],
+      "fingerprint": {
+        "id": "eb4ace77",
+        "birth": "2025-08-08T07:48:46.074230",
+        "intent": "__init__ - graph_engine component",
+        "version": "1.0.0",
+        "hash": "eb4ace77"
+      }
+    },
+    {
+      "id": "e972125a",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/graph/graph_builder.py",
+      "name": "graph_builder",
+      "label": "Graph Builder",
+      "type": "graph_engine",
+      "language": "python",
+      "group": "graph_engine",
+      "size": 37.5,
+      "metadata": {
+        "classes": [
+          "GraphNode",
+          "GraphEdge",
+          "GraphBuilder",
+          "GraphDatabase"
+        ],
+        "functions": [
+          "__init__",
+          "to_dict",
+          "__init__",
+          "to_dict",
+          "__init__",
+          "build",
+          "_collect_fingerprints",
+          "_extract_fingerprint",
+          "_create_nodes",
+          "_analyze_file_content"
+        ],
+        "imports": [
+          "datetime.datetime",
+          "typing.Dict",
+          "typing.Any",
+          "re",
+          "pathlib.Path",
+          "typing.List"
+        ],
+        "lines": 375
+      },
+      "semantic_tags": [
+        "has_classes",
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "e972125a",
+        "birth": "2025-08-08T07:48:46.079953",
+        "intent": "graph_builder - graph_engine component",
+        "version": "1.0.0",
+        "hash": "e972125a"
+      }
+    },
+    {
+      "id": "926e59e7",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/graph/graph_analyzer.py",
+      "name": "graph_analyzer",
+      "label": "Graph Analyzer",
+      "type": "graph_engine",
+      "language": "python",
+      "group": "graph_engine",
+      "size": 27.9,
+      "metadata": {
+        "classes": [
+          "GraphAnalyzer"
+        ],
+        "functions": [
+          "__init__",
+          "analyze",
+          "_find_circular_dependencies",
+          "_analyze_complexity",
+          "_analyze_cohesion",
+          "_analyze_coupling",
+          "_find_architectural_issues",
+          "_generate_recommendations",
+          "_calculate_distribution",
+          "dfs"
+        ],
+        "imports": [
+          "typing.Set",
+          "typing.Dict",
+          "typing.Tuple",
+          "typing.Any",
+          "pathlib.Path",
+          "typing.List"
+        ],
+        "lines": 279
+      },
+      "semantic_tags": [
+        "has_classes",
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "926e59e7",
+        "birth": "2025-08-08T07:48:46.084434",
+        "intent": "graph_analyzer - graph_engine component",
+        "version": "1.0.0",
+        "hash": "926e59e7"
+      }
+    },
+    {
+      "id": "211ee835",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/graph/graph_visualizer.py",
+      "name": "graph_visualizer",
+      "label": "Graph Visualizer",
+      "type": "graph_engine",
+      "language": "python",
+      "group": "graph_engine",
+      "size": 18.6,
+      "metadata": {
+        "classes": [
+          "GraphVisualizer"
+        ],
+        "functions": [
+          "__init__",
+          "create_text_visualization",
+          "create_dependency_tree",
+          "_add_tree_node",
+          "create_mermaid_diagram"
+        ],
+        "imports": [
+          "typing.Any",
+          "typing.List",
+          "pathlib.Path",
+          "typing.Dict"
+        ],
+        "lines": 186
+      },
+      "semantic_tags": [
+        "has_classes",
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "211ee835",
+        "birth": "2025-08-08T07:48:46.088132",
+        "intent": "graph_visualizer - graph_engine component",
+        "version": "1.0.0",
+        "hash": "211ee835"
+      }
+    },
+    {
+      "id": "e63490c7",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/collectors/serena_collector.py",
+      "name": "serena_collector",
+      "label": "Serena Collector",
+      "type": "collector",
+      "language": "python",
+      "group": "collector",
+      "size": 46.3,
+      "metadata": {
+        "classes": [
+          "SerenaMCPCollector",
+          "SerenaMCPTool"
+        ],
+        "functions": [
+          "__init__",
+          "connect_serena",
+          "collect_project_data",
+          "_list_files_via_serena",
+          "_filter_code_files",
+          "_analyze_file_with_serena",
+          "_get_or_create_fingerprint",
+          "_extract_fingerprint_from_file",
+          "_parse_fingerprint_text",
+          "_get_symbols_via_serena"
+        ],
+        "imports": [
+          "json",
+          "typing.Optional",
+          "core.fingerprint.FingerprintInjector",
+          "uuid",
+          "datetime.datetime",
+          "typing.Dict",
+          "typing.Any",
+          "logging",
+          "re",
+          "pathlib.Path"
+        ],
+        "lines": 463
+      },
+      "semantic_tags": [
+        "has_classes",
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "e63490c7",
+        "birth": "2025-08-08T07:48:46.092857",
+        "intent": "serena_collector - collector component",
+        "version": "1.0.0",
+        "hash": "e63490c7"
+      }
+    },
+    {
+      "id": "eb59e042",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/collectors/__init__.py",
+      "name": "__init__",
+      "label": "  Init  ",
+      "type": "collector",
+      "language": "python",
+      "group": "collector",
+      "size": 10,
+      "metadata": {
+        "classes": [],
+        "functions": [],
+        "imports": [
+          "serena_collector.SerenaMCPTool",
+          "serena_collector.SerenaMCPCollector"
+        ],
+        "lines": 25
+      },
+      "semantic_tags": [],
+      "fingerprint": {
+        "id": "eb59e042",
+        "birth": "2025-08-08T07:48:46.093058",
+        "intent": "__init__ - collector component",
+        "version": "1.0.0",
+        "hash": "eb59e042"
+      }
+    },
+    {
+      "id": "3fb9eec9",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/scripts/deepseek_scenario_report.py",
+      "name": "deepseek_scenario_report",
+      "label": "Deepseek Scenario Report",
+      "type": "module",
+      "language": "python",
+      "group": "module",
+      "size": 14.8,
+      "metadata": {
+        "classes": [],
+        "functions": [
+          "collect_repo_context",
+          "generate_report"
+        ],
+        "imports": [
+          "requests",
+          "json",
+          "datetime.datetime",
+          "typing.Dict",
+          "typing.Any",
+          "pathlib.Path",
+          "os",
+          "dotenv.load_dotenv"
+        ],
+        "lines": 148
+      },
+      "semantic_tags": [
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "3fb9eec9",
+        "birth": "2025-08-08T07:48:46.094588",
+        "intent": "deepseek_scenario_report - module component",
+        "version": "1.0.0",
+        "hash": "3fb9eec9"
+      }
+    },
+    {
+      "id": "b8e56f46",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/scripts/__init__.py",
+      "name": "__init__",
+      "label": "  Init  ",
+      "type": "module",
+      "language": "python",
+      "group": "module",
+      "size": 10,
+      "metadata": {
+        "classes": [],
+        "functions": [],
+        "imports": [],
+        "lines": 0
+      },
+      "semantic_tags": [],
+      "fingerprint": {
+        "id": "b8e56f46",
+        "birth": "2025-08-08T07:48:46.094689",
+        "intent": "__init__ - module component",
+        "version": "1.0.0",
+        "hash": "b8e56f46"
+      }
+    },
+    {
+      "id": "11e893bd",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/core/analyzer.py",
+      "name": "analyzer",
+      "label": "Analyzer",
+      "type": "core",
+      "language": "python",
+      "group": "core",
+      "size": 48.1,
+      "metadata": {
+        "classes": [
+          "SemanticAnalyzer",
+          "IntentExtractor"
+        ],
+        "functions": [
+          "__init__",
+          "analyze_file",
+          "extract_purpose",
+          "identify_domain",
+          "detect_patterns",
+          "calculate_complexity",
+          "_estimate_cyclomatic_complexity",
+          "_calculate_nesting_depth",
+          "identify_inputs",
+          "identify_outputs"
+        ],
+        "imports": [
+          "typing.Optional",
+          "json",
+          "datetime.datetime",
+          "typing.Set",
+          "typing.Dict",
+          "typing.Tuple",
+          "typing.Any",
+          "re",
+          "pathlib.Path",
+          "hashlib"
+        ],
+        "lines": 481
+      },
+      "semantic_tags": [
+        "has_classes",
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "11e893bd",
+        "birth": "2025-08-08T07:48:46.102888",
+        "intent": "analyzer - core component",
+        "version": "1.0.0",
+        "hash": "11e893bd"
+      }
+    },
+    {
+      "id": "397f1289",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/core/scanner.py",
+      "name": "scanner",
+      "label": "Scanner",
+      "type": "core",
+      "language": "python",
+      "group": "core",
+      "size": 50,
+      "metadata": {
+        "classes": [
+          "MultiLanguageParser",
+          "BaseParser",
+          "PythonParser",
+          "JavaScriptParser",
+          "JavaParser",
+          "GoParser",
+          "CodeScanner"
+        ],
+        "functions": [
+          "__init__",
+          "parse",
+          "_detect_language",
+          "parse",
+          "find_classes",
+          "find_functions",
+          "find_imports",
+          "find_exports",
+          "find_variables",
+          "find_api_calls"
+        ],
+        "imports": [
+          "typing.Optional",
+          "json",
+          "typing.Set",
+          "typing.Dict",
+          "ast",
+          "typing.Any",
+          "re",
+          "pathlib.Path",
+          "typing.List"
+        ],
+        "lines": 528
+      },
+      "semantic_tags": [
+        "has_classes",
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "397f1289",
+        "birth": "2025-08-08T07:48:46.111048",
+        "intent": "scanner - core component",
+        "version": "1.0.0",
+        "hash": "397f1289"
+      }
+    },
+    {
+      "id": "3464e388",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/core/__init__.py",
+      "name": "__init__",
+      "label": "  Init  ",
+      "type": "core",
+      "language": "python",
+      "group": "core",
+      "size": 10,
+      "metadata": {
+        "classes": [],
+        "functions": [],
+        "imports": [
+          "protocol.CogniMapProtocol",
+          "scanner.MultiLanguageParser",
+          "analyzer.SemanticAnalyzer",
+          "fingerprint.FingerprintInjector",
+          "fingerprint.FingerprintCleaner",
+          "fingerprint.Fingerprint",
+          "analyzer.IntentExtractor",
+          "protocol.ProtocolVersion",
+          "scanner.CodeScanner"
+        ],
+        "lines": 37
+      },
+      "semantic_tags": [],
+      "fingerprint": {
+        "id": "3464e388",
+        "birth": "2025-08-08T07:48:46.111338",
+        "intent": "__init__ - core component",
+        "version": "1.0.0",
+        "hash": "3464e388"
+      }
+    },
+    {
+      "id": "f174ad7e",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/core/protocol.py",
+      "name": "protocol",
+      "label": "Protocol",
+      "type": "core",
+      "language": "python",
+      "group": "core",
+      "size": 33.8,
+      "metadata": {
+        "classes": [
+          "ProtocolVersion",
+          "ComponentType",
+          "RelationshipType",
+          "ArchitecturalLayer",
+          "EventType",
+          "WarningSeverity",
+          "CogniMapNode",
+          "CogniMapEdge",
+          "CogniMapEvent",
+          "CogniMapWarning",
+          "CogniMapProtocol"
+        ],
+        "functions": [
+          "to_dict",
+          "from_dict",
+          "to_dict",
+          "from_dict",
+          "to_dict",
+          "to_json",
+          "to_dict",
+          "__init__",
+          "create_fingerprint_message",
+          "create_relationship_message"
+        ],
+        "imports": [
+          "dataclasses.asdict",
+          "typing.Optional",
+          "dataclasses.dataclass",
+          "json",
+          "datetime.datetime",
+          "typing.Dict",
+          "typing.Any",
+          "enum.Enum",
+          "typing.List"
+        ],
+        "lines": 338
+      },
+      "semantic_tags": [
+        "has_classes",
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "f174ad7e",
+        "birth": "2025-08-08T07:48:46.114957",
+        "intent": "protocol - core component",
+        "version": "1.0.0",
+        "hash": "f174ad7e"
+      }
+    },
+    {
+      "id": "0ac2b933",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/core/fingerprint.py",
+      "name": "fingerprint",
+      "label": "Fingerprint",
+      "type": "core",
+      "language": "python",
+      "group": "core",
+      "size": 38.0,
+      "metadata": {
+        "classes": [
+          "Fingerprint",
+          "FingerprintCleaner",
+          "FingerprintInjector"
+        ],
+        "functions": [
+          "__init__",
+          "_read_file",
+          "_extract_existing",
+          "_parse_fingerprint_text",
+          "_generate_new",
+          "_detect_parent",
+          "_extract_intent",
+          "_generate_tags",
+          "_detect_language",
+          "_detect_component_type"
+        ],
+        "imports": [
+          "json",
+          "uuid",
+          "datetime.datetime",
+          "typing.Dict",
+          "logging",
+          "typing.Any",
+          "re",
+          "pathlib.Path",
+          "typing.List",
+          "hashlib"
+        ],
+        "lines": 380
+      },
+      "semantic_tags": [
+        "has_classes",
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "0ac2b933",
+        "birth": "2025-08-08T07:48:46.119565",
+        "intent": "fingerprint - core component",
+        "version": "1.0.0",
+        "hash": "0ac2b933"
+      }
+    },
+    {
+      "id": "085e9358",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/visualizer/scripts/visualize.py",
+      "name": "visualize",
+      "label": "Visualize",
+      "type": "visualization",
+      "language": "python",
+      "group": "visualization",
+      "size": 12.0,
+      "metadata": {
+        "classes": [],
+        "functions": [
+          "main"
+        ],
+        "imports": [
+          "json",
+          "cognimap.graph.graph_visualizer.GraphVisualizer",
+          "cognimap.graph.graph_analyzer.GraphAnalyzer",
+          "pathlib.Path",
+          "cognimap.graph.graph_builder.GraphBuilder"
+        ],
+        "lines": 120
+      },
+      "semantic_tags": [
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "085e9358",
+        "birth": "2025-08-08T07:48:46.121603",
+        "intent": "visualize - visualization component",
+        "version": "1.0.0",
+        "hash": "085e9358"
+      }
+    },
+    {
+      "id": "291a8af4",
+      "filepath": "/home/ramz/Documents/adev/COGPLAN/cognimap/visualizer/scripts/explorer.py",
+      "name": "explorer",
+      "label": "Explorer",
+      "type": "visualization",
+      "language": "python",
+      "group": "visualization",
+      "size": 11.5,
+      "metadata": {
+        "classes": [],
+        "functions": [
+          "explore_architecture"
+        ],
+        "imports": [
+          "json",
+          "cognimap.graph.graph_visualizer.GraphVisualizer",
+          "cognimap.graph.graph_analyzer.GraphAnalyzer",
+          "integrate_semantic.enhance_graph_with_semantics",
+          "sys",
+          "pathlib.Path",
+          "cognimap.graph.graph_builder.GraphBuilder"
+        ],
+        "lines": 115
+      },
+      "semantic_tags": [
+        "has_functions"
+      ],
+      "fingerprint": {
+        "id": "291a8af4",
+        "birth": "2025-08-08T07:48:46.123415",
+        "intent": "explorer - visualization component",
+        "version": "1.0.0",
+        "hash": "291a8af4"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "b1513123",
+      "target": "11e893bd",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "b1513123",
+      "target": "c008bd86",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "b1513123",
+      "target": "11e893bd",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "d0764214",
+      "target": "3fb9eec9",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "d0764214",
+      "target": "3fb9eec9",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "d0764214",
+      "target": "771a3875",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "d0764214",
+      "target": "771a3875",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "743b1adb",
+      "target": "11e893bd",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "743b1adb",
+      "target": "11e893bd",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "743b1adb",
+      "target": "11e893bd",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "743b1adb",
+      "target": "11e893bd",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "2eeaed66",
+      "target": "2eeaed66",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "c5f75407",
+      "target": "4baf6c1d",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "2c8a29bf",
+      "target": "8b109df9",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "2c8a29bf",
+      "target": "f96f4a5b",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "2c8a29bf",
+      "target": "a6ccb3a4",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "eb4ace77",
+      "target": "211ee835",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "eb4ace77",
+      "target": "e972125a",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "eb4ace77",
+      "target": "e972125a",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "eb4ace77",
+      "target": "926e59e7",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "e63490c7",
+      "target": "11e893bd",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "eb59e042",
+      "target": "e63490c7",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "eb59e042",
+      "target": "e63490c7",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "3464e388",
+      "target": "f174ad7e",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "3464e388",
+      "target": "397f1289",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "3464e388",
+      "target": "2c8a29bf",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "3464e388",
+      "target": "0ac2b933",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "3464e388",
+      "target": "0ac2b933",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "3464e388",
+      "target": "0ac2b933",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "3464e388",
+      "target": "2c8a29bf",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "3464e388",
+      "target": "f174ad7e",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "3464e388",
+      "target": "397f1289",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "085e9358",
+      "target": "4baf6c1d",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "085e9358",
+      "target": "4baf6c1d",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "085e9358",
+      "target": "4baf6c1d",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "291a8af4",
+      "target": "4baf6c1d",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "291a8af4",
+      "target": "4baf6c1d",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "291a8af4",
+      "target": "c5f75407",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "291a8af4",
+      "target": "4baf6c1d",
+      "type": "imports",
+      "weight": 1
+    },
+    {
+      "source": "11e893bd",
+      "target": "4baf6c1d",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "c008bd86",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "b1513123",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "d0764214",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "743b1adb",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "2eeaed66",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "c5f75407",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "771a3875",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "2c8a29bf",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "8b109df9",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "48d4bc4c",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "f96f4a5b",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "a6ccb3a4",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "eb4ace77",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "e972125a",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "926e59e7",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "211ee835",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "e63490c7",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "eb59e042",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "3fb9eec9",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "b8e56f46",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "085e9358",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "11e893bd",
+      "target": "291a8af4",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "4baf6c1d",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "c008bd86",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "b1513123",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "d0764214",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "743b1adb",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "2eeaed66",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "c5f75407",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "771a3875",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "2c8a29bf",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "8b109df9",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "48d4bc4c",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "f96f4a5b",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "a6ccb3a4",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "eb4ace77",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "e972125a",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "926e59e7",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "211ee835",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "e63490c7",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "eb59e042",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "3fb9eec9",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "b8e56f46",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "085e9358",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "397f1289",
+      "target": "291a8af4",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "4baf6c1d",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "c008bd86",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "b1513123",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "d0764214",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "743b1adb",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "2eeaed66",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "c5f75407",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "771a3875",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "2c8a29bf",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "8b109df9",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "48d4bc4c",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "f96f4a5b",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "a6ccb3a4",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "eb4ace77",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "e972125a",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "926e59e7",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "211ee835",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "e63490c7",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "eb59e042",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "3fb9eec9",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "b8e56f46",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "085e9358",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "3464e388",
+      "target": "291a8af4",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "4baf6c1d",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "c008bd86",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "b1513123",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "d0764214",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "743b1adb",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "2eeaed66",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "c5f75407",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "771a3875",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "2c8a29bf",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "8b109df9",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "48d4bc4c",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "f96f4a5b",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "a6ccb3a4",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "eb4ace77",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "e972125a",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "926e59e7",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "211ee835",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "e63490c7",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "eb59e042",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "3fb9eec9",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "b8e56f46",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "085e9358",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "f174ad7e",
+      "target": "291a8af4",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "4baf6c1d",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "c008bd86",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "b1513123",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "d0764214",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "743b1adb",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "2eeaed66",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "c5f75407",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "771a3875",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "2c8a29bf",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "8b109df9",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "48d4bc4c",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "f96f4a5b",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "a6ccb3a4",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "eb4ace77",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "e972125a",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "926e59e7",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "211ee835",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "e63490c7",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "eb59e042",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "3fb9eec9",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "b8e56f46",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "085e9358",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "0ac2b933",
+      "target": "291a8af4",
+      "type": "uses",
+      "weight": 0.5
+    },
+    {
+      "source": "c5f75407",
+      "target": "c008bd86",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "c5f75407",
+      "target": "eb4ace77",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "c5f75407",
+      "target": "e972125a",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "c5f75407",
+      "target": "926e59e7",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "c5f75407",
+      "target": "211ee835",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "771a3875",
+      "target": "c008bd86",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "771a3875",
+      "target": "eb4ace77",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "771a3875",
+      "target": "e972125a",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "771a3875",
+      "target": "926e59e7",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "771a3875",
+      "target": "211ee835",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "2c8a29bf",
+      "target": "c008bd86",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "2c8a29bf",
+      "target": "eb4ace77",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "2c8a29bf",
+      "target": "e972125a",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "2c8a29bf",
+      "target": "926e59e7",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "2c8a29bf",
+      "target": "211ee835",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "8b109df9",
+      "target": "c008bd86",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "8b109df9",
+      "target": "eb4ace77",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "8b109df9",
+      "target": "e972125a",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "8b109df9",
+      "target": "926e59e7",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "8b109df9",
+      "target": "211ee835",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "48d4bc4c",
+      "target": "c008bd86",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "48d4bc4c",
+      "target": "eb4ace77",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "48d4bc4c",
+      "target": "e972125a",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "48d4bc4c",
+      "target": "926e59e7",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "48d4bc4c",
+      "target": "211ee835",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "f96f4a5b",
+      "target": "c008bd86",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "f96f4a5b",
+      "target": "eb4ace77",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "f96f4a5b",
+      "target": "e972125a",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "f96f4a5b",
+      "target": "926e59e7",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "f96f4a5b",
+      "target": "211ee835",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "a6ccb3a4",
+      "target": "c008bd86",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "a6ccb3a4",
+      "target": "eb4ace77",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "a6ccb3a4",
+      "target": "e972125a",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "a6ccb3a4",
+      "target": "926e59e7",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "a6ccb3a4",
+      "target": "211ee835",
+      "type": "analyzes",
+      "weight": 2
+    },
+    {
+      "source": "d0764214",
+      "target": "c008bd86",
+      "type": "orchestrates",
+      "weight": 1.5
+    },
+    {
+      "source": "d0764214",
+      "target": "c5f75407",
+      "type": "orchestrates",
+      "weight": 1.5
+    },
+    {
+      "source": "d0764214",
+      "target": "771a3875",
+      "type": "orchestrates",
+      "weight": 1.5
+    },
+    {
+      "source": "d0764214",
+      "target": "2c8a29bf",
+      "type": "orchestrates",
+      "weight": 1.5
+    },
+    {
+      "source": "d0764214",
+      "target": "8b109df9",
+      "type": "orchestrates",
+      "weight": 1.5
+    },
+    {
+      "source": "d0764214",
+      "target": "48d4bc4c",
+      "type": "orchestrates",
+      "weight": 1.5
+    },
+    {
+      "source": "d0764214",
+      "target": "f96f4a5b",
+      "type": "orchestrates",
+      "weight": 1.5
+    },
+    {
+      "source": "d0764214",
+      "target": "a6ccb3a4",
+      "type": "orchestrates",
+      "weight": 1.5
+    },
+    {
+      "source": "d0764214",
+      "target": "eb4ace77",
+      "type": "orchestrates",
+      "weight": 1.5
+    },
+    {
+      "source": "d0764214",
+      "target": "e972125a",
+      "type": "orchestrates",
+      "weight": 1.5
+    },
+    {
+      "source": "d0764214",
+      "target": "926e59e7",
+      "type": "orchestrates",
+      "weight": 1.5
+    },
+    {
+      "source": "d0764214",
+      "target": "211ee835",
+      "type": "orchestrates",
+      "weight": 1.5
+    }
+  ],
+  "metadata": {
+    "generated": "2025-08-08T07:48:46.159945",
+    "total_nodes": 28,
+    "total_edges": 201,
+    "components": {
+      "core": 5,
+      "semantic_engine": 7,
+      "graph_engine": 5,
+      "visualization": 2,
+      "server": 1
+    }
+  }
+}
