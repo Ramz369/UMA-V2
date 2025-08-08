@@ -236,7 +236,7 @@
             display: flex;
             justify-content: space-between;
             font-size: 0.85rem;
-            color: #666;
+            color: var(--muted-foreground);
             margin-bottom: 0.5rem;
         }
         
@@ -287,8 +287,8 @@
         }
         
         .toggle-sidebar:hover {
-            background: #2a2a2a;
-            border-color: #667eea;
+            background: var(--muted);
+            border-color: var(--accent-purple);
         }
         
         .toggle-sidebar.shifted {
@@ -303,8 +303,8 @@
             z-index: 200;
             width: 40px;
             height: 40px;
-            background: #1a1a1a;
-            border: 1px solid #333;
+            background: var(--secondary);
+            border: 1px solid var(--border);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -314,8 +314,8 @@
         }
         
         .toggle-details:hover {
-            background: #2a2a2a;
-            border-color: #667eea;
+            background: var(--muted);
+            border-color: var(--accent-purple);
         }
         
         .toggle-details.shifted {
@@ -329,8 +329,8 @@
             right: 0;
             width: 400px;
             height: 100%;
-            background: #111111;
-            border-left: 1px solid #2a2a2a;
+            background: var(--card);
+            border-left: 1px solid var(--muted);
             transform: translateX(100%);
             transition: transform 0.3s ease;
             z-index: 100;
@@ -345,13 +345,13 @@
         
         .details-header {
             padding: 1.5rem;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            border-bottom: 1px solid #2a2a2a;
+            background: var(--secondary);
+            border-bottom: 1px solid var(--muted);
         }
         
         .details-header h2 {
             font-size: 1.2rem;
-            color: #667eea;
+            color: var(--accent-purple);
             margin-bottom: 0.5rem;
             word-break: break-all;
         }
@@ -359,10 +359,10 @@
         .node-type-badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
-            background: #2a2a2a;
+            background: var(--muted);
             border-radius: 12px;
             font-size: 0.8rem;
-            color: #888;
+            color: var(--muted-foreground);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -379,10 +379,10 @@
         
         .detail-section h3 {
             font-size: 0.95rem;
-            color: #667eea;
+            color: var(--accent-purple);
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid var(--muted);
         }
         
         .detail-row {
@@ -393,11 +393,11 @@
         }
         
         .detail-label {
-            color: #666;
+            color: var(--muted-foreground);
         }
         
         .detail-value {
-            color: #e0e0e0;
+            color: var(--foreground);
             text-align: right;
             font-weight: 500;
         }
@@ -409,8 +409,8 @@
         
         .connection-item {
             padding: 0.75rem;
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
+            background: var(--secondary);
+            border: 1px solid var(--muted);
             border-radius: 6px;
             margin-bottom: 0.5rem;
             cursor: pointer;
@@ -421,20 +421,20 @@
         }
         
         .connection-item:hover {
-            background: #1e1e1e;
-            border-color: #667eea;
+            background: var(--accent);
+            border-color: var(--accent-purple);
             transform: translateX(5px);
         }
         
         .connection-name {
             font-size: 0.9rem;
-            color: #e0e0e0;
+            color: var(--foreground);
         }
         
         .connection-type {
             font-size: 0.75rem;
-            color: #666;
-            background: #0a0a0a;
+            color: var(--muted-foreground);
+            background: var(--background);
             padding: 0.2rem 0.5rem;
             border-radius: 4px;
         }
@@ -447,8 +447,8 @@
         }
         
         .tag {
-            background: #2a2a2a;
-            color: #888;
+            background: var(--muted);
+            color: var(--muted-foreground);
             padding: 0.25rem 0.75rem;
             border-radius: 12px;
             font-size: 0.8rem;
@@ -458,7 +458,7 @@
         .tooltip {
             position: absolute;
             background: rgba(17, 17, 17, 0.95);
-            border: 1px solid #333;
+            border: 1px solid var(--border);
             border-radius: 6px;
             padding: 0.75rem;
             pointer-events: none;
@@ -483,7 +483,7 @@
         }
         
         .tooltip-info {
-            color: #888;
+            color: var(--muted-foreground);
             font-size: 0.85rem;
         }
         
@@ -508,8 +508,8 @@
         .loader {
             width: 60px;
             height: 60px;
-            border: 3px solid #333;
-            border-top: 3px solid #667eea;
+            border: 3px solid var(--border);
+            border-top: 3px solid var(--accent-purple);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -525,8 +525,8 @@
             top: 100%;
             left: 0;
             right: 0;
-            background: #1a1a1a;
-            border: 1px solid #333;
+            background: var(--secondary);
+            border: 1px solid var(--border);
             border-radius: 6px;
             margin-top: 0.5rem;
             max-height: 300px;
@@ -543,11 +543,11 @@
             padding: 0.75rem;
             cursor: pointer;
             transition: background 0.2s;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid var(--muted);
         }
         
         .search-result-item:hover {
-            background: #2a2a2a;
+            background: var(--muted);
         }
         
         .search-result-item:last-child {
@@ -571,16 +571,16 @@
         }
         
         ::-webkit-scrollbar-track {
-            background: #1a1a1a;
+            background: var(--secondary);
         }
         
         ::-webkit-scrollbar-thumb {
-            background: #333;
+            background: var(--border);
             border-radius: 4px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: #444;
+            background: var(--muted-foreground);
         }
     </style>
 </head>
@@ -613,7 +613,7 @@
         <!-- Left Sidebar -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <h2 style="font-size: 1.2rem; color: #e0e0e0;">Controls</h2>
+                <h2 style="font-size: 1.2rem; color: var(--foreground);">Controls</h2>
             </div>
             <div class="sidebar-content">
                 <!-- Layout Controls -->
@@ -1159,7 +1159,7 @@
             `).join('');
             
             if (connections.incoming.length > 10) {
-                incomingEl.innerHTML += `<li style="padding: 0.5rem; color: #666; text-align: center;">
+                incomingEl.innerHTML += `<li style="padding: 0.5rem; color: var(--muted-foreground); text-align: center;">
                     ... and ${connections.incoming.length - 10} more
                 </li>`;
             }
@@ -1178,7 +1178,7 @@
             `).join('');
             
             if (connections.outgoing.length > 10) {
-                outgoingEl.innerHTML += `<li style="padding: 0.5rem; color: #666; text-align: center;">
+                outgoingEl.innerHTML += `<li style="padding: 0.5rem; color: var(--muted-foreground); text-align: center;">
                     ... and ${connections.outgoing.length - 10} more
                 </li>`;
             }
@@ -1200,7 +1200,7 @@
                     `<span class="tag">${tag}</span>`
                 ).join('');
             } else {
-                tagsEl.innerHTML = '<span style="color: #666;">No tags</span>';
+                tagsEl.innerHTML = '<span style="color: var(--muted-foreground);">No tags</span>';
             }
             
             // Fingerprint
@@ -1219,7 +1219,7 @@
                     </div>
                 `;
             } else {
-                fingerprintEl.innerHTML = '<span style="color: #666;">No fingerprint data</span>';
+                fingerprintEl.innerHTML = '<span style="color: var(--muted-foreground);">No fingerprint data</span>';
             }
         }
         
@@ -1239,8 +1239,8 @@
             const searchResults = document.getElementById('search-results');
             searchResults.innerHTML = results.slice(0, 10).map(node => `
                 <div class="search-result-item" data-node-id="${node.id}">
-                    <div style="font-weight: bold; color: #e0e0e0;">${node.label}</div>
-                    <div style="font-size: 0.8rem; color: #666;">
+                    <div style="font-weight: bold; color: var(--foreground);">${node.label}</div>
+                    <div style="font-size: 0.8rem; color: var(--muted-foreground);">
                         Type: ${node.nodeType} | Connections: ${node.metrics?.degree || 0}
                     </div>
                 </div>
