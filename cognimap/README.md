@@ -68,21 +68,21 @@ This will:
 ### 2. View Your Architecture
 
 ```bash
-# Option 1: Open the InfraNodus-style interactive visualization
+# Option 1: Open the interactive visualization directly
 open visualizer/interactive.html
 
-# Option 2: Use the launcher menu
-./visualize.sh
-# Then select option 2 (Open Dashboard)
+# Option 2: Serve via HTTP (recommended for full functionality)
+cd visualizer && python3 -m http.server 8080
+# Then navigate to http://localhost:8080/interactive.html
 
-# Option 3: Serve via HTTP
-python3 -m http.server 8080
-# Then navigate to http://localhost:8080/visualizer/interactive.html
+# Option 3: Use the launcher menu
+./visualize.sh
+# Then select option to open visualization
 ```
 
 ### 3. Explore Your Architecture
 
-**Interactive Visualization Features:**
+**Interactive Visualization (interactive.html):**
 - **ForceAtlas2 Layout**: InfraNodus-style network visualization
 - **Real-time Search**: Filter nodes by name or type
 - **Component Details**: Click nodes to see relationships
@@ -128,13 +128,11 @@ CogniMap consists of several key components:
 - **Health Checking**: Architecture quality metrics
 
 ### Visualization (`visualizer/`)
-- **Interactive Network Graph**: Sigma.js-based visualization
+- **Interactive Network Graph**: Sigma.js-based visualization in `interactive.html`
 - **InfraNodus-style Layout**: ForceAtlas2 algorithm for natural clustering
-- **Multiple Views**: 
-  - `interactive.html` - Main network visualization
-  - `dashboard.html` - Simple metrics view
-  - `visualizer.html` - Alternative visualization
+- **Rich Features**: Real-time filtering, search, statistics, node details
 - **Interactive Controls**: Zoom, pan, filter, search, layout switching
+- **Graph Data**: Processes architecture_graph.json with 388+ relationships
 
 ## Current Capabilities
 

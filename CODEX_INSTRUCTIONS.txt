@@ -1,0 +1,153 @@
+INSTRUCTIONS FOR CODEX: Advanced Semantic Analysis Using Serena MCP Approach
+
+CONTEXT:
+- We have a working CogniMap visualization system in cognimap/visualizer/
+- It renders 98 components with 388 relationships interactively
+- You previously created a DeepSeek integration concept
+- Now we need to add intelligent semantic understanding
+
+PRIMARY DIRECTIVE:
+Use a Serena MCP-like approach for semantic code analysis. This means:
+1. Use symbolic understanding over raw file reading
+2. Build semantic connections through symbol references
+3. Create a memory system for discovered patterns
+4. Think about relationships, not just syntax
+
+SEMANTIC ANALYSIS ALGORITHM TO IMPLEMENT:
+
+1. SYMBOL-BASED DISCOVERY (like serena's find_symbol):
+   - Don't just read files, understand symbols and their relationships
+   - Track: classes, methods, functions, imports, exports
+   - Build a symbol graph: what references what
+   - Identify symbol purposes through naming patterns and usage
+
+2. REFERENCE MAPPING (like serena's find_referencing_symbols):
+   - For each component, find what depends on it
+   - For each component, find what it depends on
+   - Build bidirectional dependency maps
+   - Identify circular dependencies and orphaned code
+
+3. SEMANTIC FINGERPRINTING:
+   - Create semantic signatures for each component:
+     * Input types it accepts
+     * Output types it produces
+     * Patterns it implements (Repository, Factory, Observer, etc.)
+     * Domain concepts it handles (user, payment, auth, etc.)
+   - Use these fingerprints to find missing connections
+
+4. GAP ANALYSIS THROUGH SEMANTIC MATCHING:
+   - If Component A produces "UserData" and Component C consumes "UserData"
+     but they're not connected, that's a potential gap
+   - If multiple components implement similar patterns but don't share
+     a common interface, suggest abstraction
+   - If components have high semantic similarity but no relationship,
+     investigate why
+
+5. PATTERN RECOGNITION:
+   Instead of reading entire files:
+   - Search for pattern markers: "class.*Controller", "class.*Repository"
+   - Identify architectural layers through naming conventions
+   - Detect design patterns through structural analysis
+   - Find anti-patterns through relationship analysis
+
+6. MEMORY SYSTEM (like serena's write_memory):
+   Create persistent memories of discovered patterns:
+   - architectural_patterns.json: Recurring design patterns
+   - semantic_connections.json: Inferred relationships
+   - gap_analysis.json: Missing connections and reasons
+   - improvement_suggestions.json: AI-generated enhancements
+
+IMPLEMENTATION APPROACH:
+
+Step 1: Create Semantic Analyzer
+```python
+class SemanticAnalyzer:
+    def __init__(self, codebase_path):
+        self.symbols = {}  # symbol_name -> {type, location, references}
+        self.fingerprints = {}  # component -> semantic signature
+        self.connections = {}  # component -> {incoming, outgoing}
+        self.patterns = {}  # pattern_type -> [components]
+    
+    def analyze_symbol(self, symbol_path):
+        # Don't read entire file, extract symbol definition
+        # Understand its purpose from name, parameters, return type
+        pass
+    
+    def find_references(self, symbol):
+        # Find all places this symbol is used
+        # Build connection graph
+        pass
+    
+    def identify_semantic_gaps(self):
+        # Find components that should be connected but aren't
+        # Based on semantic similarity and data flow
+        pass
+```
+
+Step 2: Integrate with DeepSeek
+- Send symbol graphs (not raw code) to DeepSeek
+- Ask for architectural insights based on relationships
+- Request gap identification based on semantic patterns
+- Generate improvement suggestions
+
+Step 3: Connect to Visualizer
+- Enhance existing node data with semantic information
+- Add "suggested connections" as ghost edges
+- Color-code nodes by architectural layer
+- Size by semantic importance (not just connections)
+
+SPECIFIC TASKS:
+
+1. ENHANCE cognimap/visualizer/engine/graph-adapter.js:
+   - Add semantic fingerprints to node attributes
+   - Include pattern classifications
+   - Add confidence scores for connections
+
+2. CREATE cognimap/semantic_engine/:
+   - semantic_analyzer.py: Core analysis using symbol approach
+   - pattern_detector.py: Identify design patterns
+   - gap_finder.py: Find missing connections
+   - deepseek_integration.py: AI-powered insights
+
+3. GENERATE REPORTS in reports/cognimap/semantic/:
+   - symbol_graph.json: All symbols and relationships
+   - semantic_gaps.json: Missing connections with reasons
+   - pattern_analysis.json: Detected patterns and anti-patterns
+   - improvement_roadmap.md: Prioritized suggestions
+
+KEY PRINCIPLES (from Serena MCP approach):
+- NEVER read entire files when you can understand through symbols
+- Build relationships through references, not proximity
+- Use semantic understanding, not syntactic parsing
+- Create memories of patterns for future use
+- Think about "why" connections exist, not just "what" connects
+
+EFFICIENCY RULES:
+- Use regex patterns to find symbols: "class\s+(\w+)", "def\s+(\w+)"
+- Extract only symbol definitions and their immediate context
+- Build incremental understanding through reference chains
+- Cache discoveries in memory files
+- Use semantic similarity for connection inference
+
+DON'T:
+- Read entire codebases file by file
+- Rely only on import statements
+- Ignore naming patterns and conventions
+- Create connections based on file location alone
+- Generate reports without semantic reasoning
+
+DO:
+- Use symbol-based navigation
+- Understand through references
+- Identify patterns through structure
+- Find gaps through semantic analysis
+- Generate insights based on architectural understanding
+
+OUTPUT:
+The semantic analysis should enhance the existing visualization by:
+1. Adding intelligence to node connections
+2. Identifying missing architectural pieces
+3. Suggesting improvements based on patterns
+4. Creating a living understanding of the codebase
+
+Remember: The goal is not just to map what exists, but to understand WHY it exists, HOW it should evolve, and WHAT is missing.
