@@ -58,3 +58,16 @@ reports/meta/*.png
 tmp/
 temp/
 *.tmp
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+pnpm-lock.yaml
+
+# Webpack build output
+cognimap/visualizer/dist/
+cognimap/visualizer/bundle.js
+*.bundle.js

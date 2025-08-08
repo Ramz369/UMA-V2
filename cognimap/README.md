@@ -31,57 +31,72 @@ CogniMap is a revolutionary architecture visualization and understanding system 
 - Performance bottlenecks
 - Security vulnerabilities
 
-## Installation
+## Installation & Setup
 
 ```bash
-# Install CogniMap in your project
-cd your-project
-python -m pip install cognimap
+# Clone or navigate to your project with CogniMap
+cd your-project/cognimap
 
-# Initialize CogniMap
-cognimap init
+# Install JavaScript dependencies for visualization
+npm install
 
-# Start the visualization server
-cognimap serve
+# Build the visualization bundle
+npm run build
+
+# Generate the architecture graph
+python3 cli.py visualize
 ```
 
 ## Quick Start
 
-### 1. Initialize CogniMap in Your Project
+### 1. Generate Architecture Graph
 
 ```bash
-cognimap init
+# Use the interactive launcher
+./visualize.sh
+
+# Or run directly
+python3 cli.py visualize
 ```
 
 This will:
-- Scan all existing files
-- Inject semantic fingerprints
-- Build the initial architecture graph
-- Set up git hooks for continuous tracking
+- Scan all project files
+- Extract semantic fingerprints
+- Build the architecture graph
+- Generate visualization data
 
 ### 2. View Your Architecture
 
 ```bash
-cognimap serve
+# Option 1: Open the InfraNodus-style interactive visualization
+open visualizer/interactive.html
+
+# Option 2: Use the launcher menu
+./visualize.sh
+# Then select option 2 (Open Dashboard)
+
+# Option 3: Serve via HTTP
+python3 -m http.server 8080
+# Then navigate to http://localhost:8080/visualizer/interactive.html
 ```
 
-Open http://localhost:8080 to see your architecture in 3D.
+### 3. Explore Your Architecture
 
-### 3. Query Your Architecture
+**Interactive Visualization Features:**
+- **ForceAtlas2 Layout**: InfraNodus-style network visualization
+- **Real-time Search**: Filter nodes by name or type
+- **Component Details**: Click nodes to see relationships
+- **Multiple Layouts**: Switch between ForceAtlas2, hierarchical, circular
+- **Statistics**: View node/edge counts and component types
 
-```python
-from cognimap import CogniMap
+**Command Line Analysis:**
+```bash
+# Analyze architecture for issues
+python3 cli.py analyze
 
-cm = CogniMap()
-
-# Find all components related to authentication
-auth_components = cm.query("semantic_tags CONTAINS 'authentication'")
-
-# Find circular dependencies
-circular_deps = cm.find_circular_dependencies()
-
-# Get component relationships
-relationships = cm.get_relationships("src/auth/login.py")
+# Export to different formats
+python3 cli.py export --format mermaid
+python3 cli.py export --format json
 ```
 
 ## Architecture
@@ -113,37 +128,29 @@ CogniMap consists of several key components:
 - **Health Checking**: Architecture quality metrics
 
 ### Visualization (`visualizer/`)
-- **3D Rendering**: Three.js-based visualization
-- **Real-time Updates**: WebSocket streaming
-- **Interactive Controls**: Zoom, pan, filter, search
-- **Time Travel**: Historical architecture replay
+- **Interactive Network Graph**: Sigma.js-based visualization
+- **InfraNodus-style Layout**: ForceAtlas2 algorithm for natural clustering
+- **Multiple Views**: 
+  - `interactive.html` - Main network visualization
+  - `dashboard.html` - Simple metrics view
+  - `visualizer.html` - Alternative visualization
+- **Interactive Controls**: Zoom, pan, filter, search, layout switching
 
-## Configuration
+## Current Capabilities
 
-Create `.cognimap.yaml` in your project root:
+### ✅ Working Features
+- **Fingerprint System**: Automatic semantic tagging of all files
+- **Graph Generation**: Extracts and maps 388+ component relationships
+- **Interactive Visualization**: InfraNodus-style network graph
+- **Multiple Formats**: Export to JSON, Mermaid, tree view
+- **Architecture Analysis**: Detect circular dependencies, orphaned code
+- **CLI Interface**: Command-line tools for analysis and export
 
-```yaml
-project:
-  name: MyProject
-  type: web-application
-
-visualization:
-  default_view: hierarchical
-  theme: dark
-  
-analysis:
-  llm_provider: openai  # or anthropic, local
-  semantic_depth: deep   # or shallow, medium
-  
-monitoring:
-  real_time: true
-  event_tracking: true
-  
-warnings:
-  circular_dependencies: error
-  orphaned_code: warning
-  high_complexity: info
-```
+### 🚧 In Development
+- Package distribution (pip install)
+- Real-time monitoring
+- IDE integrations
+- WebSocket updates
 
 ## Use Cases
 
