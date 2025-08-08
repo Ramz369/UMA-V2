@@ -8,7 +8,7 @@ try:
 except ImportError as exc:
     raise SystemExit("The 'requests' package is required to run this script") from exc
 
-API_URL = "https://api.deepseek.com/v1/chat/completions"
+API_URL = "https://api.deepseek.com/chat/completions"  # V3 endpoint
 MODEL = "deepseek-chat"
 OUTPUT_PATH = Path("reports/cognimap/deepseek_scenario_report.md")
 
