@@ -203,6 +203,41 @@ CogniMap uses LLMs to provide intelligent insights:
 - Anti-pattern detection
 - Refactoring recommendations
 
+## DeepSeek Scenario Reports
+
+CogniMap can leverage the [DeepSeek](https://deepseek.com) API to identify core
+architectural elements and highlight gaps in the current implementation. Run:
+
+```bash
+export DEEPSEEK_API_KEY=your_key
+python scripts/deepseek_scenario_report.py
+```
+
+The generated proposal will be written to
+`reports/cognimap/deepseek_scenario_report.md` so downstream agents can reason
+over the architecture and fill in missing links.
+
+## Semantic Analysis Engine
+
+To build a symbol-based understanding of the codebase and surface potential
+architecture gaps run the semantic analyzer:
+
+```bash
+python -m cognimap.semantic_engine.semantic_analyzer
+```
+
+This produces machine-readable reports under `reports/cognimap/semantic/`
+including:
+
+- `symbol_graph.json` – all discovered symbols and references
+- `semantic_gaps.json` – components that share semantics but are not
+  connected
+- `pattern_analysis.json` – detected design pattern markers
+- `improvement_roadmap.md` – placeholder for AI generated suggestions
+
+These outputs also seed persistent memory files used by future agents to
+incrementally grow CogniMap's semantic understanding.
+
 ## Contributing
 
 CogniMap is open source and welcomes contributions!
